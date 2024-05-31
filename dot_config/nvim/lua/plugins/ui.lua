@@ -109,10 +109,10 @@ return {
 
   -- Pretty colors
   {
-    'navarasu/onedark.nvim',
+    'sainnhe/gruvbox-material',
     priority = 1000,
     config = function()
-      require('onedark').load()
+      vim.cmd[[colorscheme gruvbox-material]]
     end,
     opts = ...,
   },
@@ -123,7 +123,7 @@ return {
     -- See `:help lualine.txt`
     opts = {
       options = {
-        theme = 'gruvbox',
+        theme = 'gruvbox-material',
         icons_enabled = false,
         component_separators = '|',
         section_separators = '',
