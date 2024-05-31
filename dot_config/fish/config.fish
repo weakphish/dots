@@ -20,7 +20,7 @@ string match -q "$TERM_PROGRAM" vscode
 and . (code --locate-shell-integration-path fish)
 
 # Bat Theme
-set -Ux BAT_THEME "TwoDark"
+set -Ux BAT_THEME "gruvbox-dark"
 
 # Set up Zoxide
 zoxide init fish | source
