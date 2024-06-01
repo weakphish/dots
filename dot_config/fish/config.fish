@@ -11,6 +11,7 @@ alias k "kubectl"
 alias cat "bat"
 alias ls "lsd"
 alias la "lsd -la"
+alias ch "chezmoi"
 
 # iTerm integration
 test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
