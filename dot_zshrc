@@ -1,0 +1,57 @@
+######################
+### Basic Settings ###
+######################
+
+# Fish-like completion suggestions and syntax highlighting
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Have git use Neovim for commits etc
+export EDITOR=nvim
+
+# Aliases
+alias lg=lazygit
+alias tf=terraform
+alias p="poetry run"
+alias dc="docker compose"
+alias k="kubectl"
+alias cdr="z"
+alias ls="lsd"
+alias la="lsd -la"
+alias ch="chezmoi"
+
+# Set up Zoxide
+eval "$(zoxide init zsh)"
+
+# Set up Starship
+eval "$(starship init zsh)"
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+eval "$(fzf --zsh)"
+
+# Bat Theme
+export BAT_THEME="gruvbox-dark"
+
+######################
+### Functions ########
+######################
+function kubeconf() {
+    # if there's at least one parameter, assume we want to change KUBECONFIG
+    if [ "${1}" != "" ]; then
+        ENV="${1}"
+        REGION="${2}"
+        CLUSTER="${3}"
+
+        CONF_PATH="${HOME}/.kube/configs/${ENV}/${REGION}/${CLUSTER}"
+
+        mkdir -p "${CONF_PATH}"
+        export KUBECONFIG="${CONF_PATH}/config"
+    fi
+
+    echo "${KUBECONFIG}"
+}
