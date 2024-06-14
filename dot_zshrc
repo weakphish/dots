@@ -35,7 +35,7 @@ fi
 eval "$(fzf --zsh)"
 
 # Bat Theme
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="base-16"
 
 ######################
 ### Functions ########
