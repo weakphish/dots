@@ -1,4 +1,4 @@
-set -Ux EDITOR hx
+set -Ux EDITOR nvim
 
 fish_vi_key_bindings
 
@@ -7,11 +7,11 @@ alias lg lazygit
 alias tf terraform
 alias p "poetry run"
 alias dc "docker compose"
-alias k "kubectl"
-alias cat "bat"
-alias ls "lsd"
+alias k kubectl
+alias cat bat
+alias ls lsd
 alias la "lsd -la"
-alias ch "chezmoi"
+alias ch chezmoi
 
 # iTerm integration
 test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
@@ -21,7 +21,7 @@ string match -q "$TERM_PROGRAM" vscode
 and . (code --locate-shell-integration-path fish)
 
 # Bat Theme
-set -Ux BAT_THEME "base16"
+set -Ux BAT_THEME base16
 
 # Set up Zoxide
 zoxide init fish | source
