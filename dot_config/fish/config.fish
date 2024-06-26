@@ -1,4 +1,4 @@
-set -Ux EDITOR nvim
+set -Ux EDITOR hx
 
 fish_vi_key_bindings
 
@@ -21,7 +21,7 @@ string match -q "$TERM_PROGRAM" vscode
 and . (code --locate-shell-integration-path fish)
 
 # Bat Theme
-set -Ux BAT_THEME "gruvbox-dark"
+set -Ux BAT_THEME "base16"
 
 # Set up Zoxide
 zoxide init fish | source
