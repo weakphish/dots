@@ -92,14 +92,6 @@ return {
 	},
 
 	{
-		-- Document symbols
-		"stevearc/aerial.nvim",
-		config = function()
-			require("aerial").setup()
-		end,
-	},
-
-	{
 		-- Adds git releated signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
 		config = function()
