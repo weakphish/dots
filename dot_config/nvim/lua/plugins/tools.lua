@@ -5,16 +5,16 @@ return {
 		config = function()
 			require("mini.surround").setup({
 				mappings = {
-					add = "ysa", -- Add surrounding in Normal and Visual modes
-					delete = "ysd", -- Delete surrounding
-					find = "ysf", -- Find surrounding (to the right)
-					find_left = "ysF", -- Find surrounding (to the left)
-					highlight = "ysh", -- Highlight surrounding
-					replace = "ysr", -- Replace surrounding
-					update_n_lines = "ysn", -- Update `n_lines`
+					add = "msa", -- Add surrounding in Normal and Visual modes
+					delete = "msd", -- Delete surrounding
+					find = "msf", -- Find surrounding (to the right)
+					find_left = "msF", -- Find surrounding (to the left)
+					highlight = "msh", -- Highlight surrounding
+					replace = "msr", -- Replace surrounding
+					update_n_lines = "msn", -- Update `n_lines`
 
-					suffix_last = "yl", -- Suffix to search with "prev" method
-					suffix_next = "yn", -- Suffix to search with "next" method
+					suffix_last = "ml", -- Suffix to search with "prev" method
+					suffix_next = "mn", -- Suffix to search with "next" method
 				},
 			})
 		end,
