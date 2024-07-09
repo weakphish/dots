@@ -1,10 +1,10 @@
 Dotfiles, managed by Chezmoi.
 
-**Current editor**: VS Code, with JetBrains IDEs for large refactors/debugging. 
+**Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. 
  
 **Shell:** Fish
 
-**Terminal:** iTerm2 on macOS, Windows Terminal on Windows.
+**Terminal:** Alacritty on macOS, Windows Terminal on Windows.
 
 **Git Porcelain:** LazyGit
 
