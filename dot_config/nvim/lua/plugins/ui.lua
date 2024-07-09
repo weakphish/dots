@@ -42,6 +42,17 @@ return {
 		end,
 	},
 
+	-- Symbol tree
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+
 	-- Make things generally prettier
 	{
 		"stevearc/dressing.nvim",
