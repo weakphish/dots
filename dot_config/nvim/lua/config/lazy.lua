@@ -20,6 +20,8 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- Use black plugin for Python formatting
     { import = "lazyvim.plugins.extras.formatting.black" },
+    -- VS Code only plugins
+    { import = "lazyvim.plugins.extras.vscode" },
     -- import/override with your plugins
     { import = "plugins" },
   },
