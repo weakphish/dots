@@ -8,6 +8,10 @@ cursorline = true
 color-modes = true
 bufferline = "multiple"
 auto-format = true
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "warning" # show warnings and errors on the cursorline inline
 
 [editor.lsp]
 display-messages = true
