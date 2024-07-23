@@ -7,111 +7,96 @@ return {
 		local dap = require("dap")
 
 		-- Normal mode
-		wk.register({
-			b = {
-				name = "Buffer",
-				b = { require("telescope.builtin").buffers, "Find Buffer" },
-				d = { "<cmd>bd<CR>", "Delete Buffer" },
-				n = { "<cmd>bn<CR>", "Next Buffer" },
-				o = { "<cmd>BufferLinePick<CR>", "Pick Buffer From Line" },
-				p = { "<cmd>bp<CR>", "Prev Buffer" },
-			},
-			c = {
-				name = "Code",
-				a = { vim.lsp.buf.code_action, "Code Action" },
-				d = { vim.lsp.buf.definition, "Go To Definition" },
-				D = { vim.lsp.buf.declaration, "Go to Declaration" },
-				i = { vim.lsp.buf.implementation, "Go to Implementation" },
-				f = { require("conform").format, "Format Buffer" },
-				r = {
-					r = { vim.lsp.buf.rename, "Code Rename" },
-				},
-				t = { vim.lsp.buf.type_definition, "Go To Type Definition" },
-			},
-			d = {
-				name = "Debug",
-				b = { dap.toggle_breakpoint, "Toggle breakpoint" },
-				B = {
-					function()
-						dap.set_breakpoint(vim.fn.input("[B]reakpoint condition: "))
-					end,
-					"Breakpoint condition",
-				},
-				c = { dap.continue, "Continue" },
-				i = { dap.step_into, "Step into" },
-				o = { dap.step_over, "Step over" },
-				u = { dap.step_out, "Step up (out)" },
-			},
-			f = {
-				name = "File",
-				a = { "<cmd>Telescope adjacent<CR>", "Adjacent Files" },
-				f = { "<cmd>Telescope find_files hidden=true<cr>", "Find File" },
-				r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-			},
-			g = {
-				name = "Git",
-				g = { "<cmd>LazyGit<CR>", "LazyGit" },
-				b = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Current Line Blame" },
-			},
-			m = {
-				name = "Markdown",
-				c = { "<cmd>MarkdownPreviewStop<CR>", "Close Preview" },
-				f = { "<cmd>ZenMode<CR>", "Focus" },
-				m = { "<cmd>MarkdownPreview<CR>", "Open Preview" },
-				t = { "<cmd>Twilight<CR>", "Toggle Dim Inactive Code" },
-			},
-			n = {
-				name = "Neotest",
-				r = {
-					name = "Run",
-					f = { "<cmd>Neotest run file<CR>", "Run File" },
-				},
-				s = { "<cmd>Neotest summary<CR>", "Summary" },
-				o = { "<cmd>Neotest output<CR>", "Output" },
-			},
-			s = {
-				name = "Search",
-				b = { require("telescope.builtin").current_buffer_fuzzy_find, "Fuzzily search current buffer" },
-				d = { require("telescope.builtin").diagnostics, "Search Diagnostics" },
-				g = { require("telescope.builtin").live_grep, "Search with Grep" },
-				h = { require("telescope.builtin").help_tags, "Search Help" },
-				j = { require("telescope.builtin").jumplist, "Search Jumplist" },
-				r = { require("telescope.builtin").lsp_references, "Search References" },
-				s = { require("telescope.builtin").lsp_document_symbols, "Workspace Document Symbols" },
-				t = { "<cmd>TodoTelescope<CR>", "Search TODO" },
-				u = { "<cmd>Telescope undo<CR>", "Search Undo" },
-				w = { require("telescope.builtin").grep_string, "Search current Word" },
-			},
-			t = {
-				name = "Toggle",
-				b = { require("barbecue.ui").toggle, "Barbecue (show code context winbar)" },
-				f = { "<cmd>:ToggleTerm direction=float<CR>", "Toggle Floating Terminal" },
-				n = { "<cmd>Neotree toggle<CR>", "NeoTree" },
-				s = { "<cmd>AerialToggle!<CR>", "Symbols Tree" },
-				t = { "<cmd>:ToggleTerm size=30<CR>", "Toggle Terminal" },
-			},
-			w = {
-				name = "Workspace",
-				d = { require("telescope.builtin").diagnostics, "Workspace Diagnostics" },
-				s = { require("telescope.builtin").lsp_dynamic_workspace_symbols, "Workspace Symbols" },
-			},
-			x = {
-				name = "Trouble",
-				i = { "<cmd>Trouble lsp_incoming_calls<cr>", "Incoming Calls (Trouble)" },
-				L = { "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)" },
-				Q = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
-				r = { "<cmd>Trouble lsp_references<cr>", "References (Trouble)" },
-				x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
-				X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
-			},
-		}, { prefix = "<leader>" })
+		wk.add({
+			{ "<leader>b", group = "buffer" },
+			{ "<leader>bb", require("telescope.builtin").buffers, desc = "Find Buffer" },
+			{ "<leader>bd", "<cmd>bd<CR>", desc = "Delete Buffer" },
+			{ "<leader>bn", "<cmd>bn<CR>", desc = "Next Buffer" },
+			{ "<leader>bp", "<cmd>bp<CR>", desc = "Prev Buffer" },
+			{ "<leader>bo", "<cmd>BufferLinePick<CR>", desc = "Pick Buffer From Line" },
 
-		-- Visual mode bindings
-		wk.register({
-			-- Re-register the Leap bindings for visual mode, since adding custom normal bindings
-			-- will remove the default visual mode bindings.
-			x = { "<Plug>(leap-forward-till)", "Leap Forward Till" },
-			X = { "<Plug>(leap-backward-till)", "Leap Backward Till" },
-		}, { mode = "v" })
+			{ "<leader>c", group = "code" },
+			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
+			{ "<leader>cd", vim.lsp.buf.definition, desc = "Go To Definition" },
+			{ "<leader>cD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
+			{ "<leader>ci", vim.lsp.buf.implementation, desc = "Go to Implementation" },
+			{ "<leader>cf", require("conform").format, desc = "Format Buffer" },
+			{ "<leader>cr", vim.lsp.buf.rename, desc = "Code Rename" },
+			{ "<leader>ct", vim.lsp.buf.type_definition, desc = "Go To Type Definition" },
+
+			{ "<leader>d", group = "d" },
+			{ "<leader>db", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
+			{
+				"<leader>cB",
+				function()
+					dap.set_breakpoint(vim.fn.input("[B]reakpoint condition: "))
+				end,
+				desc = "Breakpoint condition",
+			},
+			{ "<leader>dc", dap.continue, desc = "Continue" },
+			{ "<leader>di", dap.step_into, desc = "Step into" },
+			{ "<leader>do", dap.step_over, desc = "Step over" },
+			{ "<leader>du", dap.step_out, desc = "Step up (out)" },
+
+			{ "<leader>f", group = "file" },
+			{ "<leader>fa", "<cmd>Telescope adjacent<CR>", desc = "Adjacent Files" },
+			{ "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find File" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
+
+			{ "<leader>g", group = "git" },
+			{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
+			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
+
+			{ "<leader>m", group = "markdown" },
+			{ "<leader>mm", "<cmd>MarkdownPreview<CR>", desc = "Open Preview" },
+			{ "<leader>mc", "<cmd>MarkdownPreviewStop<CR>", desc = "Close Preview" },
+			{ "<leader>mf", "<cmd>ZenMode<CR>", desc = "Focus" },
+			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
+
+			{ "<leader>n", group = "(Neo)test" },
+			{ "<leader>nr", "<cmd>Neotest run file<CR>", desc = "Run File" },
+			{ "<leader>ns", "<cmd>Neotest summary<CR>", desc = "Summary" },
+			{ "<leader>no", "<cmd>Neotest output<CR>", desc = "Output" },
+
+			{ "<leader>s", group = "search" },
+			{
+				"<leader>sb",
+				require("telescope.builtin").current_buffer_fuzzy_find,
+				desc = "Fuzzily search current buffer",
+			},
+			{ "<leader>sd", require("telescope.builtin").diagnostics, desc = "Search Diagnostics" },
+			{ "<leader>sg", require("telescope.builtin").live_grep, desc = "Search with Grep" },
+			{ "<leader>sh", require("telescope.builtin").help_tags, desc = "Search Help" },
+			{ "<leader>sj", require("telescope.builtin").jumplist, desc = "Search Jumplist" },
+			{ "<leader>sr", require("telescope.builtin").lsp_references, desc = "Search References" },
+			{ "<leader>sw", require("telescope.builtin").lsp_document_symbols, desc = "Workspace Document Symbols" },
+			{ "<leader>st", "<cmd>TodoTelescope<CR>", desc = "Search TODO" },
+			{ "<leader>su", "<cmd>Telescope undo<CR>", desc = "Search Undo" },
+			{ "<leader>sc", require("telescope.builtin").grep_string, desc = "Search current Word" },
+
+			{ "<leader>t", group = "toggle" },
+			{ "<leader>tb", require("barbecue.ui").toggle, desc = "Barbecue (show code context winbar)" },
+			{ "<leader>tn", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
+			{ "<leader>ts", "<cmd>AerialToggle!<CR>", desc = "Symbols Tree" },
+			{ "<leader>tt", "<cmd>:ToggleTerm size=30<CR>", desc = "Toggle Terminal" },
+			{ "<leader>tf", "<cmd>:ToggleTerm direction=float<CR>", desc = "Toggle Floating Terminal" },
+
+			{ "<leader>w", group = "Workspace" },
+			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
+			{ "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
+
+			{ "<leader>x", group = "Trouble" },
+			{ "<leader>xi", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Incoming Calls (Trouble)" },
+			{ "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+			{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
+			{ "<leader>xr", "<cmd>Trouble lsp_references<cr>", desc = "References (Trouble)" },
+			{ "<leader>xd", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+			{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+
+			{
+				{ "X", "<Plug>(leap-backward-till)", desc = "Leap Backward Till", mode = "v" },
+				{ "x", "<Plug>(leap-forward-till)", desc = "Leap Forward Till", mode = "v" },
+			},
+		})
 	end,
 }

@@ -4,7 +4,7 @@ Dotfiles, managed by Chezmoi.
  
 **Shell:** Fish
 
-**Terminal:** Alacritty on macOS, Windows Terminal on Windows.
+**Terminal:** iTerm2 on macOS, Windows Terminal on Windows.
 
 **Git Porcelain:** LazyGit
 
