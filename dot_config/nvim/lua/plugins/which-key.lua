@@ -24,7 +24,7 @@ return {
 			{ "<leader>cr", vim.lsp.buf.rename, desc = "Code Rename" },
 			{ "<leader>ct", vim.lsp.buf.type_definition, desc = "Go To Type Definition" },
 
-			{ "<leader>d", group = "d" },
+			{ "<leader>d", group = "debug" },
 			{ "<leader>db", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
 			{
 				"<leader>cB",
@@ -53,7 +53,7 @@ return {
 			{ "<leader>mf", "<cmd>ZenMode<CR>", desc = "Focus" },
 			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
 
-			{ "<leader>n", group = "(Neo)test" },
+			{ "<leader>n", group = "(neo)test" },
 			{ "<leader>nr", "<cmd>Neotest run file<CR>", desc = "Run File" },
 			{ "<leader>ns", "<cmd>Neotest summary<CR>", desc = "Summary" },
 			{ "<leader>no", "<cmd>Neotest output<CR>", desc = "Output" },
@@ -85,7 +85,7 @@ return {
 			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
 			{ "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
 
-			{ "<leader>x", group = "Trouble" },
+			{ "<leader>x", group = "trouble" },
 			{ "<leader>xi", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Incoming Calls (Trouble)" },
 			{ "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
 			{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
