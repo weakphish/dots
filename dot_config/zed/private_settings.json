@@ -7,14 +7,20 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  // General settings
   "terminal": {
     "dock": "bottom"
   },
   "theme": "Gruvbox Dark",
   "vim_mode": true,
   "relative_line_numbers": true,
+
+  // Font
   "ui_font_size": 16,
   "buffer_font_size": 14,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+
+  // Language-specific
   "language_overrides": {
     "Python": {
       "format_on_save": {
