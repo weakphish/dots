@@ -8,11 +8,11 @@ local appearance = require 'appearance'
 local config = wezterm.config_builder()
 
 -- Use the is_dark function to determine which color scheme to use 
-if appearance.is_dark() then
-  config.color_scheme = 'Everforest Dark (Gogh)'
-else
-  config.color_scheme = 'Everforest Light (Gogh)'
-end
+config.color_scheme = 'Everforest Dark (Gogh)'
+-- if appearance.is_dark() then
+-- else
+  -- config.color_scheme = 'Everforest Light (Gogh)'
+-- end
 
 -- Fonts etc
 config.font = wezterm.font({ family = "JetBrains Mono" })
