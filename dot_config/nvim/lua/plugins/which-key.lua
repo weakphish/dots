@@ -81,7 +81,7 @@ return {
 			{ "<leader>tt", "<cmd>:ToggleTerm size=30<CR>", desc = "Toggle Terminal" },
 			{ "<leader>tf", "<cmd>:ToggleTerm direction=float<CR>", desc = "Toggle Floating Terminal" },
 
-			{ "<leader>w", group = "Workspace" },
+			{ "<leader>w", group = "workspace" },
 			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
 			{ "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
 
