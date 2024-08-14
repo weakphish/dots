@@ -4,7 +4,6 @@ return {
 	opts = {},
 	config = function()
 		local wk = require("which-key")
-		local dap = require("dap")
 
 		-- Normal mode
 		wk.add({

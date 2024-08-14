@@ -97,15 +97,6 @@ return {
 						settings = servers[server_name],
 					})
 				end,
-				["gopls"] = function()
-					-- Add in specific instructions to integrate go.nvim with mason
-					require("go").setup({
-						lsp_cfg = false,
-						-- other setups...
-					})
-					local cfg = require("go.lsp").config() -- config() return the go.nvim gopls setup
-					require("lspconfig").gopls.setup(cfg)
-				end,
 				["ruff_lsp"] = function()
 					-- Disable Ruff's hover in favor of Pyright
 					local on_attach = function(client, bufnr)
