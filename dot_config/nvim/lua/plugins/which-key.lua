@@ -24,20 +24,6 @@ return {
 			{ "<leader>cr", vim.lsp.buf.rename, desc = "Code Rename" },
 			{ "<leader>ct", vim.lsp.buf.type_definition, desc = "Go To Type Definition" },
 
-			{ "<leader>d", group = "debug" },
-			{ "<leader>db", dap.toggle_breakpoint, desc = "Toggle breakpoint" },
-			{
-				"<leader>cB",
-				function()
-					dap.set_breakpoint(vim.fn.input("[B]reakpoint condition: "))
-				end,
-				desc = "Breakpoint condition",
-			},
-			{ "<leader>dc", dap.continue, desc = "Continue" },
-			{ "<leader>di", dap.step_into, desc = "Step into" },
-			{ "<leader>do", dap.step_over, desc = "Step over" },
-			{ "<leader>du", dap.step_out, desc = "Step up (out)" },
-
 			{ "<leader>f", group = "file" },
 			{ "<leader>fa", "<cmd>Telescope adjacent<CR>", desc = "Adjacent Files" },
 			{ "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find File" },
@@ -78,8 +64,6 @@ return {
 			{ "<leader>tb", require("barbecue.ui").toggle, desc = "Barbecue (show code context winbar)" },
 			{ "<leader>tn", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
 			{ "<leader>ts", "<cmd>AerialToggle!<CR>", desc = "Symbols Tree" },
-			{ "<leader>tt", "<cmd>:ToggleTerm size=30<CR>", desc = "Toggle Terminal" },
-			{ "<leader>tf", "<cmd>:ToggleTerm direction=float<CR>", desc = "Toggle Floating Terminal" },
 
 			{ "<leader>w", group = "workspace" },
 			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
@@ -92,11 +76,6 @@ return {
 			{ "<leader>xr", "<cmd>Trouble lsp_references<cr>", desc = "References (Trouble)" },
 			{ "<leader>xd", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
 			{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-
-			{
-				{ "X", "<Plug>(leap-backward-till)", desc = "Leap Backward Till", mode = "v" },
-				{ "x", "<Plug>(leap-forward-till)", desc = "Leap Forward Till", mode = "v" },
-			},
 		})
 	end,
 }

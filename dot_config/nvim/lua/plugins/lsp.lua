@@ -218,15 +218,6 @@ return {
 	},
 
 	{
-		-- Incremental renaming of stuff
-		"smjonas/inc-rename.nvim",
-		config = function()
-			require("inc_rename").setup()
-			vim.keymap.set("n", "<leader>crn", ":IncRename ") -- I can't figure out how to make which-key work with IncRename
-		end,
-	},
-
-	{
 		-- Formatting
 		"stevearc/conform.nvim",
 		opts = {},

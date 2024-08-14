@@ -53,12 +53,6 @@ return {
 		},
 	},
 
-	-- Make things generally prettier
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
-
 	-- Dashboard like Doom Emacs
 	{
 		"goolord/alpha-nvim",
