@@ -5,16 +5,6 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
-  -- MARKDOWN previews
-  {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    ft = { 'markdown' },
-    build = function()
-      vim.fn['mkdp#util#install']()
-    end,
-  },
-
   {
     -- Zen mode for writing markdown
     'folke/zen-mode.nvim',

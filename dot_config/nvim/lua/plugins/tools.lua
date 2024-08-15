@@ -229,4 +229,7 @@ return {
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
 		cmd = "Trouble",
 	},
+
+	-- Markdown preview in terminal!
+	{"ellisonleao/glow.nvim", config = true, cmd = "Glow"}
 }
