@@ -178,4 +178,11 @@ return {
 			-- configurations go here
 		},
 	},
+
+	-- Nicer markdown heading appearance
+	{
+		"lukas-reineke/headlines.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true, -- or `opts = {}`
+	},
 }
