@@ -1,6 +1,6 @@
 Dotfiles, managed by Chezmoi.
 
-**Code Editor**: VS Code, with JetBrains IDEs for large refactors/debugging. 
+**Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. 
  
 **Shell:** Fish
 
