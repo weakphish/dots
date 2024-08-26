@@ -1,6 +1,6 @@
 Dotfiles, managed by Chezmoi.
 
-**Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. 
+**Code Editor**: VS Code, with JetBrains IDEs for large refactors/debugging. 
  
 **Shell:** Fish
 
@@ -10,7 +10,6 @@ Dotfiles, managed by Chezmoi.
 
 **Other Software:**
 Other software that I use as a developer on a regular basis:
-- Zellij, as a tmux alternative
 - [A few Rust utilities](https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a)
     - Bat
     - Delta
@@ -18,7 +17,3 @@ Other software that I use as a developer on a regular basis:
     - Ripgrep
 - Good ol' pen and paper for note-taking and to-do lists.
     - Plain markdown for longer-term notes or scratch documents
-
-**Other Configs:**
-- a Helix config, because I think Helix is awesome (and patched once ;) )
-
