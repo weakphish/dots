@@ -33,8 +33,6 @@ return {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 
 			{ "<leader>m", group = "markdown" },
-			{ "<leader>mf", "<cmd>MkdnFoldSection<CR>", desc = "Fold Section" },
-			{ "<leader>mF", "<cmd>MkdnUnfoldSection<CR>", desc = "Unfold Section" },
 			{ "<leader>mm", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Rendering" },
 			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
 			{ "<leader>mz", "<cmd>ZenMode<CR>", desc = "Focus" },
