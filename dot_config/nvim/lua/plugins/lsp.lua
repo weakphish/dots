@@ -65,7 +65,6 @@ return {
 				},
 			}
 
-			vim.keymap.set({ "n" }, "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 			vim.keymap.set({ "n" }, "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Documentation" })
 
 			-- Setup neovim lua configuration
