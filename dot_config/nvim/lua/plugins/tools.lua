@@ -75,17 +75,6 @@ return {
 		},
 	},
 
-	-- "gc" to comment visual regions/lines
-	{
-		"numToStr/Comment.nvim",
-		opts = {
-			toggler = {
-				line = "<leader>cc",
-				block = "<leader>cb",
-			},
-		},
-	},
-
 	-- Fuzzy Finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",

@@ -53,30 +53,6 @@ return {
 		},
 	},
 
-	-- Dashboard like Doom Emacs
-	{
-		"goolord/alpha-nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			local alpha = require("alpha")
-			local dashboard = require("alpha.themes.dashboard")
-
-			dashboard.section.header.val = "weakphish"
-			dashboard.section.buttons.val = {
-				dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-				dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
-			}
-
-			-- Read a fortune :)
-			local handle = io.popen("fortune")
-			local fortune = handle:read("*a")
-			handle:close()
-			dashboard.section.footer.val = fortune
-			alpha.setup(dashboard.opts)
-		end,
-	},
-
 	-- Pretty Icons
 	"nvim-tree/nvim-web-devicons",
 
@@ -137,7 +113,7 @@ return {
 	},
 
 	{
-		-- Tabs, but less bad and more good
+		-- Buffers as tabs, but less bad and more good
 		"akinsho/bufferline.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
@@ -178,7 +154,4 @@ return {
 			-- configurations go here
 		},
 	},
-
-	-- VS Code like toggle term
-	{'akinsho/toggleterm.nvim', version = "*", config = true}
 }
