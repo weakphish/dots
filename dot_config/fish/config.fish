@@ -1,6 +1,11 @@
 set -gx EDITOR nvim
 
-fish_vi_key_bindings
+# use vim keybinds if not inside neovim terminal
+if set -q $NVIM
+    fish_default_key_bindings
+else
+    fish_vi_key_bindings
+end
 
 # Aliases
 alias lg lazygit
