@@ -25,6 +25,7 @@ return {
 
 			{ "<leader>f", group = "file" },
 			{ "<leader>fa", "<cmd>Telescope adjacent<CR>", desc = "Adjacent Files" },
+			{ "<leader>fe", "<cmd>Explore<CR>", desc = "Explore" },
 			{ "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find File" },
 			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
 
