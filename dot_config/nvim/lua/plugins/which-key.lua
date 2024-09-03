@@ -16,6 +16,7 @@ return {
 
 			{ "<leader>c", group = "code" },
 			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
+			{ "<leader>cA", require("tiny-code-action").code_action, desc = "Visualize Code Actions" },
 			{ "<leader>cd", vim.lsp.buf.definition, desc = "Go To Definition" },
 			{ "<leader>cD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
 			{ "<leader>ci", vim.lsp.buf.implementation, desc = "Go to Implementation" },
@@ -34,6 +35,7 @@ return {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 
 			{ "<leader>m", group = "markdown" },
+			{ "<leader>mm", "<cmd>Markview toggleAll<CR>", desc = "Toggle Markdown Preview" },
 			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
 			{ "<leader>mz", "<cmd>ZenMode<CR>", desc = "Focus" },
 

@@ -219,7 +219,8 @@ return {
 					python = { "isort", "black" },
 					-- Use a sub-list to run only the first available formatter
 					javascript = { { "prettierd", "prettier" } },
-					markdown = { "markdownlint" }
+					typescript = { { "prettierd", "prettier" } },
+					markdown = { "markdownlint" },
 				},
 			})
 		end,
@@ -231,6 +232,19 @@ return {
 			vim.g.copilot_no_tab_map = true
 			vim.g.copilot_filetypes = { markdown = false }
 			vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+		end,
+	},
+
+	-- Visualize code actions
+	{
+		"rachartier/tiny-code-action.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		event = "LspAttach",
+		config = function()
+			require("tiny-code-action").setup()
 		end,
 	},
 }
