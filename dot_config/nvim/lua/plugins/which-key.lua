@@ -64,6 +64,7 @@ return {
 			{ "<leader>tb", require("barbecue.ui").toggle, desc = "Barbecue (show code context winbar)" },
 			{ "<leader>tn", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
 			{ "<leader>ts", "<cmd>AerialToggle!<CR>", desc = "Symbols Tree" },
+			{ "<leader>tt", "<cmd>ToggleTerm size=30<CR>", desc = "Terminal" },
 
 			{ "<leader>w", group = "workspace" },
 			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
