@@ -35,7 +35,7 @@ return {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 
 			{ "<leader>m", group = "markdown" },
-			{ "<leader>mm", "<cmd>Markview toggleAll<CR>", desc = "Toggle Markdown Preview" },
+			{ "<leader>mm", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Render" },
 			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
 			{ "<leader>mz", "<cmd>ZenMode<CR>", desc = "Focus" },
 
