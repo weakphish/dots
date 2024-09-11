@@ -218,4 +218,11 @@ return {
 
 	-- VS Code-like term
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+
+	-- Git Gud At Vim Nerd
+	{
+		"m4xshen/hardtime.nvim",
+		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 }
