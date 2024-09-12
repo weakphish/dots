@@ -55,7 +55,7 @@ return {
 					organizeImports = false,
 				},
 				rust_analyzer = {},
-				tsserver = {},
+				ts_ls = {},
 				html = {},
 				lua_ls = {
 					Lua = {
