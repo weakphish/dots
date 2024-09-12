@@ -34,9 +34,6 @@ return {
 			{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 
-			{ "<leader>m", group = "markdown" },
-			{ "<leader>mm", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Render" },
-
 			{ "<leader>s", group = "search" },
 			{
 				"<leader>sb",
