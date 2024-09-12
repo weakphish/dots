@@ -199,16 +199,16 @@ return {
 		end,
 	},
 
+	-- Auto tag closing
 	{
-		-- Auto tag closing
 		"windwp/nvim-ts-autotag",
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
 	},
 
+	-- Formatter management
 	{
-		-- Formatting
 		"stevearc/conform.nvim",
 		opts = {},
 		config = function()
@@ -224,7 +224,8 @@ return {
 			})
 		end,
 	},
-
+	
+	-- Beep Boop write code for me
 	{
 		"github/copilot.vim",
 		config = function()

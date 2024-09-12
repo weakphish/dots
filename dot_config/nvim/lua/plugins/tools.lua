@@ -41,6 +41,8 @@ return {
 			})
 		end,
 	},
+
+	-- Society has advanced past the need for a mouse
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -66,15 +68,6 @@ return {
 	        },
 	},
 
-	-- Git Porcelain
-	{
-		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-
 	-- Fuzzy Finder (files, lsp, etc)
 	{
 		"nvim-telescope/telescope.nvim",
@@ -98,13 +91,13 @@ return {
 		end,
 	},
 
+	-- Show files adjacent to current buffer
 	{
-		-- See local (adjacent) files
 		"MaximilianLloyd/adjacent.nvim",
 	},
 
+	-- Highlight, edit, and navigate code
 	{
-		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
@@ -129,8 +122,6 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 			-- Enable telescope undo
 			pcall(require("telescope").load_extension, "undo")
-			-- Enable telescope with Noice
-			require("telescope").load_extension("noice")
 			-- Enable telescope with adjacanet
 			require("telescope").load_extension("adjacent")
 
@@ -201,8 +192,9 @@ return {
 			})
 		end,
 	},
+
+	-- Highlight / search TODO
 	{
-		-- Highlight / search TODO
 		"folke/todo-comments.nvim",
 		config = function()
 			require("todo-comments").setup({})

@@ -1,47 +1,4 @@
 return {
-	-- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			lsp = {
-				hover = {
-					-- Set not show a message if hover is not available
-					-- ex: shift+k on Typescript code
-					silent = true,
-				},
-			},
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		},
-		config = function()
-			require("noice").setup({
-				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = true, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = true, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = true, -- add a border to hover docs and signature help
-				},
-			})
-		end,
-	},
-
 	-- Symbol tree
 	{
 		"stevearc/aerial.nvim",
@@ -62,8 +19,8 @@ return {
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
 
+	-- Neotree - file tree browser
 	{
-		-- Neotree - file tree browser
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -95,8 +52,8 @@ return {
 		end,
 	},
 
+	-- Set lualine as statusline
 	{
-		-- Set lualine as statusline
 		"nvim-lualine/lualine.nvim",
 		-- See `:help lualine.txt`
 		opts = {
@@ -112,8 +69,8 @@ return {
 		end,
 	},
 
+	-- Buffers as tabs, but less bad and more good
 	{
-		-- Buffers as tabs, but less bad and more good
 		"akinsho/bufferline.nvim",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = function()
@@ -153,14 +110,5 @@ return {
 		opts = {
 			-- configurations go here
 		},
-	},
-
-	-- Markdown preview in editor
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		opts = {},
-		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
 	},
 }

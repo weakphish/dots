@@ -36,13 +36,6 @@ return {
 
 			{ "<leader>m", group = "markdown" },
 			{ "<leader>mm", "<cmd>RenderMarkdown toggle<CR>", desc = "Toggle Markdown Render" },
-			{ "<leader>mt", "<cmd>Twilight<CR>", desc = "Toggle Dim Inactive Code" },
-			{ "<leader>mz", "<cmd>ZenMode<CR>", desc = "Focus" },
-
-			{ "<leader>n", group = "(neo)test" },
-			{ "<leader>nr", "<cmd>Neotest run file<CR>", desc = "Run File" },
-			{ "<leader>ns", "<cmd>Neotest summary<CR>", desc = "Summary" },
-			{ "<leader>no", "<cmd>Neotest output<CR>", desc = "Output" },
 
 			{ "<leader>s", group = "search" },
 			{
@@ -55,7 +48,7 @@ return {
 			{ "<leader>sh", require("telescope.builtin").help_tags, desc = "Search Help" },
 			{ "<leader>sj", require("telescope.builtin").jumplist, desc = "Search Jumplist" },
 			{ "<leader>sr", require("telescope.builtin").lsp_references, desc = "Search References" },
-			{ "<leader>sw", require("telescope.builtin").lsp_document_symbols, desc = "Workspace Document Symbols" },
+			{ "<leader>ss", require("telescope.builtin").lsp_document_symbols, desc = "Document Symbols" },
 			{ "<leader>st", "<cmd>TodoTelescope<CR>", desc = "Search TODO" },
 			{ "<leader>su", "<cmd>Telescope undo<CR>", desc = "Search Undo" },
 			{ "<leader>sc", require("telescope.builtin").grep_string, desc = "Search current Word" },
@@ -71,10 +64,8 @@ return {
 			{ "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
 
 			{ "<leader>x", group = "trouble" },
-			{ "<leader>xi", "<cmd>Trouble lsp_incoming_calls<cr>", desc = "Incoming Calls (Trouble)" },
 			{ "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
 			{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-			{ "<leader>xr", "<cmd>Trouble lsp_references<cr>", desc = "References (Trouble)" },
 			{ "<leader>xd", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
 			{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
 		})
