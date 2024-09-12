@@ -40,6 +40,7 @@ return {
 				desc = "Fuzzily search current buffer",
 			},
 			{ "<leader>sd", require("telescope.builtin").diagnostics, desc = "Search Diagnostics" },
+			{ "<leader>sd", require("telescope.builtin").diagnostics, desc = "Search Diagnostics" },
 			{ "<leader>sg", require("telescope.builtin").live_grep, desc = "Search with Grep" },
 			{ "<leader>sh", require("telescope.builtin").help_tags, desc = "Search Help" },
 			{ "<leader>sj", require("telescope.builtin").jumplist, desc = "Search Jumplist" },
@@ -54,16 +55,6 @@ return {
 			{ "<leader>tn", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
 			{ "<leader>ts", "<cmd>AerialToggle!<CR>", desc = "Symbols Tree" },
 			{ "<leader>tt", "<cmd>ToggleTerm size=30<CR>", desc = "Terminal" },
-
-			{ "<leader>w", group = "workspace" },
-			{ "<leader>wd", require("telescope.builtin").diagnostics, desc = "Workspace Diagnostics" },
-			{ "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, desc = "Workspace Symbols" },
-
-			{ "<leader>x", group = "trouble" },
-			{ "<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-			{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-			{ "<leader>xd", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-			{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
 		})
 	end,
 }

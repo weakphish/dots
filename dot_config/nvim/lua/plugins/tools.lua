@@ -201,13 +201,6 @@ return {
 		end,
 	},
 
-	-- Search for Trouble ;)
-	{
-		"folke/trouble.nvim",
-		opts = {}, -- for default options, refer to the configuration section for custom setup.
-		cmd = "Trouble",
-	},
-
 	-- VS Code-like term
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 }
