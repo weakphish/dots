@@ -31,7 +31,6 @@ return {
 			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
 
 			{ "<leader>g", group = "git" },
-			{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 
 			{ "<leader>s", group = "search" },
