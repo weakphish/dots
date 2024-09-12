@@ -12,6 +12,7 @@ return {
 
 			-- Use non-LSP as an LSP (linters, etc)
 			"nvimtools/none-ls.nvim",
+		    "nvimtools/none-ls-extras.nvim",
 
 			-- Useful status updates for LSP
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -123,7 +124,7 @@ return {
 
 			null_ls.setup({
 				sources = {
-					null_ls.builtins.diagnostics.eslint,
+					require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 					-- null_ls.builtins.completion.spell,
 				},
 			})
