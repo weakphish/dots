@@ -221,6 +221,7 @@ return {
 					javascript = { "prettier" },
 					typescript = { "prettier" },
 					markdown = { "markdownlint" },
+					go = { "gofmt", "goimports" },
 				},
 			})
 		end,
