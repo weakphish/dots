@@ -10,11 +10,12 @@ Dotfiles, managed by Chezmoi.
 
 **Other Software:**
 Other software that I use as a developer on a regular basis:
-- [Zellij](https://github.com/zellij-org/zellij), a tmux alternative
 - [A few Rust utilities](https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a)
     - Bat
     - Delta
     - Lsd
     - Ripgrep
-- Good ol' pen and paper for note-taking and to-do lists.
+
+- TaskWarrior for task management (outside of Jira tickets, etc)
+- Good ol' pen and paper for note-taking
     - Plain markdown for longer-term notes or scratch documents
