@@ -32,6 +32,7 @@ return {
 
 			{ "<leader>g", group = "git" },
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
+			{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 
 			{ "<leader>s", group = "search" },
 			{
