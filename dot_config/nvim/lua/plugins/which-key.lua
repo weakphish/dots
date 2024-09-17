@@ -21,8 +21,8 @@ return {
 			{ "<leader>cD", vim.lsp.buf.declaration, desc = "Go to Declaration" },
 			{ "<leader>ci", vim.lsp.buf.implementation, desc = "Go to Implementation" },
 			{ "<leader>cf", require("conform").format, desc = "Format Buffer" },
-			{ "<leader>cp", "<cmd>Copilot enable", desc = "Enable Copilot" },
-			{ "<leader>cP", "<cmd>Copilot disable", desc = "Disable Copilot" },
+			{ "<leader>cp", "<cmd>Copilot enable<CR>", desc = "Enable Copilot" },
+			{ "<leader>cP", "<cmd>Copilot disable<CR>", desc = "Disable Copilot" },
 			{ "<leader>cr", vim.lsp.buf.rename, desc = "Code Rename" },
 			{ "<leader>ct", vim.lsp.buf.type_definition, desc = "Go To Type Definition" },
 
