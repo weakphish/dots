@@ -36,6 +36,17 @@ return {
 			{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "Current Line Blame" },
 			{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
 
+			{ "<leader>m", group = "markdown" },
+			{ "<leader>mb", "<cmd>ObsidianBacklinks<CR>", desc = "View backlinks to this note" },
+			{ "<leader>md", "<cmd>ObsidianToday<CR>", desc = "Open daily note" },
+			{ "<leader>mD", "<cmd>ObsidianTomorrow<CR>", desc = "Open tomorrow's daily note" },
+			{ "<leader>ml", "<cmd>ObsidianLink<CR>", desc = "Link note to existing", mode = "v" },
+			{ "<leader>mL", "<cmd>ObsidianLinkNew<CR>", desc = "Create new link from selected text", mode = "v" },
+			{ "<leader>mm", "<cmd>ObsidianFollowLink<CR>", desc = "Follow link" },
+			{ "<leader>mn", "<cmd>ObsidianNew<CR>", desc = "Create new note" },
+			{ "<leader>ms", "<cmd>ObsidianQuickSwitch<CR>", desc = "Switch to note" },
+			{ "<leader>mt", "<cmd>ObsidianTags<CR>", desc = "Search tag occurence", mode = { "n", "v" } },
+
 			{ "<leader>s", group = "search" },
 			{
 				"<leader>sb",
