@@ -1,4 +1,4 @@
-Dotfiles, managed by Chezmoi.
+Dotfiles, managed with GNU Stow 
 
 **Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. 
  
@@ -15,7 +15,5 @@ Other software that I use as a developer on a regular basis:
     - Delta
     - Lsd
     - Ripgrep
-
-- TaskWarrior for task management (outside of Jira tickets, etc)
 - Good ol' pen and paper for note-taking
     - Plain markdown for longer-term notes or scratch documents
