@@ -1,5 +1,6 @@
-Dotfiles, managed with GNU Stow 
+# Dotfiles, managed with GNU Stow 
 
+# What
 **Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. 
  
 **Shell:** Fish
@@ -17,3 +18,8 @@ Other software that I use as a developer on a regular basis:
     - Ripgrep
 - Good ol' pen and paper for note-taking
     - Plain markdown for longer-term notes or scratch documents
+
+# Usage
+Run `stow config --dotfiles` with this repo cloned to `$HOME/dots`
+
+TODO: Add Brewfile
