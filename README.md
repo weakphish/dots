@@ -22,4 +22,3 @@ Other software that I use as a developer on a regular basis:
 # Usage
 Run `stow config --dotfiles` with this repo cloned to `$HOME/dots`
 
-TODO: Add Brewfile
