@@ -15,8 +15,8 @@ config.color_scheme = "Everforest Dark (Gogh)"
 -- end
 
 -- Fonts etc
-config.font = wezterm.font({ family = "Iosevka" })
-config.font_size = 14
+config.font = wezterm.font({ family = "JetBrainsMono Nerd Font" })
+config.font_size = 13
 
 -- Slightly transparent and blurred background
 config.window_background_opacity = 0.9
