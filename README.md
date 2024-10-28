@@ -1,7 +1,7 @@
 # Dotfiles, managed with GNU Stow 
 
 # What
-**Code Editor**: Visual Studio Code, with JetBrains IDEs some stuff.
+**Code Editor**: Neovim, with JetBrains IDEs some stuff.
  
 **Shell:** Fish
 

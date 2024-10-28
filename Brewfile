@@ -5,9 +5,9 @@ tap 'caskroom/homebrew-cask' || true
 
 # Regular packages
 brew install 'visual-studio-code'
-brew install 'stow'
-brew install 'wezterm'
 brew install 'neovim'
+brew install 'wezterm'
+brew install 'stow'
 brew install 'starship'
 brew install 'fzf'
 brew install 'ripgrep'
