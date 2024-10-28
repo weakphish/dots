@@ -7,6 +7,7 @@ tap 'caskroom/homebrew-cask' || true
 brew install 'visual-studio-code'
 brew install 'neovim'
 brew install 'wezterm'
+
 brew install 'stow'
 brew install 'starship'
 brew install 'fzf'
