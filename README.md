@@ -5,12 +5,13 @@
  
 **Shell:** Fish
 
-**Terminal:** Wezterm on macOS, Windows Terminal on Windows.
+**Terminal:** Alacritty on macOS, Windows Terminal on Windows.
 
 **Git Porcelain:** LazyGit
 
 **Other Software:**
 Other software that I use as a developer on a regular basis:
+- Zellij, a replacement for tmux
 - [A few Rust utilities](https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a)
     - Bat
     - Delta
