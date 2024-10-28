@@ -4,8 +4,9 @@ cask_args appdir: '/Applications'
 tap 'caskroom/homebrew-cask' || true
 
 # Regular packages
+brew install 'visual-studio-code'
 brew install 'stow'
-brew install 'alacritty'
+brew install 'wezterm'
 brew install 'neovim'
 brew install 'starship'
 brew install 'fzf'
