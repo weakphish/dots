@@ -235,4 +235,17 @@ return {
       require('telescope').load_extension 'refactoring'
     end,
   },
+
+  -- Edit filesystem like a buffer
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if prefer nvim-web-devicons
+    config = function()
+      require('oil').setup()
+    end,
+  },
 }
