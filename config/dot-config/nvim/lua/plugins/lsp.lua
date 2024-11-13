@@ -52,7 +52,7 @@ return {
         clangd = {},
         gopls = {},
         pyright = {},
-        ruff_lsp = {
+        ruff = {
           organizeImports = false,
         },
         rust_analyzer = {},
@@ -97,12 +97,12 @@ return {
             settings = servers[server_name],
           }
         end,
-        ['ruff_lsp'] = function()
+        ['ruff'] = function()
           -- Disable Ruff's hover in favor of Pyright
           local on_attach = function(client, bufnr)
             client.server_capabilities.hoverProvider = false
           end
-          require('lspconfig').ruff_lsp.setup {
+          require('lspconfig').ruff.setup {
             on_attach = on_attach,
           }
         end,

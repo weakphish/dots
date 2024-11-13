@@ -1,4 +1,47 @@
 return {
+  -- 'A collection of small QoL plugins for Neovim'
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+      },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      terminal = { enabled = true },
+      toggle = { enabled = true },
+      words = { enabled = true },
+      styles = {
+        notification = {
+          wo = { wrap = true }, -- Wrap notifications
+        },
+      },
+    },
+    keys = {
+      init = function()
+        vim.api.nvim_create_autocmd('User', {
+          pattern = 'VeryLazy',
+          callback = function()
+            -- Setup some globals for debugging (lazy-loaded)
+            _G.dd = function(...)
+              Snacks.debug.inspect(...)
+            end
+            _G.bt = function()
+              Snacks.debug.backtrace()
+            end
+            vim.print = _G.dd -- Override print to use snacks for `:=` command
+          end,
+        })
+      end,
+    },
+  },
+
+  -- Surround stuff
   {
     'echasnovski/mini.surround',
     version = false,
@@ -199,26 +242,6 @@ return {
     config = function()
       require('todo-comments').setup {}
     end,
-  },
-
-  -- VS Code-like term
-  { 'akinsho/toggleterm.nvim', version = '*', config = true },
-
-  -- LazyGit in Neovim
-  -- nvim v0.8.0
-  {
-    'kdheepak/lazygit.nvim',
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    -- optional for floating window border decoration
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
   },
 
   -- Refactoring tools

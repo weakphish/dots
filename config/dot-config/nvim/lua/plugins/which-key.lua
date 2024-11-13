@@ -1,15 +1,38 @@
 return {
-  -- Show key options when using shortcuts
   'folke/which-key.nvim',
-  opts = {},
+  event = 'VeryLazy',
+
   config = function()
     local wk = require 'which-key'
 
+    local opts = {
+      preset = 'helix',
+      debug = vim.uv.cwd():find 'which%-key',
+      win = {},
+      spec = {},
+    }
+    wk.setup(opts)
+
     -- Normal mode
     wk.add {
+      {
+        ']]',
+        function()
+          Snacks.words.jump(vim.v.count1)
+        end,
+        desc = 'Next Reference',
+      },
+      {
+        '[[',
+        function()
+          Snacks.words.jump(-vim.v.count1)
+        end,
+        desc = 'Prev Reference',
+      },
+
       { '<leader>b', group = 'buffer' },
       { '<leader>bb', require('telescope.builtin').buffers, desc = 'Find Buffer' },
-      { '<leader>bd', '<cmd>bd<CR>', desc = 'Delete Buffer' },
+      { '<leader>bd', function () Snacks.bufdelete() end, desc = 'Delete Buffer' },
       { '<leader>bn', '<cmd>bn<CR>', desc = 'Next Buffer' },
       { '<leader>bp', '<cmd>bp<CR>', desc = 'Prev Buffer' },
       { '<leader>bo', '<cmd>BufferLinePick<CR>', desc = 'Pick Buffer From Line' },
@@ -32,8 +55,9 @@ return {
       { '<leader>fr', '<cmd>Telescope oldfiles<cr>', desc = 'Open Recent File' },
 
       { '<leader>g', group = 'git' },
-      { '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<CR>', desc = 'Current Line Blame' },
-      { '<leader>gg', '<cmd>LazyGit<CR>', desc = 'LazyGit' },
+      { '<leader>gb', function () Snacks.git.blame_line() end, desc = 'Current Line Blame' },
+      { '<leader>gB', function () Snacks.gitbrowse() end, desc = 'Browse Git Repo Online' },
+      { '<leader>gg', function () Snacks.lazygit() end, desc = 'LazyGit' },
 
       { '<leader>s', group = 'search' },
       {
@@ -56,7 +80,16 @@ return {
       { '<leader>tb', require('barbecue.ui').toggle, desc = 'Barbecue (show code context winbar)' },
       { '<leader>tn', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' },
       { '<leader>ts', '<cmd>AerialToggle!<CR>', desc = 'Symbols Tree' },
-      { '<leader>tt', '<cmd>ToggleTerm size=30<CR>', desc = 'Terminal' },
+      {
+        '<leader>tS',
+        function()
+          Snacks.toggle.option('spell', { name = 'Spelling' })
+        end,
+        desc = 'Spelling',
+      },
+      { '<leader>tt', function () Snacks.terminal() end, desc = 'Terminal' },
+
+      { '<leader>x', function () Snacks.notifier.hide() end, desc = 'Dismiss all notifications' },
     }
     -- Normal and Visual mode
     wk.add {
