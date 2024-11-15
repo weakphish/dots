@@ -32,7 +32,13 @@ return {
 
       { '<leader>b', group = 'buffer' },
       { '<leader>bb', require('telescope.builtin').buffers, desc = 'Find Buffer' },
-      { '<leader>bd', function () Snacks.bufdelete() end, desc = 'Delete Buffer' },
+      {
+        '<leader>bd',
+        function()
+          Snacks.bufdelete()
+        end,
+        desc = 'Delete Buffer',
+      },
       { '<leader>bn', '<cmd>bn<CR>', desc = 'Next Buffer' },
       { '<leader>bp', '<cmd>bp<CR>', desc = 'Prev Buffer' },
       { '<leader>bo', '<cmd>BufferLinePick<CR>', desc = 'Pick Buffer From Line' },
@@ -55,9 +61,27 @@ return {
       { '<leader>fr', '<cmd>Telescope oldfiles<cr>', desc = 'Open Recent File' },
 
       { '<leader>g', group = 'git' },
-      { '<leader>gb', function () Snacks.git.blame_line() end, desc = 'Current Line Blame' },
-      { '<leader>gB', function () Snacks.gitbrowse() end, desc = 'Browse Git Repo Online' },
-      { '<leader>gg', function () Snacks.lazygit() end, desc = 'LazyGit' },
+      {
+        '<leader>gb',
+        function()
+          Snacks.git.blame_line()
+        end,
+        desc = 'Current Line Blame',
+      },
+      {
+        '<leader>gB',
+        function()
+          Snacks.gitbrowse()
+        end,
+        desc = 'Browse Git Repo Online',
+      },
+      {
+        '<leader>gg',
+        function()
+          Snacks.lazygit()
+        end,
+        desc = 'LazyGit',
+      },
 
       { '<leader>s', group = 'search' },
       {
@@ -81,15 +105,20 @@ return {
       { '<leader>tn', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' },
       { '<leader>ts', '<cmd>AerialToggle!<CR>', desc = 'Symbols Tree' },
       {
-        '<leader>tS',
+        '<leader>tt',
         function()
-          Snacks.toggle.option('spell', { name = 'Spelling' })
+          Snacks.terminal()
         end,
-        desc = 'Spelling',
+        desc = 'Terminal',
       },
-      { '<leader>tt', function () Snacks.terminal() end, desc = 'Terminal' },
 
-      { '<leader>x', function () Snacks.notifier.hide() end, desc = 'Dismiss all notifications' },
+      {
+        '<leader>x',
+        function()
+          Snacks.notifier.hide()
+        end,
+        desc = 'Dismiss all notifications',
+      },
     }
     -- Normal and Visual mode
     wk.add {
