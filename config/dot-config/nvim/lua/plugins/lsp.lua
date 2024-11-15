@@ -21,7 +21,7 @@ return {
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
       -- see the "default configuration" section below for full documentation on how to define
       -- your own keymap.
-      keymap = { preset = 'default' },
+      keymap = { preset = 'enter' },
 
       highlight = {
         -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -34,10 +34,10 @@ return {
       nerd_font_variant = 'mono',
 
       -- experimental auto-brackets support
-      -- accept = { auto_brackets = { enabled = true } }
+      accept = { auto_brackets = { enabled = true } },
 
       -- experimental signature help support
-      -- trigger = { signature_help = { enabled = true } }
+      trigger = { signature_help = { enabled = true } },
     },
     -- allows extending the enabled_providers array elsewhere in your config
     -- without having to redefining it
