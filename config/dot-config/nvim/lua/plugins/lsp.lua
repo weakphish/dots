@@ -1,4 +1,55 @@
 return {
+  -- Completion Engine
+  {
+    'saghen/blink.cmp',
+    lazy = false, -- lazy loading handled internally
+    -- optional: provides snippets for the snippet source
+    dependencies = 'rafamadriz/friendly-snippets',
+
+    -- use a release tag to download pre-built binaries
+    version = 'v0.*',
+    -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- build = 'cargo build --release',
+    -- If you use nix, you can build from source using latest nightly rust with:
+    -- build = 'nix run .#build-plugin',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      -- 'default' for mappings similar to built-in completion
+      -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+      -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+      -- see the "default configuration" section below for full documentation on how to define
+      -- your own keymap.
+      keymap = { preset = 'default' },
+
+      highlight = {
+        -- sets the fallback highlight groups to nvim-cmp's highlight groups
+        -- useful for when your theme doesn't support blink.cmp
+        -- will be removed in a future release, assuming themes add support
+        use_nvim_cmp_as_default = true,
+      },
+      -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      -- adjusts spacing to ensure icons are aligned
+      nerd_font_variant = 'mono',
+
+      -- experimental auto-brackets support
+      -- accept = { auto_brackets = { enabled = true } }
+
+      -- experimental signature help support
+      -- trigger = { signature_help = { enabled = true } }
+    },
+    -- allows extending the enabled_providers array elsewhere in your config
+    -- without having to redefining it
+    opts_extend = { 'sources.completion.enabled_providers' },
+  },
+
+  -- LSP servers and clients communicate what features they support through "capabilities".
+  --  By default, Neovim support a subset of the LSP specification.
+  --  With blink.cmp, Neovim has *more* capabilities which are communicated to the LSP servers.
+  --  Explanation from TJ: https://youtu.be/m8C0Cq9Uv9o?t=1275
+  --
+  -- This can vary by config, but in general for nvim-lspconfig:
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -20,6 +71,8 @@ return {
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+
+      'saghen/blink.cmp',
     },
     config = function()
       --  This function gets run when an LSP connects to a particular buffer.
@@ -73,7 +126,8 @@ return {
 
       -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
       -- Need to do GDScript manually
       require('lspconfig').gdscript.setup {}
@@ -106,17 +160,6 @@ return {
             on_attach = on_attach,
           }
         end,
-        ['clangd'] = function()
-          -- clangd fix
-          local cmp_nvim_lsp = require 'cmp_nvim_lsp'
-          require('lspconfig').clangd.setup {
-            capabilities = cmp_nvim_lsp.default_capabilities(),
-            cmd = {
-              'clangd',
-              '--offset-encoding=utf-16',
-            },
-          }
-        end,
       }
 
       -- Null / None Setup
@@ -129,67 +172,7 @@ return {
           -- null_ls.builtins.completion.spell,
         },
       }
-
-      -- nvim-cmp setup
-      local cmp = require 'cmp'
-      local luasnip = require 'luasnip'
-
-      luasnip.config.setup {}
-      require('cmp_git').setup()
-
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert {
-          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete {},
-          ['<CR>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          },
-          ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-          ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { 'i', 's' }),
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'path' },
-          { name = 'git' },
-        },
-      }
     end,
-  },
-
-  {
-    -- Autocompletion Engine
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-path',
-      'petertriho/cmp-git',
-    },
   },
 
   {
