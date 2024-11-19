@@ -10,6 +10,7 @@ brew install 'wezterm'
 
 brew install 'stow'
 brew install 'starship'
+brew install 'gum'
 brew install 'fzf'
 brew install 'ripgrep'
 brew install 'tldr'
