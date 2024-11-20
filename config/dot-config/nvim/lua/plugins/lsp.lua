@@ -104,7 +104,7 @@ return {
       local servers = {
         clangd = {},
         gopls = {},
-        pyright = {},
+        basedpyright = {},
         ruff = {
           organizeImports = false,
         },
