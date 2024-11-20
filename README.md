@@ -5,7 +5,7 @@
  
 **Shell:** Fish
 
-**Terminal:** Wezterm on macOS, Windows Terminal on Windows.
+**Terminal:** Alacritty on macOS, Windows Terminal on Windows.
 
 **Git Porcelain:** LazyGit
 
