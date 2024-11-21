@@ -152,12 +152,24 @@ return {
           }
         end,
         ['ruff'] = function()
-          -- Disable Ruff's hover in favor of Pyright
+          -- Disable Ruff's hover and in-progress signature help in favor of Pyright
           local on_attach = function(client, bufnr)
             client.server_capabilities.hoverProvider = false
+            client.server_capabilities.signatureHelpProvider = false
           end
           require('lspconfig').ruff.setup {
             on_attach = on_attach,
+          }
+        end,
+        ['basedpyright'] = function()
+          -- use standard typechecking
+          require('lspconfig').basedpyright.setup {
+            capabilities = capabilities,
+            settings = {
+              basedpyright = {
+                typeCheckingMode = 'standard',
+              },
+            },
           }
         end,
       }
