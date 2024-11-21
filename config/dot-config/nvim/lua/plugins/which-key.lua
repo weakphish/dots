@@ -83,6 +83,10 @@ return {
         desc = 'LazyGit',
       },
 
+
+      { '<leader>m', group = 'markdown' },
+      { '<leader>mm', require('render-markdown').toggle, desc = 'Toggle Markdown Render' },
+
       { '<leader>s', group = 'search' },
       {
         '<leader>sb',
