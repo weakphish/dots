@@ -1,7 +1,8 @@
 
 [font]
-normal = { family = "Iosevka Nerd Font", style = "Regular" }
-size = 14
+# normal = { family = "Iosevka Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+size = 13
 
 [font.offset]
 x = 1
