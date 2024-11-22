@@ -1,5 +1,5 @@
 return {
-  -- Use Telescope for ui-select 
+  -- Use Telescope for ui-select
   {
     'nvim-telescope/telescope-ui-select.nvim',
     opts = {},
@@ -68,6 +68,13 @@ return {
       'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
       'MunifTanjim/nui.nvim',
     },
+    config = function()
+      require('neo-tree').setup {
+        window = {
+          width = 60,
+        },
+      }
+    end,
   },
 
   {
