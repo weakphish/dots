@@ -179,6 +179,12 @@ return {
       pcall(require('nvim-treesitter.install').update { with_sync = true })
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
+        extensions = {
+          ['ui-select'] = {
+            -- Use the UI select extension
+            require('telescope.themes').get_dropdown {},
+          },
+        },
         defaults = {
           mappings = {
             i = {
@@ -190,11 +196,13 @@ return {
       }
 
       -- Enable telescope fzf native, if installed
-      pcall(require('telescope').load_extension, 'fzf')
+      require('telescope').load_extension 'fzf'
       -- Enable telescope undo
-      pcall(require('telescope').load_extension, 'undo')
+      require('telescope').load_extension 'undo'
       -- Enable telescope with adjacanet
       require('telescope').load_extension 'adjacent'
+      -- Enable telescope w/ ui-select (use telescope for for ui.select)
+      require('telescope').load_extension 'ui-select'
 
       -- [[ Configure Treesitter ]]
       -- See `:help nvim-treesitter`

@@ -1,5 +1,11 @@
 return {
-  -- Nicer UI
+  -- Use Telescope for ui-select 
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    opts = {},
+  },
+
+  -- Nicer UI++ (experimental)
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
@@ -155,5 +161,5 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-}
+  },
 }
