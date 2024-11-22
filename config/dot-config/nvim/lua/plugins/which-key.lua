@@ -99,6 +99,7 @@ return {
       { '<leader>sh', require('telescope.builtin').help_tags, desc = 'Search Help' },
       { '<leader>sj', require('telescope.builtin').jumplist, desc = 'Search Jumplist' },
       { '<leader>sr', require('telescope.builtin').lsp_references, desc = 'Search References' },
+      { '<leader>sR', "<cmd>GrugFar<CR>", desc = 'Search and Replace' },
       { '<leader>ss', require('telescope.builtin').lsp_document_symbols, desc = 'Document Symbols' },
       { '<leader>st', '<cmd>TodoTelescope<CR>', desc = 'Search TODO' },
       { '<leader>su', '<cmd>Telescope undo<CR>', desc = 'Search Undo' },
