@@ -48,6 +48,8 @@ vim.opt.termsync = true
   -- Set completeopt to have a better completion experience
   vim.o.completeopt = 'menuone,noselect'
 
+  vim.o.conceallevel = 1
+
   -- NOTE: You should make sure your terminal supports this
   vim.o.termguicolors = true
 

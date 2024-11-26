@@ -5,16 +5,16 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
-	{
-		-- Use wiki links in markdown
-		"jakewvincent/mkdnflow.nvim",
-		config = function()
-			require("mkdnflow").setup({
-				modules = {
-					folds = false,
-					foldtext = false,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	-- Use wiki links in markdown
+	-- 	"jakewvincent/mkdnflow.nvim",
+	-- 	config = function()
+	-- 		require("mkdnflow").setup({
+	-- 			modules = {
+	-- 				folds = false,
+	-- 				foldtext = false,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 }
