@@ -105,6 +105,7 @@ return {
         clangd = {},
         gopls = {},
         basedpyright = {},
+        marksman = {},
         ruff = {
           organizeImports = false,
         },

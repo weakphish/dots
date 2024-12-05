@@ -83,9 +83,10 @@ return {
         desc = 'LazyGit',
       },
 
-
-      -- { '<leader>m', group = 'markdown' },
-      -- { '<leader>mm', require('render-markdown').toggle, desc = 'Toggle Markdown Render' },
+      { '<leader>o', group = 'obsidian' },
+      { '<leader>ob', '<cmd>ObsidianBacklinks<CR>', desc = 'Backlinks' },
+      { '<leader>od', '<cmd>ObsidianToday<CR>', desc = "Today's Daily Note" },
+      { '<leader>ot', '<cmd>ObsidianTags<CR>', desc = 'Tags' },
 
       { '<leader>s', group = 'search' },
       {
@@ -99,7 +100,7 @@ return {
       { '<leader>sh', require('telescope.builtin').help_tags, desc = 'Search Help' },
       { '<leader>sj', require('telescope.builtin').jumplist, desc = 'Search Jumplist' },
       { '<leader>sr', require('telescope.builtin').lsp_references, desc = 'Search References' },
-      { '<leader>sR', "<cmd>GrugFar<CR>", desc = 'Search and Replace' },
+      { '<leader>sR', '<cmd>GrugFar<CR>', desc = 'Search and Replace' },
       { '<leader>ss', require('telescope.builtin').lsp_document_symbols, desc = 'Document Symbols' },
       { '<leader>st', '<cmd>TodoTelescope<CR>', desc = 'Search TODO' },
       { '<leader>su', '<cmd>Telescope undo<CR>', desc = 'Search Undo' },
