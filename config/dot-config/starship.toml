@@ -7,17 +7,9 @@ add_newline = false
 # Move the directory to the second line
 # extra space to pad start
 format = """
-$directory\ 
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$character\
+[┌─](bold green)$directory$git_branch$git_commit$git_state$git_status$python$pulumi
+[└─](bold green)$character
 """
 
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[󰘧](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
