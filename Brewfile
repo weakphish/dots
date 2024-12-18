@@ -6,7 +6,7 @@ tap 'caskroom/homebrew-cask' || true
 # Regular packages
 brew 'visual-studio-code'
 brew 'neovim'
-brew 'wezterm'
+brew 'alacritty'
 
 brew 'stow'
 brew 'starship'
