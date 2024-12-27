@@ -4,22 +4,11 @@ return {
     'nvim-telescope/telescope-ui-select.nvim',
     opts = {},
   },
-  
+
   -- Make UI a bit nicer
   {
-  'stevearc/dressing.nvim',
-  opts = {},
-},
-
-  -- Symbol tree
-  {
-    'stevearc/aerial.nvim',
+    'stevearc/dressing.nvim',
     opts = {},
-    -- Optional dependencies
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons',
-    },
   },
 
   -- Pretty Icons
@@ -84,7 +73,7 @@ return {
       },
     },
     config = function()
-      require('lualine').setup { sections = { lualine_x = { 'aerial' } } }
+      require('lualine').setup {}
     end,
   },
 

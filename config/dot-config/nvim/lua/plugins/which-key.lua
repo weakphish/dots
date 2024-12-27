@@ -54,6 +54,18 @@ return {
       { '<leader>cr', vim.lsp.buf.rename, desc = 'Code Rename' },
       { '<leader>ct', vim.lsp.buf.type_definition, desc = 'Go To Type Definition' },
 
+      { '<leader>d', group = 'diagnostics' },
+      {
+        '<leader>dd',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>dD',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+
       { '<leader>f', group = 'file' },
       { '<leader>fa', '<cmd>Telescope adjacent<CR>', desc = 'Adjacent Files' },
       { '<leader>fe', '<cmd>Explore<CR>', desc = 'Explore' },
@@ -108,8 +120,22 @@ return {
 
       { '<leader>t', group = 'toggle' },
       { '<leader>tb', require('barbecue.ui').toggle, desc = 'Barbecue (show code context winbar)' },
+      {
+        '<leader>tl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+      },
+      {
+        '<leader>tL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
       { '<leader>tn', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' },
-      { '<leader>ts', '<cmd>AerialToggle!<CR>', desc = 'Symbols Tree' },
+      {
+        '<leader>ts',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+      },
       {
         '<leader>tt',
         function()
@@ -117,9 +143,14 @@ return {
         end,
         desc = 'Terminal',
       },
+      {
+        '<leader>tq',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
 
       {
-        '<leader>x',
+        '<leader>z',
         function()
           Snacks.notifier.hide()
         end,
