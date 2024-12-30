@@ -4,12 +4,11 @@ fish_vi_key_bindings
 
 # Aliases
 alias lg lazygit
+alias ldo lazydocker
 alias tf terraform
 alias p "poetry run"
 alias dc "docker compose"
 alias k kubectl
-alias cat bat
-alias ls lsd
 alias la "lsd -la"
 
 # VS Code integration
