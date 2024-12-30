@@ -95,6 +95,11 @@ return {
         desc = 'LazyGit',
       },
 
+      { '<leader>o', group = 'obsidian' },
+      { '<leader>ob', '<cmd>ObsidianBacklinks<CR>', desc = 'Backlinks' },
+      { '<leader>od', '<cmd>ObsidianToday<CR>', desc = "Today's Daily Note" },
+      { '<leader>ot', '<cmd>ObsidianTags<CR>', desc = 'Tags' },
+
       { '<leader>s', group = 'search' },
       {
         '<leader>sb',
