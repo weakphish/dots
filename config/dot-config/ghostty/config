@@ -1,4 +1,5 @@
 theme = Everforest Dark - Hard
+font-family = Fira Code
 
 keybind = global:cmd+shift+space=toggle_quick_terminal
 quick-terminal-animation-duration = 0.1
