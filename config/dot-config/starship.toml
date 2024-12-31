@@ -7,8 +7,8 @@ add_newline = false
 # Move the directory to the second line
 # extra space to pad start
 format = """
-[┌──](bold green)$directory$git_branch$git_commit$git_state$git_status$python
-[└──](bold green)$character
+[┌─](bold green)$directory$git_branch$git_commit$git_state$git_status$python$pulumi
+[└─](bold green)$character
 """
 
 [character] # The name of the module we are configuring is 'character'
