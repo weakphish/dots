@@ -334,7 +334,7 @@ return {
       workspaces = {
         {
           name = 'work',
-          path = '/Users/jacallis/OneDrive - Cisco/Markdown',
+          path = '/Users/jacallis/Vaults/work',
         },
       },
       daily_notes = {
