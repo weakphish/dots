@@ -98,7 +98,10 @@ return {
       { '<leader>o', group = 'obsidian' },
       { '<leader>ob', '<cmd>ObsidianBacklinks<CR>', desc = 'Backlinks' },
       { '<leader>od', '<cmd>ObsidianToday<CR>', desc = "Today's Daily Note" },
+      { '<leader>oD', '<cmd>ObsidianTomorrow<CR>', desc = "Tomorrow's Daily Note" },
       { '<leader>ot', '<cmd>ObsidianTags<CR>', desc = 'Tags' },
+      { '<leader>oT', '<cmd>ObsidianTemplate<CR>', desc = 'Templates' },
+      { '<leader>oy', '<cmd>ObsidianYesterday <CR>', desc = "Yesterday's Daily Note" },
 
       { '<leader>s', group = 'search' },
       {

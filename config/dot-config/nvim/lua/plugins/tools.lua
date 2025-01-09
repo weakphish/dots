@@ -349,12 +349,10 @@ return {
         -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
         template = 'daily',
       },
-      {
-        templates = {
-          folder = 'templates',
-          date_format = '%Y-%m-%d-%a',
-          time_format = '%H:%M',
-        },
+      templates = {
+        folder = 'templates',
+        date_format = '%Y-%m-%d-%a',
+        time_format = '%H:%M',
       },
     },
   },
