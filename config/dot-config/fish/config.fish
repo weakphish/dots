@@ -18,8 +18,8 @@ and . (code --locate-shell-integration-path fish)
 # Bat Theme
 set -Ux BAT_THEME base16
 
-# Set up Zoxide
 zoxide init fish | source
 
-# Setup Starship
 starship init fish | source
+
+uv generate-shell-completion fish | source
