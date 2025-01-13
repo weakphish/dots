@@ -36,6 +36,12 @@ return {
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
+
+      completion = {
+        menu = { border = 'single' },
+        documentation = { window = { border = 'single' } },
+      },
+      signature = { window = { border = 'single' }, enabled = true },
     },
     opts_extend = { 'sources.default' },
   },
@@ -177,8 +183,6 @@ return {
       null_ls.setup {
         sources = {
           require 'none-ls.diagnostics.eslint', -- requires none-ls-extras.nvim
-          require 'null-ls.builtins.diagnostics.mypy',
-          -- null_ls.builtins.completion.spell,
         },
       }
     end,
