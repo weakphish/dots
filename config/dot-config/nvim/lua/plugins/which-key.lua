@@ -140,11 +140,18 @@ return {
         desc = 'Symbols (Trouble)',
       },
       {
+        '<leader>tT',
+        function()
+          Snacks.terminal.open()
+        end,
+        desc = 'New Terminal',
+      },
+      {
         '<leader>tt',
         function()
-          Snacks.terminal()
+          Snacks.terminal.toggle()
         end,
-        desc = 'Terminal',
+        desc = 'Toggle Terminal',
       },
       {
         '<leader>tq',
