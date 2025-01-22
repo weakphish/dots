@@ -168,16 +168,6 @@ return {
   },
 
   {
-    -- Indent guides
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-    config = function()
-      require('ibl').setup()
-    end,
-  },
-
-  {
     -- Show current context in winbar
     'utilyre/barbecue.nvim',
     name = 'barbecue',
