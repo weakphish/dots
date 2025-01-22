@@ -4,6 +4,7 @@ return {
 
   config = function()
     local wk = require 'which-key'
+    local Snacks = require 'snacks'
 
     local opts = {
       preset = 'helix',
