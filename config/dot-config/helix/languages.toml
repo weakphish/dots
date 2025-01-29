@@ -7,7 +7,7 @@ language-servers = [
   { name = "ruff", only-features = [ "diagnostics" ] },
   { name = "pyright", except-features = [ "format", "diagnostics" ] },
 ]
-formatter = { command = "black", args = ["--quiet", "-"] }
+formatter = { command = "bash", args = ["-c", "isort - | black -"] }
 auto-format = true
 
 [language-server.pyright]
