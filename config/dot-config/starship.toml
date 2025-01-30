@@ -7,7 +7,7 @@ add_newline = false
 # Move the directory to the second line
 # extra space to pad start
 format = """
-[┌─](bold green)$directory$git_branch$git_commit$git_state$git_status$python$pulumi
+[┌─](bold green)$directory$git_branch$git_commit$git_state$git_status$python$pulumi$kubernetes
 [└─](bold green)$character
 """
 
@@ -16,3 +16,6 @@ success_symbol = '[󰘧](bold green)' # The 'success_symbol' segment is being se
 
 [directory]
 truncate_to_repo = false
+
+[kubernetes]
+disabled = false
