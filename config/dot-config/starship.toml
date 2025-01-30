@@ -19,3 +19,4 @@ truncate_to_repo = false
 
 [kubernetes]
 disabled = false
+format = 'on [$symbol$context( \($namespace\))]($style)'
