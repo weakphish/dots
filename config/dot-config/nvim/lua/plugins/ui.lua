@@ -66,24 +66,24 @@ return {
 
   -- Pretty Icons
   {
-  "echasnovski/mini.icons",
-  lazy = true,
-  opts = {
-    file = {
-      [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
-      ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+    'echasnovski/mini.icons',
+    lazy = true,
+    opts = {
+      file = {
+        ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+        ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+      },
+      filetype = {
+        dotenv = { glyph = '', hl = 'MiniIconsYellow' },
+      },
     },
-    filetype = {
-      dotenv = { glyph = "", hl = "MiniIconsYellow" },
-    },
+    init = function()
+      package.preload['nvim-web-devicons'] = function()
+        require('mini.icons').mock_nvim_web_devicons()
+        return package.loaded['nvim-web-devicons']
+      end
+    end,
   },
-  init = function()
-    package.preload["nvim-web-devicons"] = function()
-      require("mini.icons").mock_nvim_web_devicons()
-      return package.loaded["nvim-web-devicons"]
-    end
-  end,
-},
 
   -- Highlight the current symbol in the buffer
   'RRethy/vim-illuminate',
@@ -101,6 +101,7 @@ return {
     },
     config = function()
       require('neo-tree').setup {
+        filesystem = { hijack_netrw_behavior = 'disabled' }, -- let oil.nvim handle it
         window = {
           width = 60,
         },

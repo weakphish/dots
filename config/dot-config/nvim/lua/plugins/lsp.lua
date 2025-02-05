@@ -209,7 +209,7 @@ return {
 
       null_ls.setup {
         sources = {
-          require 'none-ls.diagnostics.eslint', -- requires none-ls-extras.nvim
+          null_ls.builtins.formatting.prettierd
         },
       }
     end,
