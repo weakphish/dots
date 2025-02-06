@@ -1,7 +1,13 @@
 return {
   {
     'folke/trouble.nvim',
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    opts = {
+      modes = { -- more advanced example that extends the lsp_document_symbols
+        symbols = {
+          win = { position = 'right', size = 50 },
+        },
+      },
+    }, -- for default options, refer to the configuration section for custom setup.
     cmd = 'Trouble',
   },
   -- Find and Replace
