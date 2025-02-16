@@ -9,7 +9,9 @@ alias tf terraform
 alias p "poetry run"
 alias dc "docker compose"
 alias k kubectl
+alias ls lsd
 alias la "lsd -la"
+alias cat bat
 
 # VS Code integration
 string match -q "$TERM_PROGRAM" vscode
@@ -23,6 +25,9 @@ zoxide init fish | source
 starship init fish | source
 
 uv generate-shell-completion fish | source
+
+# Created by `pipx` on 2025-01-24 23:34:29
+set PATH $PATH /Users/weakphish/.local/bin
 
 # Set up fzf key bindings
 fzf --fish | source
