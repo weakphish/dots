@@ -23,3 +23,6 @@ zoxide init fish | source
 starship init fish | source
 
 uv generate-shell-completion fish | source
+
+# Set up fzf key bindings
+fzf --fish | source
