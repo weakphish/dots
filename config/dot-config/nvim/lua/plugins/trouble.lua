@@ -8,6 +8,11 @@ return {
         symbols = {
           win = { position = "right", size = 50 },
         },
+        diagnostics = {
+          win = {
+            size = 20,
+          },
+        },
       },
     },
   },
