@@ -49,12 +49,18 @@
       "format_on_save": "off"
     },
     "Python": {
-      "language_servers": ["pyright"],
+      "language_servers": ["pyright", "ruff"],
       "format_on_save": "on",
       "formatter": [
         {
           "external": {
             "command": "black",
+            "arguments": ["-"]
+          }
+        },
+        {
+          "external": {
+            "command": "isort",
             "arguments": ["-"]
           }
         }
@@ -72,6 +78,17 @@
         },
         "python": {
           "pythonPath": ".venv/bin/python"
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          // Ruff server settings goes here
+          "lineLength": 120,
+          "lint": {
+            "extendSelect": ["I"]
+          }
         }
       }
     }
