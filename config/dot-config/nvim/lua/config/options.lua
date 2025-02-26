@@ -9,3 +9,6 @@ vim.wo.relativenumber = true
 vim.g.lazyvim_python_lsp = "basedpyright"
 -- Set to "ruff_lsp" to use the old LSP implementation version.
 vim.g.lazyvim_python_ruff = "ruff"
+
+-- Disable lazyvim's default of syncing clipboard
+vim.opt.clipboard = ""
