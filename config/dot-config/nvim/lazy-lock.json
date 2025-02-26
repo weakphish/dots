@@ -35,6 +35,7 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "a1d526af391f6aebb25a8795cbc05351ed3620b5" },
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+  "refactoring.nvim": { "branch": "master", "commit": "eaa096df3f3a8ce879f841faea750c7c3fb2bf1c" },
   "render-markdown.nvim": { "branch": "main", "commit": "1cd546e96cb8520a148610ca86596ed238eeb936" },
   "snacks.nvim": { "branch": "main", "commit": "1239fb84bc426d4fcd1c8dc9dde8503c17501842" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },

@@ -7,6 +7,7 @@ return {
           basedpyright = {
             analysis = {
               typeCheckingMode = "standard",
+              diagnosticMode = "workspace",
             },
           },
         },
