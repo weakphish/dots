@@ -10,7 +10,7 @@ alias p pulumi
 alias pu "pulumi up"
 
 alias tf terraform
-alias pr "poetry run"
+alias pyr "poetry run"
 alias dc "docker compose"
 alias k kubectl
 
