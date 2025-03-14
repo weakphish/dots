@@ -6,11 +6,10 @@ fish_vi_key_bindings
 alias lg lazygit
 alias ldo lazydocker
 
-alias p pulumi
-alias pu "pulumi up"
+alias pu pulumi
 
 alias tf terraform
-alias pyr "poetry run"
+alias p "poetry run"
 alias dc "docker compose"
 alias k kubectl
 
