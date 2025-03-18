@@ -1,3 +1,4 @@
+-- Disable animations
 return {
   "folke/edgy.nvim",
   opts = {

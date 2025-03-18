@@ -1,3 +1,4 @@
+-- Override type checking mode, and do full workspace diagnostics
 return {
   "neovim/nvim-lspconfig",
   opts = {
