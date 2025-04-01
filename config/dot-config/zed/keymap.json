@@ -14,6 +14,12 @@
         }
     },
     {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-\\": "pane::SplitRight"
+        }
+    },
+    {
         "context": "Editor",
         "bindings": {
             // "j k": ["workspace::SendKeystrokes", "escape"]
