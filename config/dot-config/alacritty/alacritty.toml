@@ -1,6 +1,6 @@
 
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono NerdFont", style = "Regular" }
 size = 12
 
 [font.offset]
@@ -36,6 +36,4 @@ option_as_alt = "Both"
 
 [general]
 live_config_reload = true
-import = [
-    "~/.config/alacritty/themes/themes/everforest_dark.toml"
-]
+import = ["~/.config/alacritty/themes/themes/everforest_dark.toml"]
