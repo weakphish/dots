@@ -10,14 +10,21 @@
     "assistant": {
         "default_model": {
             "provider": "copilot_chat",
-            "model": "claude-3-5-sonnet"
+            "model": "claude-3.7-sonnet-thought"
         },
         "version": "2"
+    },
+    "features": {
+        "edit_prediction_provider": "copilot"
     },
     "outline_panel": {
         "dock": "right"
     },
     "vim_mode": true,
+    "vim": {
+        "toggle_relative_line_numbers": true,
+        "use_system_clipboard": "on_yank"
+    },
     "relative_line_numbers": true,
     "wrap_guides": [120],
     "inlay_hints": {
@@ -28,6 +35,15 @@
         "show_parameter_hints": true,
         // Corresponds to null/None LSP hint type value.
         "show_other_hints": true
+    },
+    "diagnostics": {
+        // Whether to show warnings or not by default.
+        "include_warnings": true,
+        // Settings for inline diagnostics
+        "inline": {
+            // Whether to show diagnostics inline or not
+            "enabled": true
+        }
     },
     "tab_size": 4,
 
@@ -51,7 +67,7 @@
             "tab_size": 2
         },
         "Python": {
-            "language_servers": ["pyright", "ruff"],
+            "language_servers": ["basedpyright", "ruff"],
             "format_on_save": "on",
             "formatter": [
                 {
@@ -72,9 +88,9 @@
 
     // LSP-specific settings
     "lsp": {
-        "pyright": {
+        "basedpyright": {
             "settings": {
-                "python.analysis": {
+                "basedpyright.analysis": {
                     "diagnosticMode": "workspace",
                     "typeCheckingMode": "standard"
                 },
