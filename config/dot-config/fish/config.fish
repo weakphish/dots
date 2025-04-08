@@ -17,6 +17,12 @@ alias ls lsd
 alias la "lsd -la"
 alias cat bat
 
+# OS-specific Aliases
+switch (uname)
+    case Linux
+        alias pacs "pacman -S"
+end
+
 # VS Code integration
 string match -q "$TERM_PROGRAM" vscode
 and . (code --locate-shell-integration-path fish)
