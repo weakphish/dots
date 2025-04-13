@@ -8,7 +8,7 @@ At work, I use MacOS primarily, but the tools listed below I use both at work an
  
 **Shell:** Fish
 
-**Terminal:** Ghostty on macOS, Windows Terminal on Windows.
+**Terminal:** Ghostty on macOS/Linux, Windows Terminal on Windows.
 
 **Git Porcelain:** LazyGit
 
