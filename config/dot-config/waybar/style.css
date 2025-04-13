@@ -7,7 +7,7 @@
 }
 
 #waybar {
-	background: transparent;
+    background: transparent;
 }
 
 #custom-date, #clock, #battery, #pulseaudio, #network, #language, #backlight {
