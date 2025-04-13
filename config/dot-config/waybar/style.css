@@ -42,8 +42,8 @@ window#waybar {
 #workspaces button:hover {
     box-shadow: inherit;
     text-shadow: inherit;
-    color: #1e1e2e;
-    background-color: #cdd6f4;
+    color: #232a2e;
+    background-color: #d3c6aa;
 }
 
 #workspaces button.urgent {
