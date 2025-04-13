@@ -1,28 +1,61 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono Nerd Font; 
-    font-size: 14px;
     min-height: 0;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
 }
 
-#waybar {
-    background: transparent;
+window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+#workspaces {
+    background-color: transparent;
+}
+
+#waybar.hidden {
+    opacity: 0.5;
+}
+
+#workspaces button {
+    all: initial;
+    /* Remove GTK theme values (waybar #1351) */
+    min-width: 0;
+    /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    padding: 6px 18px;
+    margin: 6px 3px;
+    border-radius: 4px;
+    background-color: #232a2e;
+    color: #d3c5aa;
 }
 
 #workspaces button.active {
-    background-color: #64727D;
-    /* box-shadow: inset 0 -3px #ffffff;   */
-    border-radius: 5px;
+    color: #232a2e;
+    background-color: #a7c080;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #1e1e2e;
+    background-color: #cdd6f4;
+}
+
+#workspaces button.urgent {
+    background-color: #e67e80;
 }
 
 #custom-date, #clock, #battery, #pulseaudio, #network, #language, #backlight {
-    background-color: rgba(46, 52, 64, 0.7);
+    background-color: #232a2e;
     padding: 5px 10px;
     margin: 5px 0px;
-    color: #9DA9A0;
+    color: #d3c6aa;
 }
-
 
 #custom-power {
     border-radius: 5px;
