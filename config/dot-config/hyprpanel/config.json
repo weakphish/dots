@@ -390,14 +390,8 @@
   "menus.clock.time.hideSeconds": true,
   "bar.layouts": {
     "0": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
+      "left": ["dashboard", "workspaces", "submap", "windowtitle"],
+      "middle": ["media"],
       "right": [
         "volume",
         "network",
@@ -408,34 +402,19 @@
       ]
     },
     "1": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "clock",
-        "notifications"
-      ]
+      "left": ["dashboard", "workspaces", "windowtitle"],
+      "middle": ["media"],
+      "right": ["volume", "clock", "notifications"]
     },
     "2": {
-      "left": [
-        "dashboard",
-        "workspaces",
-        "windowtitle"
-      ],
-      "middle": [
-        "media"
-      ],
-      "right": [
-        "volume",
-        "clock",
-        "notifications"
-      ]
+      "left": ["dashboard", "workspaces", "windowtitle"],
+      "middle": ["media"],
+      "right": ["volume", "clock", "notifications"]
     }
-  }
+  },
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.showWsIcons": true,
+  "bar.workspaces.showApplicationIcons": true
 }
+

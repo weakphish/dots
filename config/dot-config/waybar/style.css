@@ -1,9 +1,6 @@
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 13px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 13px;
 }
 
 window#waybar {
@@ -12,65 +9,55 @@ window#waybar {
   transition-duration: 0.5s;
 }
 
-#workspaces {
-    background-color: transparent;
-}
-
-#waybar.hidden {
-    opacity: 0.5;
-}
-
+#submap,
 #workspaces button {
-    all: initial;
-    /* Remove GTK theme values (waybar #1351) */
-    min-width: 0;
-    /* Fix weird spacing in materia (waybar #450) */
-    box-shadow: inset 0 -3px transparent;
-    /* Use box-shadow instead of border so the text isn't offset */
-    padding: 6px 18px;
-    margin: 6px 3px;
-    border-radius: 4px;
-    background-color: #232a2e;
-    color: #d3c5aa;
+  all: initial;
+  /* Remove GTK theme values (waybar #1351) */
+  min-width: 0;
+  /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  padding: 6px 18px;
+  margin: 6px 3px;
+  border-radius: 5px;
+  background-color: #232a2e;
+  color: #d3c5aa;
 }
 
+/* Make active workspace button and hover have colors */
 #workspaces button.active {
-    color: #232a2e;
-    background-color: #a7c080;
+  color: #232a2e;
+  background-color: #a7c080;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    color: #232a2e;
-    background-color: #d3c6aa;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #232a2e;
+  background-color: #d3c6aa;
 }
 
 #workspaces button.urgent {
-    background-color: #e67e80;
+  background-color: #e67e80;
 }
 
-#custom-date, #clock, #battery, #pulseaudio, #network, #language, #backlight {
-    background-color: #232a2e;
-    padding: 5px 10px;
-    margin: 5px 0px;
-    color: #d3c6aa;
-}
-
-#custom-power {
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 0px;
-    padding: 5px 10px;
-}
-
-#clock {
-    border-radius: 0px 5px 5px 0px;
-    margin-right: 10px;
-}
-
+/* Style normal tray modules */
+#pulseaudio,
+#clock,
 #network {
-    border-radius: 5px 0px 0px 5px;
+  background-color: #232a2e;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px 0px;
+  color: #d3c6aa;
+}
+
+/* Add margin to right of clock, since it's last */
+#clock {
+  margin-right: 5px;
+}
+
+/** The wifi icon somehow requires more padding to look right */
+#network {
+  padding-right: 15px;
 }
