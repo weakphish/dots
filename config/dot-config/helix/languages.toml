@@ -30,8 +30,6 @@ diagnosticMode = "workspace"  # "openFilesOnly"
 useLibraryCodeForTypes = true
 autoImportCompletions = true
 typeCheckingMode = "standard" #"recommended"
-disableTaggedHints = true
-
 
 # ########################################
 # # https://docs.astral.sh/ruff/settings
