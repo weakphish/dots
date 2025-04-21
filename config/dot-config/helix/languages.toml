@@ -8,7 +8,8 @@ name = "python"
 language-id = "python"
 auto-format = true
 language-servers = ["basedpyright", "ruff"]
-formatter = { command = "black", args = ["-"] }
+# formatter = { command = "black", args = ["-"] }
+formatter = { command = "sh", args = ["-c", "black --quiet - | isort -"]}
 file-types = ["py", "ipynb"]
 comment-token = "#"
 shebangs = ["python"]
