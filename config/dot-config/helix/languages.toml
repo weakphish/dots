@@ -1,22 +1,55 @@
 # === LSP Configs ===
 # Python
+########################################
+# LANGUAGE: PYTHON
+#########################################
 [[language]]
 name = "python"
-roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
-language-servers = [
-  { name = "ruff", only-features = [ "diagnostics" ] },
-  { name = "pyright", except-features = [ "format", "diagnostics" ] },
-]
-formatter = { command = "bash", args = ["-c", "isort - | black -"] }
+language-id = "python"
 auto-format = true
+language-servers = ["basedpyright", "ruff"]
+formatter = { command = "black", args = ["-"] }
+file-types = ["py", "ipynb"]
+comment-token = "#"
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".jj", ".venv/"]
 
-[language-server.pyright]
-command = "pyright-langserver"
+########################################
+# https://docs.basedpyright.com/latest/configuration/language-server-settings/
+########################################
+[language-server.basedpyright]
+command = "basedpyright-langserver"
 args = ["--stdio"]
+config.reportMissingtypeStubs = false
+except-features = ["format"]
+
+[language-server.basedpyright.config.basedpyright.analysis]
+autoSearchPaths = true
+diagnosticMode = "workspace"  # "openFilesOnly"
+useLibraryCodeForTypes = true
+autoImportCompletions = true
+typeCheckingMode = "standard" #"recommended"
+disableTaggedHints = true
+
+
+# ########################################
+# # https://docs.astral.sh/ruff/settings
+# ########################################
 
 [language-server.ruff]
 command = "ruff"
-args = ["server"]
+args = ["server", "--preview"]
+preview = true
+show-fixes = true
+include = ["*.py"]
+fix = true                     # TODO 
+
+[language-server.ruff.config.settings]
+lineLength = 80
+logLevel = "debug"
+
+[language-server.ruff.analyze]
+detect-string-imports = true
 
 # JS/TS
 # TypeScript
