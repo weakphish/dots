@@ -4,8 +4,11 @@
 
 At work, I use MacOS primarily, but the tools listed below I use both at work and at home.
 
-**Code Editor**: Neovim, with JetBrains IDEs for large refactors/debugging. I've also been experimenting with using Zed, which has caught my attention
+**Code Editor**: Neovim, with VS Code for large refactors/debugging/anything Neovim struggles with.
+
+I've also been experimenting with using Zed, which has caught my attention
 as a performant alternative to VS Code that also has cleaner Vim integration.
+
 **Shell:** Fish
 
 **Terminal:** Ghostty on macOS/Linux, Windows Terminal on Windows.
