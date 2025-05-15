@@ -18,3 +18,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.softtabstop = 4
   end,
 })
+
+-- Disable autoformat for YAML and Markdown files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "md", "yml", "yaml" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
