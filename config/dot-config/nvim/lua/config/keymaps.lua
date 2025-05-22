@@ -13,7 +13,3 @@ end
 
 vim.api.nvim_create_user_command("RunMyPyEF", run_mypy_with_errorformat, { desc = "Run MyPy with errorformat" })
 vim.keymap.set("n", "<leader>cp", ":RunMyPyEF<CR>", { desc = "Run MyPy with errorformat" })
-
--- Obsidian
-vim.keymap.set("n", "<leader>ot", ":ObsidianToday<CR>", { desc = "Today's Daily Note" })
-vim.keymap.set("n", "<leader>oy", ":ObsidianYesterday<CR>", { desc = "Yesterday's Daily Note" })
