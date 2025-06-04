@@ -54,12 +54,21 @@
     },
     "tab_size": 4,
 
+    "terminal": {
+        "font_family": "JetBrainsMono Nerd Font",
+        "shell": {
+            "program": "fish"
+        },
+        "detect_venv": {
+            "on": {
+                "activate_script": "fish"
+            }
+        }
+    },
+
     // Fonts & theming
     "buffer_font_family": "JetBrains Mono",
     "buffer_font_size": 13,
-    "terminal": {
-        "font_family": "JetBrainsMono Nerd Font"
-    },
     "theme": {
         "mode": "system",
         "light": "Gruvbox Dark",
