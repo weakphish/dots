@@ -4,7 +4,7 @@
 
 At work, I use MacOS primarily, but the tools listed below I use both at work and at home.
 
-**Code Editor**: Neovim, with VS Code for large refactors/debugging/anything Neovim struggles with.
+**Code Editor**: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
 
 I've also been experimenting with using Zed, which has caught my attention
 as a performant alternative to VS Code that also has cleaner Vim integration.
@@ -33,6 +33,12 @@ various related tools, since using a Tiling WM often means configuring a lot of 
 that you generally take for granted.
 
 Also included are Kvantum and GTK themes, as I like Everforest a lot.
+
+## Game Development
+For game development projects, I tend to stick to Godot. I use VS Code to edit GDScript, just because the built-in editor
+is pretty basic, and I couldn't get Neovim to work with Godot reasonably well.
+
+For C#, I use JetBrains Rider.
 
 # Usage
 
