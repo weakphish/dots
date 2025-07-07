@@ -1,4 +1,3 @@
-theme = Everforest Dark - Hard
-
+theme = gruvboxdark
 keybind = global:cmd+shift+space=toggle_quick_terminal
 quick-terminal-animation-duration = 0.1
