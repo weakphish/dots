@@ -10,6 +10,7 @@ return {
     config = function()
       require("everforest").setup({
         -- Your config here
+        background = "hard",
       })
       require("everforest").load()
     end,
