@@ -18,6 +18,10 @@ return {
     -- see below for full list of optional dependencies 👇
   },
   opts = {
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "daily",
+    },
     workspaces = {
       {
         name = "personal",
