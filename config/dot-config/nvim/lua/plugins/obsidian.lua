@@ -1,5 +1,5 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = false,
   ft = "markdown",
@@ -15,8 +15,10 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
 
-    -- see below for full list of optional dependencies 👇
+    -- see above for full list of optional dependencies ☝️
   },
+  ---@module 'obsidian'
+  ---@type obsidian.config
   opts = {
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
@@ -24,13 +26,20 @@ return {
     },
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/personal",
-      },
-      {
         name = "work",
         path = "~/vaults/work",
       },
+    },
+
+    completion = {
+      -- Enables completion using nvim_cmp
+      nvim_cmp = false,
+      -- Enables completion using blink.cmp
+      blink = true,
+    },
+    picker = {
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
+      name = "fzf-lua",
     },
   },
 }
