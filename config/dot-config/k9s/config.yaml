@@ -1,5 +1,5 @@
 # $XDG_CONFIG_HOME/k9s/config.yaml
 # Global skin is specified
-k9s:
-  ui:
-    skin: everforest-dark # => All clusters will use this skin unless otherwise specified in the context configuration file
+# k9s:
+#   ui:
+#     skin: everforest-dark # => All clusters will use this skin unless otherwise specified in the context configuration file
