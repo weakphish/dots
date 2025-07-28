@@ -1,3 +1,3 @@
-theme = Kanagawa Wave
+theme = Everforest Dark - Hard
 keybind = global:cmd+shift+space=toggle_quick_terminal
 quick-terminal-animation-duration = 0.1

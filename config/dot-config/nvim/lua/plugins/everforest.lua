@@ -12,7 +12,7 @@ return {
         -- Your config here
         background = "hard",
       })
-      -- require("everforest").load()
+      require("everforest").load()
     end,
   },
 }
