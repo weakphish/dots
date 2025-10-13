@@ -10,7 +10,7 @@ return {
 		{
 			"<leader>xt",
 			"<cmd>Trouble todo<cr>",
-			desc = "TODOs (Trouble)",
+			desc = "[T]ODOs (Trouble)",
 		},
 	},
 }

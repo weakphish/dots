@@ -3,9 +3,24 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
+	keys = {
+		{
+			"<leader>bo",
+			"<cmd>BufferLinePick<CR>",
+			desc = "[O]pen Buffer",
+		},
+		{
+			"<leader>bn",
+			"<cmd>BufferLineCycleNext<CR>",
+			desc = "[N]ext Buffer",
+		},
+		{
+			"<leader>bp",
+			"<cmd>BufferLineCyclePrevious<CR>",
+			desc = "[P]revious Buffer",
+		},
+	},
 	config = function()
-		vim.opt.termguicolors = true
 		require("bufferline").setup({})
-		vim.keymap.set("n", "<leader>bo", "<cmd>BufferLinePick<CR>", { desc = "Open Buffer", remap = true })
 	end,
 }

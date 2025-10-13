@@ -95,8 +95,15 @@ return {
 					{ mode = "n", keys = "<Leader>c", desc = "+Code" },
 					{ mode = "n", keys = "<Leader>f", desc = "+Files" },
 					{ mode = "n", keys = "<Leader>l", desc = "+LSP" },
+					{ mode = "n", keys = "<Leader>m", desc = "+Sessions" },
 					{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
 					{ mode = "n", keys = "<Leader>s", desc = "+Search" },
+					{ mode = "n", keys = "<Leader>x", desc = "+Trouble" },
+				},
+				-- Clue window settings
+				window = {
+					-- Delay before showing clue window
+					delay = 500,
 				},
 			})
 
@@ -116,6 +123,28 @@ return {
 
 			-- Autopairs pls
 			require("mini.pairs").setup()
+
+			-- Sessions!
+			require("mini.sessions").setup()
+			vim.keymap.set("n", "<Leader>ms", "<Cmd>lua MiniSessions.select()<CR>", { desc = "[S]elect session" })
+			vim.keymap.set(
+				"n",
+				"<Leader>md",
+				"<Cmd>lua MiniSessions.select('delete')<CR>",
+				{ desc = "[D]elete session" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>mw",
+				'<Cmd>lua MiniSessions.write(vim.fn.input("Session Name > "))<CR>',
+				{ desc = "[W]rite session" }
+			)
+
+			-- Indent lines
+			require("mini.indentscope").setup()
+
+			-- Notifications
+			require("mini.notify").setup()
 		end,
 	},
 }
