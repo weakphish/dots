@@ -17,5 +17,6 @@ return {
 		{ "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "Workspace Symbols" },
 		{ "<leader>si", "<cmd>FzfLua lsp_incoming_calls<cr>", desc = "Incoming Calls" },
 		{ "<leader>so", "<cmd>FzfLua lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
+		{ "<leader>sj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
 	},
 }
