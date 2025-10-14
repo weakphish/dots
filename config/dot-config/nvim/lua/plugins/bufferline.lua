@@ -2,6 +2,7 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
+	lazy = false,
 	dependencies = "nvim-tree/nvim-web-devicons",
 	keys = {
 		{
@@ -16,7 +17,7 @@ return {
 		},
 		{
 			"<leader>bp",
-			"<cmd>BufferLineCyclePrevious<CR>",
+			"<cmd>BufferLineCyclePrev<CR>",
 			desc = "[P]revious Buffer",
 		},
 	},

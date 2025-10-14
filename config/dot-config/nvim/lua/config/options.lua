@@ -5,6 +5,8 @@ vim.opt.termguicolors = true
 vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.tabstop = 4 -- size of a tab
 
+vim.opt.conceallevel = 1
+
 vim.wo.number = true
 vim.wo.relativenumber = true -- Relative line numbers
 

@@ -7,4 +7,18 @@ require("config.autocmds")
 
 -- Load LSP
 vim.lsp.enable("basedpyright")
+vim.lsp.config("basedpyright", {
+	-- Override type checking mode, and do full workspace diagnostics
+	settings = {
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "standard",
+				diagnosticMode = "workspace",
+			},
+		},
+	},
+})
 vim.lsp.enable("ruff")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("gopls")
+vim.lsp.enable("lua_ls")

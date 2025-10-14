@@ -94,6 +94,7 @@ return {
 					{ mode = "n", keys = "<Leader>b", desc = "+Buffers" },
 					{ mode = "n", keys = "<Leader>c", desc = "+Code" },
 					{ mode = "n", keys = "<Leader>f", desc = "+Files" },
+					{ mode = "n", keys = "<Leader>g", desc = "+Git" },
 					{ mode = "n", keys = "<Leader>l", desc = "+LSP" },
 					{ mode = "n", keys = "<Leader>m", desc = "+Sessions" },
 					{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
@@ -113,6 +114,7 @@ return {
 			vim.keymap.set("n", "<Leader>ff", ":Pick files<CR>", { desc = "Pick file" })
 			vim.keymap.set("n", "<Leader>fe", ":Pick explorer<CR>", { desc = "Explorer" })
 			vim.keymap.set("n", "<Leader>sg", ":Pick grep_live<CR>", { desc = "Live Grep" })
+			vim.keymap.set("n", "<Leader>ss", ":Pick lsp scope='document_symbol'", { desc = "Symbols" })
 
 			-- Add extra mini features, like more pickers
 			require("mini.extra").setup()
@@ -141,7 +143,13 @@ return {
 			)
 
 			-- Indent lines
-			require("mini.indentscope").setup()
+			require("mini.indentscope").setup({
+				draw = {
+					animation = function()
+						return 0
+					end,
+				},
+			})
 
 			-- Notifications
 			require("mini.notify").setup()
