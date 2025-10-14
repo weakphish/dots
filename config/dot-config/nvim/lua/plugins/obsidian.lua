@@ -23,7 +23,7 @@ return {
 		},
 		picker = {
 			-- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
-			name = "mini.pick",
+			name = "fzf-lua",
 		},
 	},
 	keys = {

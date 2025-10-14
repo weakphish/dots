@@ -108,16 +108,16 @@ return {
 				},
 			})
 
-			-- File picker/general picker!
-			require("mini.pick").setup()
-			vim.keymap.set("n", "<Leader>bb", ":Pick buffers<CR>", { desc = "Pick buffer" })
-			vim.keymap.set("n", "<Leader>ff", ":Pick files<CR>", { desc = "Pick file" })
-			vim.keymap.set("n", "<Leader>fe", ":Pick explorer<CR>", { desc = "Explorer" })
-			vim.keymap.set("n", "<Leader>sg", ":Pick grep_live<CR>", { desc = "Live Grep" })
-			vim.keymap.set("n", "<Leader>ss", ":Pick lsp scope='document_symbol'", { desc = "Symbols" })
-
+			-- -- File picker/general picker!
+			-- require("mini.pick").setup()
+			-- vim.keymap.set("n", "<Leader>bb", ":Pick buffers<CR>", { desc = "Pick buffer" })
+			-- vim.keymap.set("n", "<Leader>ff", ":Pick files<CR>", { desc = "Pick file" })
+			-- vim.keymap.set("n", "<Leader>fe", ":Pick explorer<CR>", { desc = "Explorer" })
+			-- vim.keymap.set("n", "<Leader>sg", ":Pick grep_live<CR>", { desc = "Live Grep" })
+			-- vim.keymap.set("n", "<Leader>ss", ":Pick lsp scope='document_symbol'", { desc = "Symbols" })
+			--
 			-- Add extra mini features, like more pickers
-			require("mini.extra").setup()
+			-- require("mini.extra").setup()
 
 			-- File explorer/manipulator
 			require("mini.files").setup()
