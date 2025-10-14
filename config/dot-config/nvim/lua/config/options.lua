@@ -5,6 +5,10 @@ vim.opt.termguicolors = true
 vim.opt.shiftwidth = 4 -- Size of an indent
 vim.opt.tabstop = 4 -- size of a tab
 
+-- Mostly for Flash's benefit. Ignore case unless an upper-case is added to search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.conceallevel = 1
 
 vim.wo.number = true
