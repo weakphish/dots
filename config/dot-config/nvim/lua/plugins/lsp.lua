@@ -29,5 +29,10 @@ return {
 			"<cmd>lua vim.lsp.buf.references()<CR>",
 			desc = "R[e]ferences",
 		},
+		{
+			"<leader>ch",
+			"<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<>",
+			desc = "Toggle Inlay [H]ints",
+		},
 	},
 }
