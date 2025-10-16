@@ -153,6 +153,9 @@ return {
 
 			-- Notifications
 			require("mini.notify").setup()
+
+			-- Highlight word under cursor
+			require("mini.cursorword").setup()
 		end,
 	},
 }
