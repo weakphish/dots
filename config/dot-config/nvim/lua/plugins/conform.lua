@@ -1,5 +1,8 @@
 return {
 	"stevearc/conform.nvim",
+	keys = {
+		{ "<leader>cf", "<cmd>Format<cr>", desc = "Format buffer" },
+	},
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
