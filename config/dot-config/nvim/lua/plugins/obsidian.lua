@@ -27,7 +27,11 @@ return {
 		},
 	},
 	keys = {
+		{ "<leader>ob", ":Obsidian backlinks<CR>", desc = "Backlinks" },
 		{ "<leader>od", ":Obsidian today<CR>", desc = "Today's Daily Note" },
+		{ "<leader>oD", ":Obsidian tomorrow<CR>", desc = "Tomorrow's Daily Note" },
+		{ "<leader>ol", ":Obsidian links<CR>", desc = "Links In Note" },
+		{ "<leader>ot", ":Obsidian search<CR>", desc = "Search Notes" },
 		{ "<leader>ot", ":Obsidian tags<CR>", desc = "Tags" },
 		{ "<leader>oy", ":Obsidian yesterday<CR>", desc = "Yesterday's Daily Note" },
 	},
