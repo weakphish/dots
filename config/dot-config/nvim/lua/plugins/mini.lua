@@ -99,6 +99,7 @@ return {
 					{ mode = "n", keys = "<Leader>m", desc = "+Sessions" },
 					{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
 					{ mode = "n", keys = "<Leader>s", desc = "+Search" },
+					{ mode = "n", keys = "<Leader>sa", desc = "+Search And Replace" },
 					{ mode = "n", keys = "<Leader>x", desc = "+Trouble" },
 				},
 				-- Clue window settings
