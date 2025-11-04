@@ -9,7 +9,7 @@
   :demand t
   :general
   (leader-keys
-    "s" '(:ignore t :which-key "+avy")))
+    "s s" '(avy-goto-char-2 :which-key "avy")))
 
 
 (provide 'init-avy)

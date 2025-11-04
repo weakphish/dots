@@ -1,30 +1,30 @@
-;;; lsp.el --- LSP/Eglot configuration -*- lexical-binding: t -*-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;;   Eglot, the built-in LSP client for Emacs
+;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Commentary:
-;; Language Server Protocol helpers and bindings separated from init.el.
+;; Helpful resources:
+;;
+;;  - https://www.masteringemacs.org/article/seamlessly-merge-multiple-documentation-sources-eldoc
 
-;;; Code:
+(use-package eglot
+  ;; no :ensure t here because it's built-in
 
-(require 'cl-lib)
+  ;; Configure hooks to automatically turn-on eglot for selected modes
+  :hook
+  (((python-mode go-mode) . eglot-ensure))
 
-;;; Functions
-(defun mode-has-lsp-p ()
-  "Check if MODE (or current major-mode) has an LSP server configured in Eglot."
-  (require 'eglot nil t)
-  (and (buffer-file-name)
-       (ignore-errors (cl-fourth (eglot--guess-contact)))))
+  :custom
+  (eglot-send-changes-idle-time 0.1)
+  (eglot-extend-to-xref t)              ; activate Eglot in referenced non-project files
 
-;;; Packages
-(use-package emacs
-  :hook (zig-mode . eglot-ensure)
-  :hook (rust-mode . eglot-ensure)
-  :hook (go-mode . eglot-ensure)
-  :hook (typescript-mode . eglot-ensure)
-  :general
-  (leader-keys
-    "l" '(:ignore t :which-key "lsp")
-    "l <escape>" '(keyboard-escape-quit :which-key t)
-    "l r" '(eglot-rename :which-key "rename")
-    "l a" '(eglot-code-actions :which-key "code actions")))
+  :config
+  (fset #'jsonrpc--log-event #'ignore)  ; massive perf boost---don't log every event
+  ;; Sometimes you need to tell Eglot where to find the language server
+  ; (add-to-list 'eglot-server-programs
+  ;              '(haskell-mode . ("haskell-language-server-wrapper" "--lsp")))
+  )
+
 
 (provide 'init-lsp)

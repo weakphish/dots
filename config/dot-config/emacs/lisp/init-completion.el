@@ -114,7 +114,8 @@
   :ensure t
   :general 
   (leader-keys
-    "b b" '(consult-buffer :which-key "buffers")     ; orig. switch-to-buffer
+    "b" '(:ignore t :which-key "buffers")            
+    "b b" '(consult-buffer :which-key "buffers")     
     "s g"  '(consult-ripgrep :which-key "grep")
     "f f"  '(consult-find :which-key "files"))
     ;;("M-y"   . consult-yank-pop)   ; orig. yank-pop

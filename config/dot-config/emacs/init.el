@@ -16,11 +16,16 @@
 ;;;  Load my other modules
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.config/emacs/lisp/")
+
 (require 'init-base)
 (require 'init-evil) 
 (require 'init-general)
-(require 'init-functions)
+
 (require 'init-ui)
+
+(require 'init-functions)
+
 (require 'init-completion)
+(require 'init-magit)
 (require 'init-avy)
 (require 'init-lsp)
