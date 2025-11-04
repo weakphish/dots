@@ -16,7 +16,7 @@
 
     ;; Don't show an error because SPC b ESC is undefined, just abort
     "b <escape>" '(keyboard-escape-quit :which-key t)
-    "bd"  '(kill-current-buffer :which-key "Kill Buffer)
+    "bd"  '(kill-current-buffer :which-key "Kill Buffer")
   ))
 
 
