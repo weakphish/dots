@@ -22,6 +22,14 @@
   :ensure t
   :init (doom-modeline-mode 1))
 
+;; MacOS-y toolbar
+(tool-bar-mode -1)
+
+;; FONT
+(set-face-attribute 'default nil
+		    :height 140 ;; 14pt
+		    :family "JetBrainsMono Nerd Font")
+
 (use-package diff-hl)
 (use-package rainbow-delimiters)
 ;; Lazy loading of rainboe del. mode
@@ -36,6 +44,9 @@
 
 (setopt show-trailing-whitespace nil)      ; By default, don't underline trailing spaces
 (setopt indicate-buffer-boundaries 'left)  ; Show buffer top and bottom in the margin
+
+;; Disable scrollbar
+(scroll-bar-mode -1)
 
 ;; Enable horizontal scrolling
 (setopt mouse-wheel-tilt-scroll t)
@@ -54,7 +65,6 @@
 (cua-mode)
 
 ;; For terminal users, make the mouse more useful
-
 (xterm-mouse-mode 1)
 
 ;; Display line numbers in programming mode
