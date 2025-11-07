@@ -86,7 +86,7 @@
     "t 1" '(treemacs-delete-other-windows :which-key "delete other windows")
     "t t"   '(treemacs :which-key "toggle treemacs")
     "t d"   '(treemacs-select-directory :which-key "select directory")
-    "t f" '(treemacs-find-file :which-key "go to this file")
+    "t f" '(treemacs-find-file :which-key "go to this file")))
 
 (use-package treemacs-evil
   :after (treemacs evil)
@@ -113,7 +113,5 @@
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
-
-(treemacs-start-on-boot)
 
 (provide 'init-treemacs)

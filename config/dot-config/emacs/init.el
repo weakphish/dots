@@ -23,8 +23,10 @@
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 
 (require 'init-base)
-(require 'init-evil) 
 (require 'init-general)
+
+(require 'init-org)
+(require 'init-evil) 
 
 (require 'init-ui)
 
@@ -35,26 +37,4 @@
 (require 'init-magit)
 (require 'init-avy)
 (require 'init-lsp)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(image-load-path
-   '("~/.config/emacs/calle24/images"
-     "/Applications/Emacs.app/Contents/Resources/etc/images/"
-     data-directory load-path))
- '(package-selected-packages
-   '(avy calle24 cape corfu-terminal csv-mode diff-hl doom-modeline
-	 doom-themes eat embark-consult evil-collection general
-	 go-mode helpful json-mode kind-icon lua-mode magit marginalia
-	 markdown-mode orderless rainbow-delimiters rust-mode treemacs
-	 treemacs-evil treemacs-icons-dired treemacs-magit
-	 treemacs-persp treemacs-projectile treemacs-tab-bar
-	 treesit-auto typescript-mode vertico wgrep yaml-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+

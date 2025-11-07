@@ -1,86 +1,46 @@
-;;; Emacs Bedrock
-;;;
-;;; Extra config: Org-mode starter config
-
-;;; Usage: Append or require this file from init.el for some software
-;;; development-focused packages.
-;;;
-;;; Org-mode is a fantastically powerful package. It does a lot of things, which
-;;; makes it a little difficult to understand at first.
-;;;
-;;; We will configure Org-mode in phases. Work with each phase as you are
-;;; comfortable.
-;;;
-;;; YOU NEED TO CONFIGURE SOME VARIABLES! The most important variable is the
-;;; `org-directory', which tells org-mode where to look to find your agenda
-;;; files.
-
-;;; See "org-intro.txt" for a high-level overview.
-
-;;; Contents:
-;;;
-;;;  - Critical variables
-;;;  - Phase 1: editing and exporting files
-;;;  - Phase 2: todos, agenda generation, and task tracking
-;;;  - Phase 3: extensions (org-roam, etc.)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;;   Critical variables
-;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; These variables need to be set for Org-mode's full power to be unlocked!
-;;;
-;;; You can read the documentation for any variable with `C-h v'. If you have
-;;; Consult configured (see the `base.el' file) then it should help you find
-;;; what you're looking for.
-
-;;; Phase 1 variables
-
-;;; Phase 2 variables
-
 ;; Agenda variables
 (setq org-directory "~/org/") ; Non-absolute paths for agenda and capture templates will look here.
 
-(setq org-agenda-files '("inbox.org" "daily.org"))
+(setq org-agenda-files '("inbox.org" "work-log.org" "todo.org"))
 
 ;; Default tags
-(setq org-tag-alist '(
-                      ;; locale
-                      (:startgroup)
-                      ("work" . ?w)
-                      (:endgroup)
-                      (:newline)
-                      ;; scale
-                      (:startgroup)
-                      ("one-shot" . ?o)
-                      ("project" . ?j)
-                      ("tiny" . ?t)
-                      (:endgroup)
-                      ;; misc
-                      ("meta")
-                      ("review")
-                      ("reading")))
+(setq org-tag-alist
+      '(
+        ;; locale
+	(:startgroup)
+	("work" . ?w)
+	(:endgroup)
+	(:newline)
+	;; scale
+	(:startgroup)
+	("one-shot" . ?o)
+	("project" . ?j)
+	("tiny" . ?t)
+	(:endgroup)
+	;; misc
+	("meta")
+	("review")
+	("reading")))
 
 ;; Org-refile: where should org-refile look?
-(setq org-refile-targets 'FIXME)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;;   Phase 1: editing and exporting files
-;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq org-refile-targets '(
+			   ("todo.org" :maxlevel . 3)
+			   ("work-log.org" :maxlevel . 9)))
 
 (use-package org
   :hook ((org-mode . visual-line-mode)  ; wrap lines at word breaks
          (org-mode . flyspell-mode))    ; spell checking!
 
-  :bind (:map global-map
-              ("C-c l s" . org-store-link)          ; Mnemonic: link → store
-              ("C-c l i" . org-insert-link-global)) ; Mnemonic: link → insert
+  :general
+  (leader-keys
+    "o" '(:ignore t :which-key "org")
+    "o c" '(org-capture :which-key "capture")
+    "o a" '(org-agenda :which-key "agenda")
+    "o l" '(:ignore t :which-key "links")
+    "o l s" '(org-store-link)        
+    "o l i" '(org-insert-link-global))
+
   :config
-  (require 'oc-csl)                     ; citation support
   (add-to-list 'org-export-backends 'md)
 
   ;; Make org-open-at-point follow file links in the same window
@@ -88,19 +48,6 @@
 
   ;; Make exporting quotes better
   (setq org-export-with-smart-quotes t)
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
-;;;   Phase 2: todos, agenda generation, and task tracking
-;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Yes, you can have multiple use-package declarations. It's best if their
-;; configs don't overlap. Once you've reached Phase 2, I'd recommend merging the
-;; config from Phase 1. I've broken it up here for the sake of clarity.
-(use-package org
-  :config
   ;; Instead of just two states (TODO, DONE) we set up a few different states
   ;; that a task can be in. Run
   ;;     M-x describe-variable RET org-todo-keywords RET
@@ -113,24 +60,36 @@
   (setq org-refile-use-outline-path 'file)
 
   (setq org-capture-templates
-        '(("c" "Default Capture" entry (file "inbox.org")
-           "* TODO %?\n%U\n%i")
-          ;; Capture and keep an org-link to the thing we're currently working with
-          ("r" "Capture with Reference" entry (file "inbox.org")
-           "* TODO %?\n%U\n%i\n%a")
-          ;; Define a section
-          ("w" "Work")
-          ("wm" "Work meeting" entry (file+headline "work.org" "Meetings")
-           "** TODO %?\n%U\n%i\n%a")
-          ("wr" "Work report" entry (file+headline "work.org" "Reports")
-           "** TODO %?\n%U\n%i\n%a")))
+    '(
+	("c" "Default Capture" entry (file "inbox.org") "* %?\n%U\n%i")
+	;; Capture and keep an org-link to the thing we're currently working with
+	("r" "Capture with Reference" entry (file "inbox.org") "* TODO %?\n%U\n%i\n%a")
+	;; Define a section
+	("w" "Work")
+	("wm" "Work Meeting" entry (file+olp+datetree "work-log.org") "* Meeting - %?\n%T\n")
+	("wj" "Work Log Entry" entry (file+olp+datetree "work-log.org") "* %?\n%U\n%i\n%a" :empty-lines 0)
+	("wt" "TODO" entry (file "inbox.org") "* TODO %?\n%U\n%i")))
 
-  ;; An agenda view lets you see your TODO items filtered and
-  ;; formatted in different ways. You can have multiple agenda views;
-  ;; please see the org-mode documentation for more information.
-  (setq org-agenda-custom-commands
-        '(("n" "Agenda and All Todos"
-           ((agenda)
-            (todo)))
-          ("w" "Work" agenda ""
-           ((org-agenda-files '("work.org")))))))
+    ;; An agenda view lets you see your TODO items filtered and
+    ;; formatted in different ways. You can have multiple agenda views;
+    ;; please see the org-mode documentation for more information.
+    (setq org-agenda-custom-commands
+	'(
+	    ("n" "Agenda and All Todos"
+		(
+		    (agenda)
+		    (todo)
+		    )
+	    )
+	    ("w" "Work" agenda ""
+		(
+		    (org-agenda-files
+			'("work.org")
+		     )
+		)
+	    )
+	)
+    )
+)
+
+(provide 'init-org)
