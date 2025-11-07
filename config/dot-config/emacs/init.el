@@ -29,6 +29,7 @@
 (require 'init-evil) 
 
 (require 'init-ui)
+(require 'init-centaur)
 
 (require 'init-functions)
 

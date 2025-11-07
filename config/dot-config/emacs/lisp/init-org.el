@@ -6,26 +6,27 @@
 ;; Default tags
 (setq org-tag-alist
       '(
-        ;; locale
+        ;; Work type
 	(:startgroup)
-	("work" . ?w)
+	("devops" . ?d)
+	("appdev" . ?a)
 	(:endgroup)
 	(:newline)
-	;; scale
+	;; Scale
 	(:startgroup)
 	("one-shot" . ?o)
 	("project" . ?j)
 	("tiny" . ?t)
 	(:endgroup)
-	;; misc
+	;; Misc
 	("meta")
 	("review")
 	("reading")))
 
 ;; Org-refile: where should org-refile look?
-(setq org-refile-targets '(
-			   ("todo.org" :maxlevel . 3)
-			   ("work-log.org" :maxlevel . 9)))
+(setq org-refile-targets
+    '(("todo.org" :maxlevel . 3)
+      ("work-log.org" :maxlevel . 9)))
 
 (use-package org
   :hook ((org-mode . visual-line-mode)  ; wrap lines at word breaks
@@ -46,6 +47,18 @@
   ;; Make org-open-at-point follow file links in the same window
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
+  ;; When a TODO is set to a done state, record a timestamp
+  (setq org-log-done 'time)
+
+  ;; Make the indentation look nicer
+  (add-hook 'org-mode-hook 'org-indent-mode)
+
+  ;; Hide the markers so you just see bold text as BOLD-TEXT and not *BOLD-TEXT*
+  (setq org-hide-emphasis-markers t)
+
+  ;; Wrap the lines in org mode so that things are easier to read
+  (add-hook 'org-mode-hook 'visual-line-mode)
+
   ;; Make exporting quotes better
   (setq org-export-with-smart-quotes t)
   ;; Instead of just two states (TODO, DONE) we set up a few different states
@@ -65,31 +78,15 @@
 	;; Capture and keep an org-link to the thing we're currently working with
 	("r" "Capture with Reference" entry (file "inbox.org") "* TODO %?\n%U\n%i\n%a")
 	;; Define a section
-	("w" "Work")
-	("wm" "Work Meeting" entry (file+olp+datetree "work-log.org") "* Meeting - %?\n%T\n")
-	("wj" "Work Log Entry" entry (file+olp+datetree "work-log.org") "* %?\n%U\n%i\n%a" :empty-lines 0)
-	("wt" "TODO" entry (file "inbox.org") "* TODO %?\n%U\n%i")))
+	("m" "Work Meeting" entry (file+olp+datetree "work-log.org") "* %? :meeting:\n%T\n")
+	("j" "Work Log Entry" entry (file+olp+datetree "work-log.org") "* %?\n%U\n%i\n%a" :empty-lines 0)
+	("t" "TODO" entry (file "inbox.org") "* TODO %?\n%U\n%i")))
 
     ;; An agenda view lets you see your TODO items filtered and
     ;; formatted in different ways. You can have multiple agenda views;
     ;; please see the org-mode documentation for more information.
     (setq org-agenda-custom-commands
 	'(
-	    ("n" "Agenda and All Todos"
-		(
-		    (agenda)
-		    (todo)
-		    )
-	    )
-	    ("w" "Work" agenda ""
-		(
-		    (org-agenda-files
-			'("work.org")
-		     )
-		)
-	    )
-	)
-    )
-)
+	    ("n" "Agenda and All Todos" ((agenda) (todo))))))
 
 (provide 'init-org)

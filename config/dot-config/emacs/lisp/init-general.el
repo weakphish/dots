@@ -16,8 +16,12 @@
 
     ;; Don't show an error because SPC b ESC is undefined, just abort
     "b <escape>" '(keyboard-escape-quit :which-key t)
-    "bd"  '(kill-current-buffer :which-key "Kill Buffer")
-  ))
+    "b d"  '(kill-current-buffer :which-key "Kill Buffer")
+
+    ;; Project switching
+    "p" '(:ignore t :which-key "project")
+    "p p" '(projectile-switch-project :which-key "switch project")
+    "p a" '(projectile-add-known-project :which-key "add project")))
 
 
 (provide 'init-general)
