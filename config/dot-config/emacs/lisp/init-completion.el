@@ -125,6 +125,9 @@
     "b" '(:ignore t :which-key "buffers")            
     "b b" '(consult-buffer :which-key "buffers")     
     "s g"  '(consult-ripgrep :which-key "grep")
+    "s r"  '(consult-register :which-key "registers")
+    "s j"  '(evil-collection-consult-jump-list :which-key "jump list")
+    "f" '(:ignore t :which-key "files")            
     "f f"  '(consult-find :which-key "files"))
     ;;("M-y"   . consult-yank-pop)   ; orig. yank-pop
     ;; Searching

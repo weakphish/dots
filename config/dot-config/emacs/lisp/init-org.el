@@ -35,6 +35,7 @@
   :general
   (leader-keys
     "o" '(:ignore t :which-key "org")
+    "o s" '(consult-org-agenda :which-key "search agenda headings")
     "o c" '(org-capture :which-key "capture")
     "o a" '(org-agenda :which-key "agenda")
     "o l" '(:ignore t :which-key "links")

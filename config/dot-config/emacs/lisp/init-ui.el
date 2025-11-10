@@ -30,10 +30,21 @@
 		    :height 140 ;; 14pt
 		    :family "JetBrainsMono Nerd Font")
 
+;; Diff highlighting
 (use-package diff-hl)
+
+;; Rainbow highlights!
 (use-package rainbow-delimiters)
 ;; Lazy loading of rainboe del. mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Make eldoc appear in a temp box
+(use-package eldoc-box
+  :ensure t
+  :general
+  (leader-keys 
+    "k" 'eldoc-box-eglot-help-at-point))
+
 
 ;; Mode line information
 (setopt line-number-mode t)                        ; Show current line in modeline
