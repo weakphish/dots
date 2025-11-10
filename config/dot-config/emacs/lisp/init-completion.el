@@ -56,11 +56,14 @@
   :ensure t
   :init
   (global-corfu-mode)
-  :bind
+  :bind ;; TODO: general-ize
   (:map corfu-map
         ("SPC" . corfu-insert-separator)
         ("C-n" . corfu-next)
-        ("C-p" . corfu-previous)))
+        ("C-p" . corfu-previous))
+  :custom
+  ;; Enable auto completion, configure delay, trigger and quitting
+  (corfu-auto t))
 
 ;; Part of corfu
 (use-package corfu-popupinfo
@@ -72,6 +75,12 @@
   (corfu-popupinfo-hide nil)
   :config
   (corfu-popupinfo-mode))
+
+;; Avy style selection
+;;(use-package corfu-quick
+;;  :after corfu
+;;  :hook (corfu-mode . corfu-quick-mode)
+;;  :ensure nil)
 
 ;; Make corfu popup come up in terminal overlay
 (use-package corfu-terminal
@@ -93,7 +102,6 @@
   :ensure t
   :config
   (setq completion-styles '(orderless)))
-
 
 ;; Pretty icons for corfu
 (use-package kind-icon
