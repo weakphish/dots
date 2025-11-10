@@ -14,6 +14,9 @@
     "r" '(restart-emacs :which-key "restart emacs")
     "i" '((lambda () (interactive) (find-file user-init-file)) :which-key "open init file")
 
+    "w s" '(window-configuration-to-register :which-key "window config to register")
+    "w l" '(jump-to-register :which-key "load register configuration")
+
     ;; Don't show an error because SPC b ESC is undefined, just abort
     "b <escape>" '(keyboard-escape-quit :which-key t)
     "b d"  '(kill-current-buffer :which-key "Kill Buffer")

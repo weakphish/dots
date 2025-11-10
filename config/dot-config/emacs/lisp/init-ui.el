@@ -43,7 +43,7 @@
   :ensure t
   :general
   (leader-keys 
-    "k" 'eldoc-box-eglot-help-at-point))
+    "k" '(eldoc-box-eglot-help-at-point :which-key "eldoc at point")))
 
 
 ;; Mode line information
