@@ -20,8 +20,8 @@
 
     ;; Project switching
     "p" '(:ignore t :which-key "project")
-    "p p" '(projectile-switch-project :which-key "switch project")
-    "p a" '(projectile-add-known-project :which-key "add project")))
+    "p p" '(project-switch-project :which-key "switch project")))
+    ;;"p a" '(projectile-add-known-project :which-key "add project")))
 
 
 (provide 'init-general)
