@@ -66,6 +66,11 @@
 (use-package python-mode
   :ensure t)
 
+;; Use flymake for Ruff
+(use-package flymake-ruff
+  :ensure t
+  :hook ((python-mode python-ts-mode) . flymake-ruff-load))
+
 (use-package zig-mode
   :ensure t)
 

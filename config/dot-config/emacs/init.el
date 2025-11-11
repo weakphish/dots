@@ -148,6 +148,7 @@ If the new path's directories does not exist, create them."
 ;; Make stuff look pretty
 (require 'init-ui)
 (require 'init-centaur)
+(require 'init-indent)
 
 ;; Oh yeah, add in my custom functions
 (require 'init-functions)

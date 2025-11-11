@@ -13,13 +13,20 @@
 
   ;; Configure hooks to automatically turn-on eglot for selected modes
   :hook
-  (((python-mode go-mode) . eglot-ensure))
+  (((python-mode python-ts-mode go-mode go-ts-mode) . eglot-ensure))
 
   :custom
   (eglot-send-changes-idle-time 0.1)
   (eglot-extend-to-xref t) ; activate Eglot in referenced non-project files
 
   :config
+  ;; Configure Python to use BasedPyright
+  (add-to-list 'eglot-server-programs
+               '((python-mode python-ts-mode)
+  		 "basedpyright-langserver" "--stdio"))
+
+  ;; Configure Go to have inlay hints provided.
+  ;; As seen here: https://www.reddit.com/r/emacs/comments/11bqzvk/comment/ja03s4w/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
   (add-to-list 'eglot-server-programs '((go-mode go-ts-mode) .
 					("gopls" :initializationOptions
 					 (:hints (:parameterNames t
