@@ -10,10 +10,12 @@
     :global-prefix "C-SPC")
 
   (leader-keys
+    ;; Misc keybinds that don't fit into a use-package declaration
     "x" '(execute-extended-command :which-key "execute command")
     "r" '(restart-emacs :which-key "restart emacs")
     "i" '((lambda () (interactive) (find-file user-init-file)) :which-key "open init file")
 
+    "w" '(:ignore t :which-key "window")
     "w s" '(window-configuration-to-register :which-key "window config to register")
     "w l" '(jump-to-register :which-key "load register configuration")
 

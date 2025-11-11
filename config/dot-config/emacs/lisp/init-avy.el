@@ -8,8 +8,8 @@
   :ensure t
   :demand t
   :general
-  (leader-keys
-    "s s" '(avy-goto-char-2 :which-key "avy")))
+  (:states 'normal
+    "s" 'avy-goto-char-2))
 
 
 (provide 'init-avy)

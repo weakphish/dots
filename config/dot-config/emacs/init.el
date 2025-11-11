@@ -136,20 +136,40 @@ If the new path's directories does not exist, create them."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 
+;; Keybindings etc
 (require 'init-general)
 
-(require 'init-org)
+;; I came from Neovim, sue me
 (require 'init-evil) 
 
+;; Helps w/ ADHD
+(require 'init-org)
+
+;; Make stuff look pretty
 (require 'init-ui)
 (require 'init-centaur)
 
+;; Oh yeah, add in my custom functions
 (require 'init-functions)
 
+;; Add support for different programming languages
 (require 'init-language)
+
+;; I'm too dumb to memorize function signatures
 (require 'init-completion)
+
+;; ... and too dumb to remember where things are...
+(require 'init-consult)
+
+;; ... and too dumb to remember the file tree...
 (require 'init-treemacs)
+
+;; ... and too dumb to remember the Git CLI...
 (require 'init-magit)
+
+;; ... and too dumb to remember all the complicated Vim motions...
 (require 'init-avy)
+
+;; ... and too dumb to remember syntax.
 (require 'init-lsp)
 
