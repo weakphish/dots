@@ -80,14 +80,23 @@
 	("r" "Capture with Reference" entry (file "inbox.org") "* TODO %?\n%U\n%i\n%a")
 	;; Define a section
 	("m" "Work Meeting" entry (file+olp+datetree "work-log.org") "* %? :meeting:\n%T\n")
-	("j" "Work Log Entry" entry (file+olp+datetree "work-log.org") "* %?\n%U\n%i\n%a" :empty-lines 0)
+	("j" "Work Log Entry" entry (file+olp+datetree "work-log.org") "* %U %?\n%i\n%a" :empty-lines 0)
 	("t" "TODO" entry (file "inbox.org") "* TODO %?\n%U\n%i\n%a" :empty-lines 0)))
 
     ;; An agenda view lets you see your TODO items filtered and
     ;; formatted in different ways. You can have multiple agenda views;
     ;; please see the org-mode documentation for more information.
     (setq org-agenda-custom-commands
-	'(
+	  '(
 	    ("n" "Agenda and All Todos" ((agenda) (todo))))))
+
+;; Evil binds in org
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 (provide 'init-org)

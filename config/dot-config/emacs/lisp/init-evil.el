@@ -14,6 +14,8 @@
 (use-package evil-collection
   :after evil
   :ensure t
+  :custom
+  (evil-collection-calendar-want-org-bindings t)
   :config
   (evil-collection-init))
 
