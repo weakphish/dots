@@ -6,12 +6,11 @@ At work, I use MacOS primarily, but the tools listed below I use both at work an
 
 **Code Editor**: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
 
-I've also been experimenting with using Zed, which has caught my attention
-as a performant alternative to VS Code that also has cleaner Vim integration.
+I've also been experimenting with both a vanilla config of Emacs, as well as Doom Emacs for both programming and Org Mode at work.
 
 **Shell:** Fish
 
-**Terminal:** Ghostty on macOS/Linux, Windows Terminal on Windows.
+**Terminal:** Ghostty on macOS/Linux
 
 **Git Porcelain:** LazyGit
 
@@ -28,7 +27,7 @@ Other software that I use as a developer on a regular basis:
 
 ## Arch Linux
 
-Currently, I use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
+I used to use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
 various related tools, since using a Tiling WM often means configuring a lot of your own desktop features
 that you generally take for granted.
 
