@@ -4,6 +4,8 @@
 
 At work, I use MacOS primarily, but the tools listed below I use both at work and at home.
 
+At home, I use Arch Linux.
+
 **Code Editor**: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
 
 I've also been experimenting with both a vanilla config of Emacs, as well as Doom Emacs for both programming and Org Mode at work.
@@ -26,6 +28,8 @@ Other software that I use as a developer on a regular basis:
   - Plain markdown for longer-term notes or scratch documents
 
 ## Arch Linux
+
+Currently, I'm using Cosmic DE from System76. It's pretty sweet, especially for being a beta.
 
 I used to use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
 various related tools, since using a Tiling WM often means configuring a lot of your own desktop features
