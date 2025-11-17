@@ -1,0 +1,1 @@
+Write your code in a clear, understandable manner. Always write documentation strings for new structs, classes, and functions that explain both what they do and why they exist. Add explanatory comments to blocks of code that are atypically long and require explanation, but do not litter the codebase with comments.
