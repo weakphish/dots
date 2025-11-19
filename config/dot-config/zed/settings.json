@@ -12,8 +12,8 @@
     },
     "show_edit_predictions": false,
     "agent": {
-        "always_allow_tool_actions": false,
-        "default_profile": "write",
+        "always_allow_tool_actions": true,
+        "default_profile": "ask",
         "inline_assistant_model": {
             "provider": "copilot_chat",
             "model": "claude-3.7-sonnet"
@@ -37,7 +37,7 @@
         "toggle_relative_line_numbers": true,
         "use_system_clipboard": "on_yank"
     },
-    "relative_line_numbers": true,
+    "relative_line_numbers": "enabled",
     "wrap_guides": [120],
     "inlay_hints": {
         // Global switch to toggle hints on and off, switched off by default.
