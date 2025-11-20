@@ -1,15 +1,14 @@
 # specify a directory to install
 cask_args appdir: '/Applications'
 # install packages
-tap 'caskroom/homebrew-cask' || true
+tap 'homebrew/cask' || true
 
 # Regular packages
-brew 'visual-studio-code'
 brew 'neovim'
-brew 'ghostty'
-brew 'raycast'
+cask 'ghostty'
 
 brew 'stow'
+brew 'rectangle'
 brew 'starship'
 brew 'gum'
 brew 'fzf'
