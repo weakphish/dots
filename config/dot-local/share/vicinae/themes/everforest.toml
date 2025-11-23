@@ -1,0 +1,150 @@
+# Example Theme Configuration
+# This file demonstrates all available theme configuration options for Vicinae.
+# You don't need to define all of these - only override what you want to customize.
+# Undefined colors will be automatically derived from core colors or inherited from base themes.
+#
+# Where a color name is expected, you can use the following hex formats:
+# #RGB
+# #RRGGBB
+# #AARRGGBB (with alpha)
+# 'transparent' (no color)
+# <color_ref> (e.g 'colors.accents.red'): references this theme's definition if available, the parent's otherwise
+#
+# Where a color is expected, you can either use a simple string for the color name or the following table syntax:
+# [colors.core]
+# accent = "accents.color.red"
+# OR:
+# accent = { name = "accents.color.red", opacity = 0.5 }
+# OR:
+# accent = { name = "accents.color.red", lighter = 100 }
+# OR:
+# accent = { name = "accents.color.red", darker = 150 }
+
+[meta]
+name = "Everforest Dark"                         # Display name shown in theme picker
+description = "Cozy green"  # Description shown in theme picker
+variant = "dark"                              # Theme variant: "dark" or "light". Every dark theme inherits from vicinae-dark and every light theme from vicinae-light. 
+inherits = "vicinae-dark"                     # Optional: inherit from another theme (e.g., "vicinae-dark")
+icon = "icons/theme-name.png"                 # Optional: path to theme icon (relative to the theme directory it is placed in if not an absolute path)
+
+# ============================================================================
+# Core Colors
+# ============================================================================
+# These are the most important colors that define your theme's overall look.
+# Most other colors can be automatically derived from these if not specified.
+
+[colors.core]
+accent = "#A7C080"              # Primary accent color (used for input borders, text selection background...)
+accent_foreground = "#1E2326"   # Text color on accent-colored backgrounds
+background = "#272E33"          # Main application background
+foreground = "#D3C6AA"          # Primary text color
+secondary_background = "#1E2326" # Background for surfaces elevated above main (popups, tooltips, panels)
+border = "#A7C080"              # Default border color throughout the UI
+
+# ============================================================================
+# Window-Specific Colors
+# ============================================================================
+# Override border colors for specific window types
+
+[colors.main_window]
+border = "#A7C080"
+
+[colors.settings_window]
+border = "#7FBBB3"
+
+# ============================================================================
+# Accent Colors
+# ============================================================================
+# Your color palette, central to your theme's identity
+
+[colors.accents]
+blue = "#7FBBB3"
+green = "#A7C080"
+magenta = "#D699B6"
+orange = "#E69875"
+red = "#E67E80"
+yellow = "#DBBC7F"
+cyan = "#83C092"
+purple = "#D699B6"
+light_grey = "#4F5B58"
+
+# ============================================================================
+# Text Colors
+# ============================================================================
+# Colors for various text states and meanings
+
+[colors.text]
+default = "core.foreground"             # Usually same as core.foreground
+muted = "accents.light_grey"               # Secondary text: hints, less important info
+danger = "accents.red"              # Errors or warnings
+success = "accents.green"             # Success or positive states
+placeholder = "accents.light_grey"			# input placeholder, search placeholder...
+selection = { background = "accents.yellow", foreground = "core.background" }
+
+[colors.text.links]
+default = "accents.blue"
+visited = "accents.purple"
+
+# ============================================================================
+# Input Fields
+# ============================================================================
+# Colors for text inputs, search boxes, etc.
+
+[colors.input]
+border = "accents.blue"
+border_focus = "accents.green"
+border_error = "accents.red"
+
+# ============================================================================
+# Buttons
+# ============================================================================
+# Colors for button states
+
+[colors.button.primary]
+background = "core.background"
+foreground = "core.foreground"
+hover = { background = "accents.red" }
+focus = { outline = "colors.core.accent" }
+
+# ============================================================================
+# Lists
+# ============================================================================
+# Colors for list items (horizontal list views)
+
+[colors.list.item.hover]
+background = "core.background"
+foreground = "accents.red"
+
+[colors.list.item.selection]
+background = "core.background"          # Selected item on main background
+foreground = "core.foreground"
+secondary_background = "accents.light_grey" # Selected item on secondary surfaces (popups, panels)
+                                 # Light themes: lighter than primary selection
+                                 # Dark themes: lighter/brighter than primary selection
+secondary_foreground = "#e8e6e1"
+
+# ============================================================================
+# Grid Items
+# ============================================================================
+# Colors for grid-based layouts (icon grids, tiles, etc.)
+
+[colors.grid.item]
+background = "core.background"
+hover = { outline = "accents.green" }
+selection = { outline = "accents.red" }
+
+# ============================================================================
+# Scrollbars
+# ============================================================================
+
+[colors.scrollbars]
+background = "accents.green"
+
+# ============================================================================
+# Loading Indicators
+# ============================================================================
+
+[colors.loading]
+bar = "accents.blue"     # shown right below the search bar when something is loading
+spinner = "accents.blue" # used by dynamic toasts
+
