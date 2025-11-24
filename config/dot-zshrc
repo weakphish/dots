@@ -1,0 +1,51 @@
+########################
+### Source other RCs ###
+########################
+# https://unix.stackexchange.com/a/635796
+
+WORK_RC_ENABLE="true"
+
+source $HOME/.zshenv
+
+######################
+### Basic Settings ###
+######################
+
+# Fish-like completion suggestions and syntax highlighting
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Vim mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# Have git use Neovim for commits etc
+export EDITOR=nvim
+
+# Aliases
+alias lg=lazygit
+alias tf=terraform
+alias p="poetry run"
+alias dc="docker compose"
+alias k="kubectl"
+alias cdr="z"
+alias ls="lsd"
+alias la="lsd -la"
+
+# Set up Zoxide
+eval "$(zoxide init zsh)"
+
+# Set up Starship
+eval "$(starship init zsh)"
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+
+eval "$(fzf --zsh)"
+
+# Bat Theme
+export BAT_THEME="base-16"
+
+
