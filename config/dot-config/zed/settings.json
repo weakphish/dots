@@ -7,27 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    // FONTS & THEMING
+    "buffer_font_size": 13,
+    "buffer_font_family": "JetBrains Mono",
+    "theme": "Gruvbox Dark",
+
+    // EDITOR
+    "git": {
+        "inline_blame": {
+            "show_commit_summary": true
+        }
+    },
     "collaboration_panel": {
         "dock": "right"
-    },
-    "show_edit_predictions": false,
-    "agent": {
-        "always_allow_tool_actions": true,
-        "default_profile": "ask",
-        "inline_assistant_model": {
-            "provider": "copilot_chat",
-            "model": "claude-3.7-sonnet"
-        },
-        "default_model": {
-            "provider": "copilot_chat",
-            "model": "claude-sonnet-4"
-        },
-    },
-    "features": {
-        "edit_prediction_provider": "copilot"
-    },
-    "edit_predictions": {
-        "mode": "subtle"
     },
     "outline_panel": {
         "dock": "right"
@@ -39,6 +31,7 @@
     },
     "relative_line_numbers": "enabled",
     "wrap_guides": [120],
+    "auto_signature_help": true,
     "inlay_hints": {
         // Global switch to toggle hints on and off, switched off by default.
         "enabled": true,
@@ -60,28 +53,39 @@
     "tab_size": 4,
     "resize_all_panels_in_dock": [],
 
+    // TERMINAL
     "terminal": {
         "font_family": "JetBrainsMono Nerd Font",
-        "shell": {
-            "program": "fish"
-        },
+        "shell": "system",
         "detect_venv": {
             "on": {
-                "activate_script": "fish"
+                "activate_script": "default"
             }
         }
     },
 
-    // Fonts & theming
-    "buffer_font_family": "JetBrains Mono",
-    "buffer_font_size": 13,
-    "theme": {
-        "mode": "system",
-        "light": "Gruvbox Dark",
-        "dark": "Gruvbox Dark"
+    // AI
+    "agent": {
+        "always_allow_tool_actions": true,
+        "default_profile": "ask",
+        "inline_assistant_model": {
+            "provider": "copilot_chat",
+            "model": "claude-3.7-sonnet"
+        },
+        "default_model": {
+            "provider": "copilot_chat",
+            "model": "claude-sonnet-4"
+        }
+    },
+    "show_edit_predictions": true,
+    "features": {
+        "edit_prediction_provider": "copilot"
+    },
+    "edit_predictions": {
+        "mode": "subtle"
     },
 
-    // Language specific settings
+    // LANGUAGE SPECIFIC SETTINGS
     "languages": {
         "YAML": {
             "format_on_save": "off",
@@ -107,7 +111,7 @@
         }
     },
 
-    // LSP-specific settings
+    // LSP-SPECIFIC SETTINGS
     "lsp": {
         "basedpyright": {
             "settings": {
