@@ -2,16 +2,18 @@
 cask_args appdir: '/Applications'
 # install packages
 tap 'caskroom/homebrew-cask' || true
+tap 'FelixKratz/formulae'
 
 # Regular packages
+brew 'stow'
 brew 'visual-studio-code'
 brew 'neovim'
 brew 'ghostty'
-brew 'raycast'
 
-brew 'stow'
+brew 'nikitabobko/tap/aerospace'
+brew 'borders'
+
 brew 'starship'
-brew 'gum'
 brew 'fzf'
 brew 'fd'
 brew 'ripgrep'
@@ -22,3 +24,4 @@ brew 'zoxide'
 brew 'bat'
 brew 'lsd'
 brew 'git-delta'
+brew 'gum'
