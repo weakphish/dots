@@ -12,6 +12,9 @@ in {
 		packages = with pkgs; [
 			# Me shell
 			zsh
+
+			# Window manager / UI
+			walker
 				
 			# Terminal utils
 			neovim
@@ -22,6 +25,10 @@ in {
 			starship
 			lazygit
 			lazydocker
+
+			# Gaming
+			steam
+			discord
 		];
 		
 		
@@ -57,8 +64,21 @@ in {
 		};
 	};
 
-	xdg.configFile.nvim = {
-		source = ../config/nvim;
-		recursive = true;
+	xdg.configFile = {
+		ghostty = {
+			source = ../config/ghostty;
+		};
+		hypr = {
+			source = ../config/hypr;
+			recursive = true;
+		};
+		nvim = {
+			source = ../config/nvim;
+			recursive = true;
+		};
+		walker = {
+			source = ../config/walker;
+			recursive = true;
+		};
 	};
 }

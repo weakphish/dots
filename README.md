@@ -43,6 +43,13 @@ is pretty basic, and I couldn't get Neovim to work with Godot reasonably well.
 
 For C#, I use JetBrains Rider.
 
+# TODO
+- [ ] Finish converting basic config
+- [ ] Update README
+- [ ] Split out Hyprland config into multiple files (see [Omarchy](https://github.com/basecamp/omarchy/blob/master/config/hypr/hyprland.conf) config)
+    - Also see [this guys's](https://github.com/search?q=repo%3ARichGuk%2Fdotfiles%20walker&type=code) config
+- [ ] Make distinct work config
+
 # Usage
 
 Run `stow config --dotfiles` with this repo cloned to `$HOME/dots`
