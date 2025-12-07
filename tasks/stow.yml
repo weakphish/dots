@@ -1,0 +1,5 @@
+# https://phelipetls.github.io/posts/introduction-to-ansible/#stow
+- name: Run stow
+  shell: "stow config --dotfiles --target {{ ansible_env.HOME }} --verbose=2"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'

@@ -1,0 +1,5 @@
+- name: Install packages with Pacman
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+  loop: "{{ packages.core }}"

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+
+  vars_files:
+    - vars/packages.yaml
+
+  tasks:
+    - ansible.builtin.import_tasks: tasks/pacman.yml
+      when: ansible_facts["distribution"] == "Archlinux"
+    - ansible.builtin.import_tasks: tasks/brew.yml
+      when: ansible_facts["distribution"] == "MacOSX"
+    - ansible.builtin.import_tasks: tasks/stow.yml

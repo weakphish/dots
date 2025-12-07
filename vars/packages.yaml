@@ -1,0 +1,19 @@
+# https://sumit.me/posts/setting-up-developer-system-with-ansible-and-dotfiles
+packages:
+  core:
+    - git
+    - stow
+    - zsh
+    - ghostty
+  term:
+    - neovim
+    - starship
+    - fzf
+    - fd
+    - ripgrep
+    - lazygit
+    - lazydocker
+    - zoxide
+    - bat
+    - lsd
+    - git-delta

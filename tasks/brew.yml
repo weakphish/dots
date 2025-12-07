@@ -1,0 +1,5 @@
+- name: Install packages with Brew
+  become: yes
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop: "{{ packages.core }}"
