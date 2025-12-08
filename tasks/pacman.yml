@@ -3,3 +3,9 @@
   community.general.pacman:
     name: "{{ item }}"
   loop: "{{ packages.core }}"
+
+- name: Install WM
+  become: yes
+  community.general.pacman:
+    name: "{{ item }}"
+  loop: "{{ packages.wm }}"

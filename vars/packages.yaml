@@ -18,7 +18,9 @@ packages:
     - bat
     - lsd
     - git-delta
-  window-manager:
+  wm:
+    - uwsm 
+    - libnewt
     - hyprland
     - hyprpaper
     - hypridle
