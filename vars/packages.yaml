@@ -26,6 +26,9 @@ packages:
     - hypridle
     - hyprsunset
     - dunst
+  arch:
+    - ttf-jetbrains-mono
+    - ttf-jetbrains-mono-nerd
   work:
     - k9s
     - kubectl
