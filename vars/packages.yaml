@@ -5,7 +5,8 @@ packages:
     - stow
     - zsh
     - ghostty
-  term:
+    - zsh-autosuggestions
+    - docker
     - neovim
     - starship
     - fzf
@@ -17,3 +18,12 @@ packages:
     - bat
     - lsd
     - git-delta
+  window-manager:
+    - hyprland
+    - hyprpaper
+    - hypridle
+    - hyprsunset
+    - dunst
+  work:
+    - k9s
+    - kubectl

@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+- import_playbook: setup.yml
+  vars: 
+    is_work: true

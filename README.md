@@ -1,4 +1,4 @@
-# Dotfiles, managed with GNU Stow
+# Dotfiles, managed with Ansible & GNU Stow
 
 # What
 
@@ -29,13 +29,11 @@ Other software that I use as a developer on a regular basis:
 
 ## Arch Linux
 
-Currently, I'm using Cosmic DE from System76. It's pretty sweet, especially for being a beta.
+Currently, I'm using KDE.
 
 I used to use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
 various related tools, since using a Tiling WM often means configuring a lot of your own desktop features
 that you generally take for granted.
-
-Also included are Kvantum and GTK themes, as I like Everforest a lot.
 
 ## Game Development
 For game development projects, I tend to stick to Godot. I use VS Code to edit GDScript, just because the built-in editor
@@ -43,6 +41,12 @@ is pretty basic, and I couldn't get Neovim to work with Godot reasonably well.
 
 For C#, I use JetBrains Rider.
 
-# Usage
+# Structure
+- `config/` houses my dotfiles, which are symlinked with Stow. 
+- `tasks/` contains the various tasks for Ansible to run when bootstrapping a system
+- `vars/` contains variable definitions for Ansible, such as packages to install
 
-Run `stow config --dotfiles` with this repo cloned to `$HOME/dots`
+# Usage
+Run the bootstrap script for the appropriate operating system, then run `ansible-playbook --ask-become-pass setup.yml`
+
+The bootstrap script for Mac just installs Homebrew and Ansible, whereas the Arch one just installs Ansible and configures yay for the AUR.
