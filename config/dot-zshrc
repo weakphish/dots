@@ -3,7 +3,6 @@
 ########################
 # https://unix.stackexchange.com/a/635796
 
-WORK_RC_ENABLE="true"
 
 source $HOME/.zshenv
 
@@ -38,11 +37,6 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 # Setup fzf
-# ---------
-if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
-fi
-
 eval "$(fzf --zsh)"
 
 # Bat Theme
