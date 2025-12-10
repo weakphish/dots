@@ -5,18 +5,17 @@
 
 
 source $HOME/.zshenv
-
 ######################
 ### Basic Settings ###
 ######################
 
-# Fish-like completion suggestions and syntax highlighting
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Vim mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
+# # Fish-like completion suggestions and syntax highlighting
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
+# # Vim mode
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+#
 # Have git use Neovim for commits etc
 export EDITOR=nvim
 
