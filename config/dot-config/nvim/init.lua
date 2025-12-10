@@ -19,7 +19,11 @@ vim.lsp.config("basedpyright", {
 		},
 	},
 })
+vim.lsp.config("bashls", {
+	filetypes = {"bash", "sh", ".zshrc"}
+})
+
 vim.lsp.enable("ruff")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("gopls")
-vim.lsp.enable("lua_ls")
+vim.lsp.enable("bashls")

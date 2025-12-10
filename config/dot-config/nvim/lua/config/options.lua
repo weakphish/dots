@@ -17,3 +17,10 @@ vim.wo.relativenumber = true -- Relative line numbers
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = true })
 vim.keymap.set("n", "<Leader>cd", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show [d]iagnostic" })
+
+-- treat zsh config as sh file
+vim.filetype.add({
+	filename = {
+		['~/.zshrc'] = 'sh'
+	}
+})
