@@ -122,7 +122,7 @@ return {
 
 			-- File explorer/manipulator
 			require("mini.files").setup()
-			vim.keymap.set("n", "<Leader>fn", ":lua MiniFiles.open()<CR>", { desc = "File Tree" })
+			vim.keymap.set("n", "<Leader>fn", ":lua MiniFiles.open()<CR>", { desc = "File Browser" })
 
 			-- Autopairs pls
 			require("mini.pairs").setup()
