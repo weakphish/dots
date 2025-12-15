@@ -130,6 +130,11 @@
                 }
             }
         },
+        "ty": {
+            "settings": {
+                "diagnosticMode": "workspace"
+            }
+        },
         "ruff": {
             "initialization_options": {
                 "settings": {
