@@ -8,9 +8,11 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
+    "lsp_document_colors": "inlay",
+    "colorize_brackets": true,
     "buffer_font_size": 13,
     "buffer_font_family": "JetBrains Mono",
-    "theme": "Gruvbox Dark",
+    "theme": "Gruvbox Dark Hard",
 
     // EDITOR
     "git": {
@@ -70,7 +72,7 @@
         "default_profile": "ask",
         "inline_assistant_model": {
             "provider": "copilot_chat",
-            "model": "claude-3.7-sonnet"
+            "model": "gpt-5.1"
         },
         "default_model": {
             "provider": "copilot_chat",
@@ -92,7 +94,11 @@
             "tab_size": 2
         },
         "Python": {
-            "language_servers": ["basedpyright", "ruff"],
+            "indent_guides": {
+                "background_coloring": "disabled",
+                "coloring": "indent_aware"
+            },
+            "language_servers": ["ty", "!basedpyright", "ruff"],
             "format_on_save": "on",
             "formatter": [
                 {
