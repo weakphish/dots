@@ -7,18 +7,19 @@ require("config.autocmds")
 require("config.keymaps")
 
 -- Load LSP
-vim.lsp.enable("basedpyright")
-vim.lsp.config("basedpyright", {
-	-- Override type checking mode, and do full workspace diagnostics
-	settings = {
-		basedpyright = {
-			analysis = {
-				typeCheckingMode = "standard",
-				diagnosticMode = "workspace",
-			},
-		},
-	},
-})
+-- vim.lsp.enable("basedpyright")
+-- vim.lsp.config("basedpyright", {
+-- 	-- Override type checking mode, and do full workspace diagnostics
+-- 	settings = {
+-- 		basedpyright = {
+-- 			analysis = {
+-- 				typeCheckingMode = "standard",
+-- 				diagnosticMode = "workspace",
+-- 			},
+-- 		},
+-- 	},
+-- })
+vim.lsp.enable("ty")
 vim.lsp.config("bashls", {
 	filetypes = {"bash", "sh", ".zshrc"}
 })
