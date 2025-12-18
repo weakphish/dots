@@ -1,5 +1,1 @@
-if [[ -f ~/.zsh/profiles/work.zsh ]]; then
-  echo "{zshenv} Setting Work RC up with ZSH."
-  source "$HOME/.zsh/profiles/work.zsh"
-fi
 

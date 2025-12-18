@@ -1,3 +1,9 @@
+if [[ -f ~/.zsh/profiles/work.zsh ]]; then
+  echo "{zshenv} Setting Work RC up with ZSH."
+  source "$HOME/.zsh/profiles/work.zsh"
+fi
+
+
 ######################
 ### Basic Settings ###
 ######################
@@ -21,6 +27,7 @@ alias k="kubectl"
 alias cdr="z"
 alias ls="lsd"
 alias la="lsd -la"
+alias cat="bat"
 
 # Set up Zoxide
 eval "$(zoxide init zsh)"
@@ -33,6 +40,10 @@ source <(fzf --zsh)
 
 # Bat Theme
 export BAT_THEME="base-16"
+
+##################
+### FUNCTIONS ###
+#################
 
 # https://junegunn.github.io/fzf/tips/ripgrep-integration/#wrap-up
 # ripgrep->fzf->nvim [QUERY]
