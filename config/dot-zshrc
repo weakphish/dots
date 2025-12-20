@@ -21,6 +21,12 @@ fi
 # Have git use Neovim for commits etc
 export EDITOR=nvim
 
+# Persist history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # Aliases
 alias lg=lazygit
 alias tf=terraform
