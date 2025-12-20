@@ -6,6 +6,8 @@ packages:
     - zsh
     - ghostty
     - zsh-autosuggestions
+    - zsh-syntax-highlighting
+    - zsh-vi-mode
     - docker
     - neovim
     - starship

@@ -8,12 +8,15 @@ fi
 ### Basic Settings ###
 ######################
 
-# Fish-like completion suggestions and syntax highlighting
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ $(uname) == "Darwin" ]]; then
+	# Fish-like completion suggestions and syntax highlighting
+	# Assume installed via Pacman on Arch which auto-sources
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Vim mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+	# Vim mode
+	source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fi
 
 # Have git use Neovim for commits etc
 export EDITOR=nvim
@@ -64,3 +67,9 @@ rfv() (
       --preview-window '~4,+{2}+4/3,<80(up)' \
       --query "$*"
 )
+
+# add Pulumi to the PATH
+export PATH=$PATH:/home/jack/.pulumi/bin
+
+# amp
+export PATH="$HOME/.local/bin:$PATH"
