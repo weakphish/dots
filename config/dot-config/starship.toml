@@ -49,7 +49,7 @@ format = 'on [$symbol$context( \($namespace\))]($style)'
 [hostname]
 ssh_only = false
 ssh_symbol = ''
-format = '[$ssh_symbol](color_aqua) on [$hostname](bold color_aqua) '
+format = ' [$ssh_symbol](color_aqua) on [$hostname](bold color_aqua) '
 trim_at = '.'
 disabled = false
 
