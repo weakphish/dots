@@ -4,6 +4,12 @@
     name: "{{ item }}"
   loop: "{{ packages.core }}"
 
+- name: Install Mac-specific packages with Brew
+  become: yes
+  community.general.homebrew:
+    name: "{{ item }}"
+  loop: "{{ packages.mac }}"
+
 - name: Install work packages with Brew
   become: yes
   when: is_work

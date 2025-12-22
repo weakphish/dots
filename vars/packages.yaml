@@ -20,6 +20,9 @@ packages:
     - bat
     - lsd
     - git-delta
+  mac:
+    - karabiner-elements
+    - deno
   wm:
     - uwsm 
     - libnewt
