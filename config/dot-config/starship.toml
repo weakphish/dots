@@ -12,19 +12,19 @@ format = """
 [└─](bold color_green)$character
 """
 
-palette = 'gruvbox_dark'
+palette = 'everforest'
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
+[palettes.everforest]
+color_fg0 = '#D3C6AA'
+color_bg1 = '#2E383C'
+color_bg3 = '#414B50'
+color_blue = '#7FBBB3'
+color_aqua = '#83C092'
+color_green = '#A7C080'
+color_orange = '#E69875'
+color_purple = '#D699B6'
+color_red = '#E67E80'
+color_yellow = '#DBBC7F'
 
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[󰘧](bold color_green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
@@ -49,12 +49,12 @@ format = 'on [$symbol$context(\($namespace\))]($style)'
 [hostname]
 ssh_only = false
 ssh_symbol = ''
-format = '[$ssh_symbol](color_aqua)on [$hostname](bold color_aqua)'
+format = '[$ssh_symbol](color_green)on [$hostname](color_green)'
 trim_at = '.'
 disabled = false
 
 [username]
-style_user = 'bold color_aqua'
+style_user = 'color_green'
 style_root = 'color_fg0'
 format = '[$user]($style)'
 disabled = false
