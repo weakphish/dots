@@ -8,7 +8,7 @@ add_newline = false
 # Move the directory to the second line
 # extra space to pad start
 format = """
-[┌─](bold color_green)$username $hostname $directory $git_branch $git_commit $git_state $git_status $python $pulumi
+[┌─](bold color_green)$username$hostname$directory$git_branch$git_commit$git_status$python$pulumi
 [└─](bold color_green)$character
 """
 
@@ -32,26 +32,30 @@ success_symbol = '[󰘧](bold color_green)' # The 'success_symbol' segment is be
 [git_branch]
 symbol = ""
 style = 'color_blue'
-format = '[ $symbol $branch ]($style)'
+format = ' [$symbol $branch]($style)'
+ignore_branches = ['master', 'main']
 
 [git_status]
 style = "color_blue"
-format = '[($all_status$ahead_behind)]($style)'
+format = ' [$all_status$ahead_behind]($style)'
 
 [directory]
 truncate_to_repo = false
-format = 'in [$path]($style)[$read_only]($read_only_style)'
+format = ' in [$path]($style)'
 
 [kubernetes]
 disabled = false
-format = 'on [$symbol$context(\($namespace\))]($style)'
+format = ' on [$symbol$context(\($namespace\))]($style)'
 
 [hostname]
 ssh_only = false
 ssh_symbol = ''
-format = '[$ssh_symbol](color_green)on [$hostname](color_green)'
+format = ' on [$ssh_symbol$hostname](color_green)'
 trim_at = '.'
 disabled = false
+
+[pulumi]
+format = ' via [$symbol($username@)$stack]($style) '
 
 [username]
 style_user = 'color_green'
