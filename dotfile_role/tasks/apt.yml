@@ -1,0 +1,5 @@
+- name: Install core packages with Apt
+  become: yes
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  loop: "{{ packages.core }}"

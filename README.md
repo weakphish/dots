@@ -29,7 +29,7 @@ Other software that I use as a developer on a regular basis:
 
 ## Arch Linux
 
-Currently, I'm using KDE.
+Currently, I'm using COSMIC from System76.
 
 I used to use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
 various related tools, since using a Tiling WM often means configuring a lot of your own desktop features

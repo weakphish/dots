@@ -1,0 +1,10 @@
+---
+# Do OS-specific setup
+- ansible.builtin.import_tasks: tasks/pacman.yml
+  when: ansible_facts["distribution"] == "Archlinux"
+- ansible.builtin.import_tasks: tasks/apt.yml
+  when: ansible_facts["distribution"] == "Debian"
+- ansible.builtin.import_tasks: tasks/brew.yml
+  when: ansible_facts["distribution"] == "MacOSX"
+# Finish by linking config files
+- ansible.builtin.import_tasks: tasks/stow.yml
