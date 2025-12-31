@@ -37,6 +37,7 @@ alias cdr="z"
 alias ls="lsd"
 alias la="lsd -la"
 alias cat="bat"
+alias kubeseal="kubeseal --controller-name sealed-secrets --controller-namespace=default"
 
 # Set up Zoxide
 eval "$(zoxide init zsh)"
