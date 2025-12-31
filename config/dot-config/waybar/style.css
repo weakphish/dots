@@ -26,30 +26,30 @@ window#waybar {
 
 /* Make active workspace button and hover have colors */
 #workspaces button.active {
-  color: #232a2e;
-  background-color: #a7c080;
+  color: #282828;
+  background-color: #8ec07c;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  color: #232a2e;
-  background-color: #d3c6aa;
+  color: #282828;
+  background-color: #ebdbb2;
 }
 
 #workspaces button.urgent {
-  background-color: #e67e80;
+  background-color: #fb4934;
 }
 
 /* Style normal tray modules */
 #pulseaudio,
 #clock,
 #network {
-  background-color: #232a2e;
+  background-color: #282828;
   border-radius: 5px;
   padding: 5px 10px;
   margin: 5px 0px;
-  color: #d3c6aa;
+  color: #ebdbb2;
 }
 
 /* Add margin to right of clock, since it's last */
