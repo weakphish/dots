@@ -29,11 +29,13 @@ Other software that I use as a developer on a regular basis:
 
 ## Arch Linux
 
-Currently, I'm using COSMIC from System76.
+Currently using Hyprland, a tiling window manager. 
 
-I used to use Hyprland as a tiling window manager. Included in this repo is configuration for Hypr and
-various related tools, since using a Tiling WM often means configuring a lot of your own desktop features
+Included in this repo is configuration for Hypr and various related tools, 
+since using a Tiling WM often means configuring a lot of your own desktop features
 that you generally take for granted.
+
+I use [nwg-look](https://github.com/nwg-piotr/nwg-look) to customize GTK apps and [hyprqt6engine](https://wiki.hypr.land/Hypr-Ecosystem/hyprqt6engine/) to customize QT themes.
 
 ## Game Development
 For game development projects, I tend to stick to Godot. I use VS Code to edit GDScript, just because the built-in editor
