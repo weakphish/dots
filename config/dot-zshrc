@@ -11,7 +11,7 @@ fi
 if [[ $(uname) == "Darwin" ]]; then
 	# Fish-like completion suggestions and syntax highlighting
 	# Assume installed via Pacman on Arch which auto-sources
-	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 	# Vim mode
@@ -47,6 +47,7 @@ eval "$(starship init zsh)"
 
 # Setup fzf
 source <(fzf --zsh)
+alias fzflog "fzf --tail 100000 --tac --no-sort --exact --wrap"
 
 # Bat Theme
 export BAT_THEME="base-16"
