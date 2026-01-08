@@ -143,15 +143,6 @@ return {
 				{ desc = "[W]rite session" }
 			)
 
-			-- Indent lines
-			require("mini.indentscope").setup({
-				draw = {
-					animation = function()
-						return 0
-					end,
-				},
-			})
-
 			-- Notifications
 			require("mini.notify").setup()
 
