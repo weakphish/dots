@@ -15,6 +15,9 @@ return {
 			-- Optional, if you keep daily notes in a separate directory.
 			folder = "daily",
 		},
+		templates = {
+			folder = "templates"
+		},
 		completion = {
 			-- Enables completion using nvim_cmp
 			nvim_cmp = false,
@@ -31,8 +34,12 @@ return {
 		{ "<leader>od", ":Obsidian today<CR>", desc = "Today's Daily Note" },
 		{ "<leader>oD", ":Obsidian tomorrow<CR>", desc = "Tomorrow's Daily Note" },
 		{ "<leader>ol", ":Obsidian links<CR>", desc = "Links In Note" },
-		{ "<leader>ot", ":Obsidian search<CR>", desc = "Search Notes" },
+		{ "<leader>on", ":Obsidian new<CR>", desc = "New" },
+		{ "<leader>oN", ":Obsidian new_from_template<CR>", desc = "New (from template)" },
+		{ "<leader>os", ":Obsidian search<CR>", desc = "Search Notes" },
 		{ "<leader>ot", ":Obsidian tags<CR>", desc = "Tags" },
 		{ "<leader>oy", ":Obsidian yesterday<CR>", desc = "Yesterday's Daily Note" },
+
+		{ "<leader>oe", ":Obsidian extract_note<CR>", desc = "Extract selection to note", mode = "v"},
 	},
 }
