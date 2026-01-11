@@ -8,6 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
+    "indent_guides": {
+        "line_width": 2,
+        "active_line_width": 3,
+        "background_coloring": "disabled",
+        "coloring": "indent_aware"
+    },
     "lsp_document_colors": "inlay",
     "colorize_brackets": true,
     "buffer_font_size": 13,
