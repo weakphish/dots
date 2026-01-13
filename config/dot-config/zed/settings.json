@@ -39,7 +39,7 @@
     },
     "relative_line_numbers": "enabled",
     "wrap_guides": [120],
-    "auto_signature_help": true,
+    "auto_signature_help": false,
     "inlay_hints": {
         // Global switch to toggle hints on and off, switched off by default.
         "enabled": true,
