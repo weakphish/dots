@@ -8,7 +8,7 @@ At home, I use Arch Linux.
 
 ## Main Tools
 - Code Editor: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
-- Shell: Zsh. I used to use Fish, but suffered from coworker-script-incompatibility-syndrome.
+- Shell: Fish
 - Terminal: Ghostty on macOS/Linux
 - Git Porcelain: LazyGit
 
