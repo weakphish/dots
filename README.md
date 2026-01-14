@@ -6,17 +6,13 @@ At work, I use MacOS primarily, but the tools listed below I use both at work an
 
 At home, I use Arch Linux.
 
-**Code Editor**: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
+## Main Tools
+- Code Editor: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
+- Shell: Zsh. I used to use Fish, but suffered from coworker-script-incompatibility-syndrome.
+- Terminal: Ghostty on macOS/Linux
+- Git Porcelain: LazyGit
 
-I've also been experimenting with both a vanilla config of Emacs, as well as Doom Emacs for both programming and Org Mode at work.
-
-**Shell:** Fish
-
-**Terminal:** Ghostty on macOS/Linux
-
-**Git Porcelain:** LazyGit
-
-**Other Software:**
+## Other Software
 Other software that I use as a developer on a regular basis:
 
 - [A few Rust utilities](https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a)
@@ -24,6 +20,7 @@ Other software that I use as a developer on a regular basis:
   - Delta
   - Lsd
   - Ripgrep
+  - Zellij as a terminal multi-plexer / Tmux alternative
 - Good ol' pen and paper for note-taking
   - Plain markdown for longer-term notes or scratch documents
 
