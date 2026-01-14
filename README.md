@@ -41,9 +41,13 @@ is pretty basic, and I couldn't get Neovim to work with Godot reasonably well.
 For C#, I use JetBrains Rider.
 
 # Structure
-- `config/` houses my dotfiles, which are symlinked with Stow. 
-- `tasks/` contains the various tasks for Ansible to run when bootstrapping a system
-- `vars/` contains variable definitions for Ansible, such as packages to install
+- `config/` houses my dotfiles, which are symlinked with Stow
+- `cosmic-theme/` contains COSMIC desktop environment themes
+- `dotfile_role/` is an Ansible role containing:
+  - `tasks/` - Ansible tasks for bootstrapping
+  - `vars/` - variable definitions (e.g., packages to install)
+  - `defaults/` - default variable values
+- `karabiner/` contains Karabiner-Elements configuration for macOS key remapping
 
 # Usage
 Run the bootstrap script for the appropriate operating system, then run `ansible-playbook --ask-become-pass setup.yml`
