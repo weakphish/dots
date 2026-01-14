@@ -1,43 +1,46 @@
+# Fish shell configuration
+# Noisy config: environment variables, PATH modifications, and tool initializations
+#
+# Modular config structure:
+#   conf.d/* 			- Config modules
+#   conf.d/local.fish   - Machine-specific config (gitignored)
+#   functions/          - Autoloaded functions
+
+# Editor
 set -gx EDITOR nvim
 
+# Vi keybindings
 fish_vi_key_bindings
 
-# Aliases
-alias lg lazygit
-alias ldo lazydocker
+# Bat theme
+set -gx BAT_THEME base16
 
-alias pu pulumi
+#################
+### PATH Setup ###
+#################
 
-alias tf terraform
-alias p "poetry run"
-alias dc "docker compose"
-alias k kubectl
+# Pulumi
+fish_add_path $HOME/.pulumi/bin
 
-alias ls lsd
-alias la "lsd -la"
-alias cat bat
+# Local binaries (amp, pipx, etc.)
+fish_add_path $HOME/.local/bin
 
-# OS-specific Aliases
-switch (uname)
-    case Linux
-        alias pacs "pacman -S"
-end
+##########################
+### Tool Initializations ###
+##########################
 
-# VS Code integration
-string match -q "$TERM_PROGRAM" vscode
-and . (code --locate-shell-integration-path fish)
-
-# Bat Theme
-set -Ux BAT_THEME base16
-
+# Zoxide (smart cd)
 zoxide init fish | source
 
+# Starship prompt
 starship init fish | source
 
+# uv (Python package manager)
 uv generate-shell-completion fish | source
 
-# Created by `pipx` on 2025-01-24 23:34:29
-set PATH $PATH /Users/weakphish/.local/bin
-
-# Set up fzf key bindings
+# fzf keybindings
 fzf --fish | source
+
+# VS Code shell integration
+string match -q "$TERM_PROGRAM" vscode
+and . (code --locate-shell-integration-path fish)
