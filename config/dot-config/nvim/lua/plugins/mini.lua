@@ -150,7 +150,7 @@ return {
 			require("mini.cursorword").setup()
 
 			-- Animations :D
-			require("mini.animate").setup()
+			-- require("mini.animate").setup()
 
 			-- MiniMap
 			-- NOTE: Might introduce lag on very big buffers (10000+ lines)
