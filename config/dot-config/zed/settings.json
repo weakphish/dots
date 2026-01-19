@@ -8,6 +8,9 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
+    "project_panel": {
+        "default_width": 350.0
+    },
     "git_panel": {
         "tree_view": true,
         "status_style": "icon",
