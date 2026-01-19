@@ -8,11 +8,42 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
+    "window_decorations": "client",
+    "use_system_window_tabs": true,
+    "bottom_dock_layout": "contained",
+    "tabs": {
+        "show_diagnostics": "off",
+        "file_icons": true,
+        "git_status": true
+    },
+    "title_bar": {
+        "show_menus": false,
+        "show_project_items": true,
+        "show_branch_icon": true
+    },
+    "file_finder": {
+        "modal_max_width": "medium"
+    },
+    "prettier": {
+        "allowed": false
+    },
+    "toolbar": {
+        "code_actions": true
+    },
+    "minimap": {
+        "thumb": "always",
+        "show": "auto"
+    },
+    "show_signature_help_after_edits": true,
+    "sticky_scroll": {
+        "enabled": true
+    },
+    "ui_font_family": ".ZedSans",
     "indent_guides": {
         "line_width": 2,
         "active_line_width": 3,
         "background_coloring": "disabled",
-        "coloring": "indent_aware"
+        "coloring": "indent_aware",
     },
     "lsp_document_colors": "inlay",
     "colorize_brackets": true,
@@ -23,19 +54,19 @@
     // EDITOR
     "git": {
         "inline_blame": {
-            "show_commit_summary": true
-        }
+            "show_commit_summary": true,
+        },
     },
     "collaboration_panel": {
-        "dock": "right"
+        "dock": "right",
     },
     "outline_panel": {
-        "dock": "right"
+        "dock": "right",
     },
     "vim_mode": true,
     "vim": {
         "toggle_relative_line_numbers": true,
-        "use_system_clipboard": "on_yank"
+        "use_system_clipboard": "on_yank",
     },
     "relative_line_numbers": "enabled",
     "wrap_guides": [120],
@@ -47,7 +78,7 @@
         "show_type_hints": true,
         "show_parameter_hints": true,
         // Corresponds to null/None LSP hint type value.
-        "show_other_hints": true
+        "show_other_hints": true,
     },
     "diagnostics": {
         // Whether to show warnings or not by default.
@@ -55,8 +86,8 @@
         // Settings for inline diagnostics
         "inline": {
             // Whether to show diagnostics inline or not
-            "enabled": true
-        }
+            "enabled": true,
+        },
     },
     "tab_size": 4,
     "resize_all_panels_in_dock": [],
@@ -67,9 +98,9 @@
         "shell": "system",
         "detect_venv": {
             "on": {
-                "activate_script": "default"
-            }
-        }
+                "activate_script": "default",
+            },
+        },
     },
 
     // AI
@@ -78,31 +109,31 @@
         "default_profile": "ask",
         "inline_assistant_model": {
             "provider": "copilot_chat",
-            "model": "gpt-5.1"
+            "model": "gpt-5.1",
         },
         "default_model": {
             "provider": "copilot_chat",
-            "model": "claude-sonnet-4"
-        }
+            "model": "claude-sonnet-4",
+        },
     },
     "show_edit_predictions": true,
     "features": {
-        "edit_prediction_provider": "copilot"
+        "edit_prediction_provider": "copilot",
     },
     "edit_predictions": {
-        "mode": "subtle"
+        "mode": "subtle",
     },
 
     // LANGUAGE SPECIFIC SETTINGS
     "languages": {
         "YAML": {
             "format_on_save": "off",
-            "tab_size": 2
+            "tab_size": 2,
         },
         "Python": {
             "indent_guides": {
                 "background_coloring": "disabled",
-                "coloring": "indent_aware"
+                "coloring": "indent_aware",
             },
             "language_servers": ["ty", "!basedpyright", "ruff"],
             "format_on_save": "on",
@@ -110,17 +141,17 @@
                 {
                     "external": {
                         "command": "black",
-                        "arguments": ["-"]
-                    }
+                        "arguments": ["-"],
+                    },
                 },
                 {
                     "external": {
                         "command": "isort",
-                        "arguments": ["-"]
-                    }
-                }
-            ]
-        }
+                        "arguments": ["-"],
+                    },
+                },
+            ],
+        },
     },
 
     // LSP-SPECIFIC SETTINGS
@@ -129,17 +160,17 @@
             "settings": {
                 "basedpyright.analysis": {
                     "diagnosticMode": "workspace",
-                    "typeCheckingMode": "standard"
+                    "typeCheckingMode": "standard",
                 },
                 "python": {
-                    "pythonPath": ".venv/bin/python"
-                }
-            }
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
         },
         "ty": {
             "settings": {
-                "diagnosticMode": "workspace"
-            }
+                "diagnosticMode": "workspace",
+            },
         },
         "ruff": {
             "initialization_options": {
@@ -147,10 +178,10 @@
                     // Ruff server settings goes here
                     "lineLength": 120,
                     "lint": {
-                        "ignore": ["I"] // using isort with specific rules for now
-                    }
-                }
-            }
-        }
-    }
+                        "ignore": ["I"], // using isort with specific rules for now
+                    },
+                },
+            },
+        },
+    },
 }

@@ -9,20 +9,14 @@
     {
         "context": "Terminal",
         "bindings": {
-            "ctrl-\\": "pane::SplitRight"
-        }
-    },
-    {
-        "context": "Editor",
-        "bindings": {
-            // "j k": ["workspace::SendKeystrokes", "escape"]
-        }
+            "ctrl-\\": "pane::SplitRight",
+        },
     },
     {
         "context": "vim_mode == normal || vim_mode == visual",
         "bindings": {
-            "s": ["vim::PushSneak", {}],
-            "S": ["vim::PushSneakBackward", {}]
-        }
-    }
+            "s": "vim::PushSneak",
+            "shift-s": "vim::PushSneakBackward",
+        },
+    },
 ]
