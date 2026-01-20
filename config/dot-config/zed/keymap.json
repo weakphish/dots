@@ -19,4 +19,14 @@
             "shift-s": "vim::PushSneakBackward",
         },
     },
+    {
+        "bindings": {
+            "cmd->": "window::ShowNextWindowTab"
+        }
+    },
+    {
+        "bindings": {
+            "cmd-<": "window::ShowPreviousWindowTab"
+        }
+    }
 ]
