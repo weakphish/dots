@@ -27,6 +27,7 @@ packages:
   mac:
     - karabiner-elements
     - deno
+    - charmbracelet/tap/freeze
   wm:
     - uwsm
     - libnewt
