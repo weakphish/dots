@@ -1,63 +1,67 @@
 * {
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 13px;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
 }
 
 window#waybar {
-  background-color: transparent;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: 0.5s;
 }
 
 #submap,
 #workspaces button {
-  all: initial;
-  /* Remove GTK theme values (waybar #1351) */
-  min-width: 0;
-  /* Fix weird spacing in materia (waybar #450) */
-  box-shadow: inset 0 -3px transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  padding: 6px 18px;
-  margin: 6px 3px;
-  border-radius: 5px;
-  background-color: #232a2e;
-  color: #d3c5aa;
+    all: initial;
+    /* Remove GTK theme values (waybar #1351) */
+    min-width: 0;
+    /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    padding: 6px 18px;
+    margin: 6px 3px;
+    border-radius: 5px;
+    background-color: #232a2e;
+    color: #d3c5aa;
 }
 
 /* Make active workspace button and hover have colors */
 #workspaces button.active {
-  color: #282828;
-  background-color: #8ec07c;
+    color: #282828;
+    background-color: #8ec07c;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #282828;
-  background-color: #ebdbb2;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #282828;
+    background-color: #ebdbb2;
 }
 
 #workspaces button.urgent {
-  background-color: #fb4934;
+    background-color: #fb4934;
 }
 
 /* Style normal tray modules */
+#window,
+#cpuram,
+#tray,
 #pulseaudio,
 #clock,
 #network {
-  background-color: #282828;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin: 5px 0px;
-  color: #ebdbb2;
+    background-color: #282828;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    color: #ebdbb2;
 }
 
-/* Add margin to right of clock, since it's last */
-#clock {
-  margin-right: 5px;
+/* Add margin to right of last element */
+#pulseaudio {
+    margin-right: 5px;
+    padding-right: 15px;
 }
 
 /** The wifi icon somehow requires more padding to look right */
 #network {
-  padding-right: 15px;
+    padding-right: 15px;
 }

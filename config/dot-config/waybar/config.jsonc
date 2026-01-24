@@ -2,17 +2,21 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "clock"],
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/submap"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "group/cpuram",
+        "pulseaudio",
+    ],
     // Modules configuration
-    "hyprland/window": {
-        "rewrite": {
-            "(.*) — Mozilla Firefox": " $1",
-            "(.*) - fish": "> [$1]",
-        },
-        "separate-outputs": true,
-    },
+    // Left
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -33,10 +37,19 @@
         "format": "⮂ {}",
         "tooltip": false,
     },
+    // Center
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) - fish": "> [$1]",
+        },
+        "separate-outputs": true,
+    },
+    // Right
     "clock": {
         "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
+        "format": "{:%a, %d %b, %I:%M %p}"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -63,8 +76,47 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""],
+            "default": [
+                "",
+                "",
+                ""
+            ],
         },
         "on-click": "pavucontrol",
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true,
+        "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
+    },
+    "memory": {
+        "format": "{}% 󰍛",
+        "tooltip": true,
+        "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+    },
+    "disk": {
+        "format": "{percentage_free}% ",
+        "tooltip": true,
+        "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
+    },
+    "temperature": {
+        "format": "{temperatureC}°C {icon}",
+        "tooltip": true,
+        "tooltip-format": "Actual temperature: {temperatureC}°C\nCritical > 80°C",
+        "format-icons": [
+            ""
+        ]
+    },
+    "group/cpuram": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "disk",
+            "temperature",
+        ]
     },
 }
