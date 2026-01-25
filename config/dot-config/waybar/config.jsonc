@@ -16,7 +16,6 @@
         "pulseaudio",
     ],
     // Modules configuration
-    // Left
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -37,15 +36,12 @@
         "format": "⮂ {}",
         "tooltip": false,
     },
-    // Center
-    "hyprland/window": {
         "rewrite": {
             "(.*) — Mozilla Firefox": " $1",
             "(.*) - fish": "> [$1]",
         },
         "separate-outputs": true,
     },
-    // Right
     "clock": {
         "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
