@@ -46,7 +46,12 @@ truncation_length = 3
 truncation_symbol = ".../"
 
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[󰘧](bold color_green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[󰘧](bold color_green)' 
+error_symbol = '[󰘧](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
 
 # RIGHT SIDE
 [os]
