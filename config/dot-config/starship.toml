@@ -82,7 +82,7 @@ ignore_branches = ['master', 'main']
 
 [git_status]
 style = "fg:color_fg0 bg:color_yellow"
-format = '[ $all_status$ahead_behind ]($style)'
+format = '[$all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
 [python]
@@ -105,6 +105,6 @@ show_always = true
 
 [pulumi]
 style = "bg:color_blue"
-format = '[via $symbol($username@)$stack]($style)'
+format = '[ via $symbol($username@)$stack]($style)'
 
 
