@@ -82,7 +82,7 @@ ignore_branches = ['master', 'main']
 
 [git_status]
 style = "fg:color_fg0 bg:color_yellow"
-format = '[$all_status$ahead_behind ]($style)'
+format = '[ $all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
 [python]
