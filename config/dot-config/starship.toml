@@ -87,7 +87,8 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [kubernetes]
 disabled = false
-format = '[on $symbol$context(\($namespace\))]($style)'
+style = "bg:color_bg3"
+format = '[ on $symbol$context(\($namespace\)) ]($style)'
 
 [hostname]
 ssh_only = false
