@@ -1,14 +1,28 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Inserts a blank line between shell prompts
-add_newline = false
+# A minimal left prompt w/ padding
+format = """ $directory[$character](bold color_green)"""
 
-
-# Move the directory to the second line
-# extra space to pad start
-format = """
-$directory$git_branch$git_commit$git_status$python$pulumi[$character](bold color_green)
+# move the rest of the prompt to the right
+right_format = """
+[](color_orange)\
+$os\
+$username\
+[](bg:color_yellow fg:color_orange)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:color_yellow bg:color_aqua)\
+$python\
+[](fg:color_aqua bg:color_blue)\
+$pulumi
+[](fg:color_blue bg:color_bg3)\
+$kubernetes\
+[](fg:color_bg3 bg:color_bg1)\
+$time\
+[ ](fg:color_bg1)\
+$line_break
 """
 
 palette = 'gruvbox_dark'
@@ -25,41 +39,66 @@ color_purple = '#b16286'
 color_red = '#cc241d'
 color_yellow = '#d79921'
 
+# LEFT SIDE
+[directory]
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[󰘧](bold color_green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
+# RIGHT SIDE
+[os]
+disabled = false
+style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Linux = "󰌽"
+Fedora = "󰣛"
+Arch = "󰣇"
+Pop = ""
+
+[username]
+show_always = true
+style_user = "bg:color_orange fg:color_fg0"
+style_root = "bg:color_orange fg:color_fg0"
+format = '[ $user ]($style)'
+disabled = false
+
 [git_branch]
 symbol = ""
-style = 'color_blue'
-format = '[$symbol $branch]($style) '
+style = "fg:color_fg0 bg:color_yellow"
+format = '[ $symbol $branch ]($style)'
 ignore_branches = ['master', 'main']
 
 [git_status]
-style = "color_blue"
-format = '[$all_status$ahead_behind]($style) '
+style = "fg:color_fg0 bg:color_yellow"
+format = '[$all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
-[directory]
-truncate_to_repo = false
-format = '[$path]($style) '
+[python]
+style = "bg:color_aqua"
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [kubernetes]
 disabled = false
-format = 'on [$symbol$context(\($namespace\))]($style) '
+format = '[on $symbol$context(\($namespace\))]($style)'
 
 [hostname]
 ssh_only = false
 ssh_symbol = ''
-format = 'on [$ssh_symbol$hostname](color_green) '
+format = '[on $ssh_symbol$hostname](color_green)'
 trim_at = '.'
 disabled = false
+show_always = true
 
 [pulumi]
-format = 'via [$symbol($username@)$stack]($style) '
+style = "bg:color_blue"
+format = '[via $symbol($username@)$stack]($style)'
 
-[username]
-style_user = 'color_green'
-style_root = 'color_fg0'
-format = '[$user]($style) '
-disabled = false
-show_always = true
+
