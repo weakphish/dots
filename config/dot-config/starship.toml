@@ -78,7 +78,6 @@ disabled = false
 symbol = ""
 style = "fg:color_fg0 bg:color_yellow"
 format = '[ $symbol $branch ]($style)'
-ignore_branches = ['master', 'main']
 
 [git_status]
 style = "fg:color_fg0 bg:color_yellow"
