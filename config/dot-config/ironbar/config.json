@@ -1,0 +1,70 @@
+{
+    "$schema": "https://f.jstanger.dev/github/ironbar/schema.json",
+    "position": "top",
+    "height": 24,
+    "start": [
+        {
+            "type": "workspaces",
+            "format": "{index}",
+            "name_map": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "5": "",
+                "6": ""
+            }
+        },
+        {
+            "type": "bindmode"
+        }
+    ],
+    "center": [
+        {
+            "type": "focused",
+            "icon_size": 16
+        }
+    ],
+    "end": [
+        {
+            "type": "tray"
+        },
+        {
+            "type": "battery",
+            "show_if": "ls /sys/class/power_supply/ | grep --quiet '^BAT'"
+        },
+        {
+            "type": "sys_info",
+            "format": [
+                "{cpu_percent}% ",
+                "{memory_percent}% "
+            ],
+            "interval": {
+                "cpu": 1
+            }
+        },
+        {
+            "type": "clipboard",
+            "max_items": 10,
+            "truncate": {
+                "mode": "end",
+                "length": 50
+            }
+        },
+        {
+            "type": "volume",
+            "format": "{icon} {percentage}%",
+            "max_volume": 100,
+            "truncate": "middle",
+            "icons": {
+                "volume_high": "󰕾",
+                "volume_medium": "󰖀",
+                "volume_low": "󰕿",
+                "muted": "󰝟"
+            }
+        },
+        {
+            "type": "clock"
+        }
+    ]
+}
