@@ -22,7 +22,6 @@ $kubernetes\
 [](fg:color_bg3 bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
-$line_break
 """
 
 palette = 'gruvbox_dark'
@@ -41,7 +40,7 @@ color_yellow = '#d79921'
 
 # LEFT SIDE
 [directory]
-format = "[ $path ]($style)"
+format = "[$path ]($style)"
 truncation_length = 3
 truncation_symbol = ".../"
 
@@ -65,6 +64,7 @@ Macos = "󰀵"
 Linux = "󰌽"
 Fedora = "󰣛"
 Arch = "󰣇"
+CachyOS = "󰣇"
 Pop = ""
 
 [username]
