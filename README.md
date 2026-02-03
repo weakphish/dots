@@ -10,6 +10,7 @@ At home, I use Arch Linux.
 - Code Editor: Neovim, with JetBrains tooling for large refactors/debugging/anything Neovim struggles with.
 - Shell: Fish
 - Terminal: Ghostty on macOS/Linux
+- Zellij as a tmux replacement/session-manager/terminal 10x improvement 
 - Git Porcelain: LazyGit
 
 ## Other Software
@@ -20,7 +21,6 @@ Other software that I use as a developer on a regular basis:
   - Delta
   - Lsd
   - Ripgrep
-  - Zellij as a terminal multi-plexer / Tmux alternative
 - Good ol' pen and paper for note-taking
   - Plain markdown for longer-term notes or scratch documents
 
