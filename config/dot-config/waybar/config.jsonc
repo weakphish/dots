@@ -11,7 +11,10 @@
     "modules-right": [
         "tray",
         "network",
-        "group/cpuram",
+        "memory",
+        "cpu",
+        "disk",
+        "temperature",
         "pulseaudio",
     ],
     // Modules configuration
@@ -24,8 +27,9 @@
             "2": "",
             "3": "",
             "4": "",
-            "5": "",
-            "6": "",
+			"5": "󰊴",
+            "6": "",
+            "7": "",
             "urgent": "",
             "focused": "",
             "default": "",
@@ -37,8 +41,10 @@
     },
     "clock": {
         "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%a, %d %b, %I:%M %p}"
+        "format": "{:%a, %d %b, %H:%M}",
+        "actions": {
+            "on-click-right": "mode",
+        }
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -74,7 +80,8 @@
         "on-click": "pavucontrol",
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+        "icon-size": 14
     },
     "cpu": {
         "format": "{usage}% ",
@@ -84,12 +91,12 @@
     "memory": {
         "format": "{}% 󰍛",
         "tooltip": true,
-        "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+        "tooltip-format": "RAM in usage: {used} / {total} ({percentage}%)"
     },
     "disk": {
         "format": "{percentage_free}% ",
         "tooltip": true,
-        "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
+        "tooltip-format": "Space free: {free} / {total} ({percentage_free}%)"
     },
     "temperature": {
         "format": "{temperatureC}°C {icon}",
@@ -97,15 +104,6 @@
         "tooltip-format": "Actual temperature: {temperatureC}°C\nCritical > 80°C",
         "format-icons": [
             ""
-        ]
-    },
-    "group/cpuram": {
-        "orientation": "horizontal",
-        "modules": [
-            "cpu",
-            "memory",
-            "disk",
-            "temperature",
         ]
     },
 }

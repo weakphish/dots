@@ -1,6 +1,14 @@
 * {
     font-family: JetBrainsMono Nerd Font;
     font-size: 13px;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    border-radius: 0;
+    border: none;
+    text-shadow: none;
+    transition: none;
+    box-shadow: none;
 }
 
 window#waybar {
@@ -44,6 +52,10 @@ window#waybar {
 /* Style normal tray modules */
 #window,
 #cpuram,
+#memory,
+#cpu,
+#disk,
+#temperature,
 #tray,
 #pulseaudio,
 #clock,
