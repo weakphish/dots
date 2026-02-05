@@ -50,6 +50,6 @@ For C#, I use JetBrains Rider.
 - `karabiner/` contains Karabiner-Elements configuration for macOS key remapping
 
 # Usage
-Run the bootstrap script for the appropriate operating system, then run `ansible-playbook --ask-become-pass setup.yml`
+Run the bootstrap script for the appropriate operating system, then run `stow config --target ~/ --dotfiles`
 
-The bootstrap script for Mac just installs Homebrew and Ansible, whereas the Arch one just installs Ansible and configures yay for the AUR.
+The bootstrap script for Mac just installs Homebrew and Brewfile, whereas the Arch one just installs Ansible and configures yay for the AUR.

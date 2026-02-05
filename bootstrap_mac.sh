@@ -5,5 +5,4 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 # Need bundle command
 brew tap Homebrew/bundle
-
-brew install ansible
+brew bundle Brewfile
