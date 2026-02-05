@@ -8,6 +8,8 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
+    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "icon_theme": "Zed (Default)",
     "project_panel": {
         "default_width": 350.0
     },
@@ -58,10 +60,12 @@
     },
     "lsp_document_colors": "inlay",
     "colorize_brackets": true,
-    "buffer_font_size": 13,
-    "buffer_font_family": "JetBrains Mono",
-    "theme": "Gruvbox Dark Hard",
-
+    "buffer_font_size": 12,
+    "theme": {
+        "mode": "dark",
+        "light": "Gruvbox Light",
+        "dark": "Gruvbox Dark"
+    },
     // EDITOR
     "git": {
         "inline_blame": {
@@ -81,7 +85,9 @@
         "use_system_clipboard": "on_yank",
     },
     "relative_line_numbers": "enabled",
-    "wrap_guides": [120],
+    "wrap_guides": [
+        120
+    ],
     "auto_signature_help": false,
     "inlay_hints": {
         // Global switch to toggle hints on and off, switched off by default.
@@ -103,7 +109,6 @@
     },
     "tab_size": 4,
     "resize_all_panels_in_dock": [],
-
     // TERMINAL
     "terminal": {
         "toolbar": {
@@ -117,7 +122,6 @@
             },
         },
     },
-
     // AI
     "agent": {
         "default_profile": "ask",
@@ -131,13 +135,10 @@
         },
     },
     "show_edit_predictions": true,
-    "features": {
-        "edit_prediction_provider": "copilot",
-    },
     "edit_predictions": {
         "mode": "subtle",
+        "provider": "copilot"
     },
-
     // LANGUAGE SPECIFIC SETTINGS
     "languages": {
         "YAML": {
@@ -149,25 +150,32 @@
                 "background_coloring": "disabled",
                 "coloring": "indent_aware",
             },
-            "language_servers": ["ty", "!basedpyright", "ruff"],
+            "language_servers": [
+                "ty",
+                "!basedpyright",
+                "ruff"
+            ],
             "format_on_save": "on",
             "formatter": [
                 {
                     "external": {
                         "command": "black",
-                        "arguments": ["-"],
+                        "arguments": [
+                            "-"
+                        ],
                     },
                 },
                 {
                     "external": {
                         "command": "isort",
-                        "arguments": ["-"],
+                        "arguments": [
+                            "-"
+                        ],
                     },
                 },
             ],
         },
     },
-
     // LSP-SPECIFIC SETTINGS
     "lsp": {
         "basedpyright": {
@@ -192,7 +200,9 @@
                     // Ruff server settings goes here
                     "lineLength": 120,
                     "lint": {
-                        "ignore": ["I"], // using isort with specific rules for now
+                        "ignore": [
+                            "I"
+                        ], // using isort with specific rules for now
                     },
                 },
             },
