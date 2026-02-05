@@ -1,1 +1,12 @@
 .DS_Store
+config/dot-codex/skills/.system
+config/dot-codex/log
+config/dot-codex/sessions/2026/02/05
+config/dot-codex/tmp/arg0/codex-arg0JnZYvp
+config/dot-codex/.personality_migration
+config/dot-codex/auth.json
+config/dot-codex/config.toml
+config/dot-codex/models_cache.json
+config/dot-codex/version.json
+config/dot-config/fish/fish_variables
+config/dot-config/zed/prompts/prompts-library-db.0.mdb
