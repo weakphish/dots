@@ -1,27 +1,28 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# A minimal left prompt w/ padding
-format = """ $directory[$character](bold color_green)"""
-
-# move the rest of the prompt to the right
-right_format = """
-[](color_orange)\
+format = """
+[┌──](color_green)\
+[](color_green)\
 $os\
-$username\
-[](bg:color_yellow fg:color_orange)\
+$directory\
+[](fg:color_green bg:color_aqua )\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:color_yellow bg:color_aqua)\
-$python\
 [](fg:color_aqua bg:color_blue)\
-$pulumi
-[](fg:color_blue bg:color_bg3)\
+$python\
+[](fg:color_blue bg:color_purple)\
+$pulumi\
+[](fg:color_purple bg:color_red)\
 $kubernetes\
-[](fg:color_bg3 bg:color_bg1)\
+[](fg:color_red bg:color_orange)\
+$aws\
+[](fg:color_orange bg:color_yellow)\
 $time\
-[ ](fg:color_bg1)\
+[ ](color_yellow)
+[│](color_green)
+[└─$character](bold color_green)
 """
 
 palette = 'gruvbox_dark'
@@ -30,22 +31,23 @@ palette = 'gruvbox_dark'
 color_fg0 = '#fbf1c7'
 color_bg1 = '#3c3836'
 color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
 color_green = '#98971a'
-color_orange = '#d65d0e'
+color_aqua = '#689d6a'
+color_blue = '#458588'
 color_purple = '#b16286'
 color_red = '#cc241d'
+color_orange = '#d65d0e'
 color_yellow = '#d79921'
 
 # LEFT SIDE
 [directory]
-format = "[$path ]($style)"
+format = "[ in $path ]($style)"
+style = "bg:color_green fg:color_fg0"
 truncation_length = 3
 truncation_symbol = ".../"
 
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[󰘧](bold color_green)' 
+success_symbol = '[󰘧](bold color_green)'
 error_symbol = '[󰘧](bold fg:color_red)'
 vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
@@ -55,7 +57,7 @@ vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
 # RIGHT SIDE
 [os]
 disabled = false
-style = "bg:color_orange fg:color_fg0"
+style = "bg:color_green fg:color_fg0"
 
 [os.symbols]
 Windows = "󰍲"
@@ -69,29 +71,29 @@ Pop = ""
 
 [username]
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_fg0"
+style_user = "bg:color_green fg:color_fg0"
+style_root = "bg:color_green fg:color_fg0"
 format = '[ $user ]($style)'
 disabled = false
 
 [git_branch]
 symbol = ""
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:color_fg0 bg:color_aqua"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:color_fg0 bg:color_aqua"
 format = '[$all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
 [python]
-style = "bg:color_aqua"
+style = "bg:color_blue"
 symbol = ""
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [kubernetes]
 disabled = false
-style = "bg:color_bg3"
+style = "bg:color_red"
 format = '[ on $symbol$context(\($namespace\)) ]($style)'
 
 [hostname]
@@ -103,7 +105,15 @@ disabled = false
 show_always = true
 
 [pulumi]
-style = "bg:color_blue"
-format = '[ via $symbol($username@)$stack]($style)'
+style = "bg:color_purple"
+format = '[ via $symbol($username@)$stack ]($style)'
 
-
+[aws]
+format = '[ on $symbol($profile )(\($region\)) ]($style)'
+style = 'bg:color_orange'
+symbol = '🅰 '
+[aws.region_aliases]
+ap-southeast-2 = 'au'
+us-east-1 = 'va'
+[aws.profile_aliases]
+CompanyGroupFrobozzOnCallAccess = 'Frobozz'
