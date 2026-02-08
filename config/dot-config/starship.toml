@@ -3,24 +3,22 @@
 
 format = """
 [┌──](color_green)\
-[](color_green)\
+[](color_bg3)\
 $os\
 $directory\
-[](fg:color_green bg:color_aqua )\
+[](fg:color_bg3 bg:color_aqua )\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:color_aqua bg:color_blue)\
+[](fg:color_aqua bg:color_green)\
 $python\
-[](fg:color_blue bg:color_purple)\
+[](fg:color_green bg:color_purple)\
 $pulumi\
-[](fg:color_purple bg:color_red)\
+[](fg:color_purple bg:color_blue)\
 $kubernetes\
-[](fg:color_red bg:color_orange)\
+[](fg:color_blue bg:color_orange)\
 $aws\
-[](fg:color_orange bg:color_yellow)\
-$time\
-[ ](color_yellow)
+[ ](color_orange)
 [│](color_green)
 [└─$character](bold color_green)
 """
@@ -42,7 +40,7 @@ color_yellow = '#d79921'
 # LEFT SIDE
 [directory]
 format = "[ in $path ]($style)"
-style = "bg:color_green fg:color_fg0"
+style = "bg:color_bg3 fg:color_fg0"
 truncation_length = 3
 truncation_symbol = ".../"
 
@@ -57,7 +55,7 @@ vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
 # RIGHT SIDE
 [os]
 disabled = false
-style = "bg:color_green fg:color_fg0"
+style = "bg:color_bg3 fg:color_fg0"
 
 [os.symbols]
 Windows = "󰍲"
@@ -87,13 +85,13 @@ format = '[$all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
 [python]
-style = "bg:color_blue"
+style = "bg:color_green"
 symbol = ""
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [kubernetes]
 disabled = false
-style = "bg:color_red"
+style = "bg:color_blue"
 format = '[ on $symbol$context(\($namespace\)) ]($style)'
 
 [hostname]
