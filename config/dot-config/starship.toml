@@ -1,12 +1,13 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
-[┌──](color_green)\
-[](color_bg3)\
-$os\
-$directory\
-[](fg:color_bg3 bg:color_aqua )\
+# LEFT PROMPT: OS icon, directory, and character on single line
+format = """$os$directory$character"""
+
+# RIGHT PROMPT: Rainbow of extra info (git, python, pulumi, kubernetes, aws)
+# Uses left-pointing powerline arrows for right-side aesthetic
+right_format = """\
+[](color_aqua)\
 $git_branch\
 $git_commit\
 $git_status\
@@ -18,9 +19,7 @@ $pulumi\
 $kubernetes\
 [](fg:color_blue bg:color_orange)\
 $aws\
-[ ](color_orange)
-[│](color_green)
-[└─$character](bold color_green)
+[](fg:color_orange)\
 """
 
 palette = 'gruvbox_dark'
@@ -37,25 +36,11 @@ color_red = '#cc241d'
 color_orange = '#d65d0e'
 color_yellow = '#d79921'
 
-# LEFT SIDE
-[directory]
-format = "[ in $path ]($style)"
-style = "bg:color_bg3 fg:color_fg0"
-truncation_length = 3
-truncation_symbol = ".../"
-
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[󰘧](bold color_green)'
-error_symbol = '[󰘧](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
-
-# RIGHT SIDE
+# LEFT SIDE MODULES
 [os]
 disabled = false
-style = "bg:color_bg3 fg:color_fg0"
+style = "fg:color_fg0"
+format = "[$symbol ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -65,17 +50,25 @@ Linux = "󰌽"
 Fedora = "󰣛"
 Arch = "󰣇"
 CachyOS = "󰣇"
-Pop = ""
+Pop = ""
 
-[username]
-show_always = true
-style_user = "bg:color_green fg:color_fg0"
-style_root = "bg:color_green fg:color_fg0"
-format = '[ $user ]($style)'
-disabled = false
+[directory]
+format = "[$path ]($style)"
+style = "fg:color_aqua"
+truncation_length = 3
+truncation_symbol = ".../"
 
+[character]
+success_symbol = '[󰘧](bold color_green)'
+error_symbol = '[󰘧](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
+
+# RIGHT SIDE MODULES (rainbow segments)
 [git_branch]
-symbol = ""
+symbol = ""
 style = "fg:color_fg0 bg:color_aqua"
 format = '[ $symbol $branch ]($style)'
 
@@ -86,28 +79,20 @@ ignore_submodules = true
 
 [python]
 style = "bg:color_green"
-symbol = ""
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_aqua)]($style)'
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_green)]($style)'
 
 [kubernetes]
 disabled = false
 style = "bg:color_blue"
-format = '[ on $symbol$context(\($namespace\)) ]($style)'
-
-[hostname]
-ssh_only = false
-ssh_symbol = ''
-format = '[on $ssh_symbol$hostname](color_green)'
-trim_at = '.'
-disabled = false
-show_always = true
+format = '[ $symbol$context(\($namespace\)) ]($style)'
 
 [pulumi]
 style = "bg:color_purple"
-format = '[ via $symbol($username@)$stack ]($style)'
+format = '[ $symbol($username@)$stack ]($style)'
 
 [aws]
-format = '[ on $symbol($profile )(\($region\)) ]($style)'
+format = '[ $symbol($profile )(\($region\)) ]($style)'
 style = 'bg:color_orange'
 symbol = '🅰 '
 [aws.region_aliases]
@@ -115,3 +100,17 @@ ap-southeast-2 = 'au'
 us-east-1 = 'va'
 [aws.profile_aliases]
 CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+
+[username]
+show_always = false
+style_user = "bg:color_green fg:color_fg0"
+style_root = "bg:color_green fg:color_fg0"
+format = '[ $user ]($style)'
+disabled = true
+
+[hostname]
+ssh_only = true
+ssh_symbol = ''
+format = '[on $ssh_symbol$hostname](color_green)'
+trim_at = '.'
+disabled = false
