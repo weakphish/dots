@@ -9,6 +9,7 @@ alias p "poetry run"
 alias dc "docker compose"
 alias k kubectl
 alias pu pulumi
+alias oc opencode
 
 # Directory navigation
 alias cdr z
