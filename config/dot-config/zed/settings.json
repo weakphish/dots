@@ -8,48 +8,55 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // FONTS & THEMING
-    "buffer_font_family": "JetBrainsMono Nerd Font",
+    "document_symbols": "on",
+    "agent_servers": {
+        "opencode": {
+            "type": "registry",
+        },
+    },
+    "use_system_path_prompts": false,
+    "use_system_window_tabs": true,
+    "buffer_font_family": "JetBrains Mono",
     "icon_theme": "Zed (Default)",
     "project_panel": {
-        "default_width": 350.0
+        "default_width": 350.0,
     },
     "git_panel": {
         "tree_view": true,
         "status_style": "icon",
-        "default_width": 400.0
+        "default_width": 400.0,
     },
     "which_key": {
-        "enabled": true
+        "enabled": true,
     },
     "window_decorations": "client",
-    "use_system_window_tabs": true,
     "bottom_dock_layout": "contained",
     "tabs": {
         "show_diagnostics": "off",
         "file_icons": true,
-        "git_status": true
+        "git_status": true,
     },
     "title_bar": {
         "show_menus": false,
         "show_project_items": true,
-        "show_branch_icon": true
+        "show_branch_icon": true,
     },
     "file_finder": {
-        "modal_max_width": "medium"
+        "modal_max_width": "medium",
     },
     "prettier": {
-        "allowed": false
+        "allowed": true,
     },
     "toolbar": {
-        "code_actions": true
+        "code_actions": true,
     },
     "minimap": {
         "thumb": "always",
-        "show": "auto"
+        "show": "auto",
     },
     "show_signature_help_after_edits": true,
     "sticky_scroll": {
-        "enabled": true
+        "enabled": true,
     },
     "ui_font_family": ".ZedSans",
     "indent_guides": {
@@ -60,11 +67,11 @@
     },
     "lsp_document_colors": "inlay",
     "colorize_brackets": true,
-    "buffer_font_size": 12,
+    "buffer_font_size": 13.0,
     "theme": {
         "mode": "dark",
         "light": "Gruvbox Light",
-        "dark": "Gruvbox Dark"
+        "dark": "Gruvbox Dark",
     },
     // EDITOR
     "git": {
@@ -85,9 +92,7 @@
         "use_system_clipboard": "on_yank",
     },
     "relative_line_numbers": "enabled",
-    "wrap_guides": [
-        120
-    ],
+    "wrap_guides": [120],
     "auto_signature_help": false,
     "inlay_hints": {
         // Global switch to toggle hints on and off, switched off by default.
@@ -112,7 +117,7 @@
     // TERMINAL
     "terminal": {
         "toolbar": {
-            "breadcrumbs": false
+            "breadcrumbs": false,
         },
         "font_family": "JetBrainsMono Nerd Font",
         "shell": "system",
@@ -137,7 +142,7 @@
     "show_edit_predictions": true,
     "edit_predictions": {
         "mode": "subtle",
-        "provider": "copilot"
+        "provider": "copilot",
     },
     // LANGUAGE SPECIFIC SETTINGS
     "languages": {
@@ -150,30 +155,28 @@
                 "background_coloring": "disabled",
                 "coloring": "indent_aware",
             },
-            "language_servers": [
-                "ty",
-                "!basedpyright",
-                "ruff"
-            ],
+            "language_servers": ["ty", "!basedpyright", "ruff"],
             "format_on_save": "on",
             "formatter": [
                 {
                     "external": {
                         "command": "black",
-                        "arguments": [
-                            "-"
-                        ],
+                        "arguments": ["-"],
                     },
                 },
                 {
                     "external": {
                         "command": "isort",
-                        "arguments": [
-                            "-"
-                        ],
+                        "arguments": ["-"],
                     },
                 },
             ],
+        },
+        "JavaScript": {
+            "formatter": "prettier",
+        },
+        "TypeScript": {
+            "formatter": "prettier",
         },
     },
     // LSP-SPECIFIC SETTINGS
@@ -200,9 +203,7 @@
                     // Ruff server settings goes here
                     "lineLength": 120,
                     "lint": {
-                        "ignore": [
-                            "I"
-                        ], // using isort with specific rules for now
+                        "ignore": ["I"], // using isort with specific rules for now
                     },
                 },
             },
