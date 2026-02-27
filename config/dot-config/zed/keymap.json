@@ -7,12 +7,6 @@
 // from the command palette.
 [
     {
-        "context": "Terminal",
-        "bindings": {
-            "ctrl-\\": "pane::SplitRight",
-        },
-    },
-    {
         "context": "vim_mode == normal || vim_mode == visual",
         "bindings": {
             "s": "vim::PushSneak",
@@ -20,13 +14,19 @@
         },
     },
     {
+        "context": "vim_mode == visual",
         "bindings": {
-            "cmd->": "window::ShowNextWindowTab"
-        }
+            "shift-s": "vim::PushAddSurrounds",
+        },
     },
     {
         "bindings": {
-            "cmd-<": "window::ShowPreviousWindowTab"
-        }
-    }
+            "cmd->": "window::ShowNextWindowTab",
+        },
+    },
+    {
+        "bindings": {
+            "cmd-<": "window::ShowPreviousWindowTab",
+        },
+    },
 ]
