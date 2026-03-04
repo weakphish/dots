@@ -14,6 +14,7 @@ return {
 		daily_notes = {
 			-- Optional, if you keep daily notes in a separate directory.
 			folder = "daily",
+			template = "templates/daily.md"
 		},
 		templates = {
 			folder = "templates"
