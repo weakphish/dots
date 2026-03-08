@@ -13,20 +13,6 @@ comment-token = "#"
 shebangs = ["python"]
 roots = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".jj", ".venv/"]
 
-# https://docs.basedpyright.com/latest/configuration/language-server-settings/
-[language-server.basedpyright]
-command = "basedpyright-langserver"
-args = ["--stdio"]
-config.reportMissingtypeStubs = false
-except-features = ["format"]
-
-[language-server.basedpyright.config.basedpyright.analysis]
-autoSearchPaths = true
-diagnosticMode = "workspace"  # "openFilesOnly"
-useLibraryCodeForTypes = true
-autoImportCompletions = true
-typeCheckingMode = "standard" #"recommended"
-
 # https://docs.astral.sh/ruff/settings
 [language-server.ruff]
 command = "ruff"
@@ -37,7 +23,7 @@ include = ["*.py"]
 fix = true                     # TODO 
 
 [language-server.ruff.config.settings]
-lineLength = 80
+lineLength = 120
 logLevel = "debug"
 
 [language-server.ruff.analyze]
@@ -46,13 +32,16 @@ detect-string-imports = true
 ############################
 ## JavaScript/TypeScript ##
 ###########################
-# TypeScript
 [[language]]
 name = "typescript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, { name = "efm", only-features = [ "diagnostics", "format" ] }]
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
 
-[language-server.efm]
-command = "efm-langserver"
+[[language]]
+name = "javascript"
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
+
 
 [language-server.typescript-language-server]
 # pass format options according to https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration omitting the "[language].format." prefix.
