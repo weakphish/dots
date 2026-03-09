@@ -1,10 +1,13 @@
 function dnote --description "Manage daily notes: open, add entries, or view with glow"
     if set -q _flag_help; or contains -- --help $argv
-        echo "Usage: dnote              Open today's note in Zed"
+        echo "Usage: dnote              Open today's note in \$EDITOR"
         echo "       dnote add [-i N] [text]"
         echo "                          Append a timestamped bullet (gum prompt if no text)"
         echo "       dnote view         Render today's note with glow"
         echo "       dnote view all     Render all notes with glow"
+        echo "       dnote ask [question]"
+        echo "       dnote ask [-t|--today-only] [question]"
+        echo "                          Ask OpenCode in DAILY_NOTES_DIR (or only today's note)"
         echo ""
         echo "Requires DAILY_NOTES_DIR to be set."
         return 0
@@ -27,7 +30,7 @@ function dnote --description "Manage daily notes: open, add entries, or view wit
     end
 
     if test (count $argv) -eq 0
-        zed "$file"
+        $EDITOR "$file"
         return
     end
 
@@ -38,9 +41,12 @@ function dnote --description "Manage daily notes: open, add entries, or view wit
         case view
             set -e argv[1]
             _dnote_view "$file" $argv
+        case ask
+            set -e argv[1]
+            _dnote_ask "$file" $argv
         case '*'
             echo "Unknown subcommand: $argv[1]" >&2
-            echo "Usage: dnote [add [-i N] <text> | view [all]]" >&2
+            echo "Usage: dnote [add [-i N] <text> | view [all] | ask [question]]" >&2
             return 1
     end
 end
@@ -101,5 +107,57 @@ function _dnote_view --description "Render daily notes using glow"
             echo "Unknown view argument: $argv[1]" >&2
             echo "Usage: dnote view [all]" >&2
             return 1
+    end
+end
+
+# Ask OpenCode a question in the notes workspace.
+#
+# Why this exists:
+# - Runs OpenCode with DAILY_NOTES_DIR as the working context so AGENTS.md in
+#   that folder can guide behavior for note-focused Q&A.
+#
+# Parameters:
+# - $argv[1]: Path to today's note file (string).
+# - $argv[2..]: Flags and question tokens (optional); if omitted and gum is
+#   installed, prompts interactively.
+#
+# Returns:
+# - 0 on successful OpenCode invocation.
+# - 1 when prerequisites fail or no question is provided.
+function _dnote_ask --description "Ask OpenCode about notes in DAILY_NOTES_DIR"
+    set -l file $argv[1]
+    set -e argv[1]
+
+    if not command -q opencode
+        echo "opencode is not installed or not in PATH" >&2
+        return 1
+    end
+
+    argparse 't/today-only' -- $argv
+    or return 1
+
+    set -l question
+    if test (count $argv) -gt 0
+        set question "$argv"
+    else if command -q gum
+        set question (gum input --placeholder "Ask about your notes, boss" --prompt="? " --width 120)
+        or return 1
+    else
+        echo "Usage: dnote ask [-t|--today-only] [question]" >&2
+        return 1
+    end
+
+    if test -z "$question"
+        return 1
+    end
+
+    if not test -f "$DAILY_NOTES_DIR/AGENTS.md"
+        echo "Warning: $DAILY_NOTES_DIR/AGENTS.md not found; continuing without folder-specific agent instructions." >&2
+    end
+
+    if set -q _flag_today_only
+        command opencode run --dir "$DAILY_NOTES_DIR" -f "$file" -- "$question"
+    else
+        command opencode run --dir "$DAILY_NOTES_DIR" -- "$question"
     end
 end
