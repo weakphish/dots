@@ -21,12 +21,13 @@ function dnote --description "Manage daily notes: open, add entries, or view wit
     set -l year (date +%Y)
     set -l month (date +%m)
     set -l today (date +%Y-%m-%d)
+    set -l weekday (date +%A)
     set -l dir "$DAILY_NOTES_DIR/$year/$month"
     set -l file "$dir/$today.md"
 
     if not test -f "$file"
         mkdir -p "$dir"
-        echo "# $today" >"$file"
+        echo "# $today $weekday" >"$file"
     end
 
     if test (count $argv) -eq 0
