@@ -133,7 +133,7 @@
     // ── LANGUAGE-SPECIFIC SETTINGS ──────────────────────────────────
     "languages": {
         "YAML": {
-            // "format_on_save": "off",
+            "format_on_save": "off",
             "tab_size": 2,
         },
         "Python": {
