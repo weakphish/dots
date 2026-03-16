@@ -29,4 +29,26 @@
             "cmd-<": "window::ShowPreviousWindowTab",
         },
     },
+    {
+        "context": "Editor",
+        "bindings": {
+            "cmd-shift-j": [
+                "editor::AddSelectionBelow",
+                {
+                    "skip_soft_wrap": true
+                }
+            ]
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "cmd-shift-k": [
+                "editor::AddSelectionAbove",
+                {
+                    "skip_soft_wrap": true
+                }
+            ]
+        }
+    }
 ]
