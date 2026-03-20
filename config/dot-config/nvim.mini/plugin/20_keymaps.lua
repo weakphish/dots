@@ -61,6 +61,7 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
   { mode = 'n', keys = '<Leader>v', desc = '+Visits' },
   { mode = 'n', keys = '<Leader>x', desc = '+Trouble' },
+  { mode = 'n', keys = '<Leader>r', desc = '+Replace' },
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'x', keys = '<Leader>l', desc = '+Language' },
@@ -256,4 +257,10 @@ nmap_leader('xq', '<Cmd>Trouble qflist toggle<CR>',                        'Quic
 nmap_leader('xl', '<Cmd>Trouble loclist toggle<CR>',                       'Location list')
 nmap_leader('xt', '<Cmd>Trouble todo toggle<CR>',                          'TODOs')
 nmap_leader('xs', '<Cmd>Trouble symbols toggle focus=false<CR>',           'Symbols')
+
+-- r is for 'Replace'. Common usage:
+-- - `<Leader>rr` - search and replace current word
+nmap_leader('rr', function()
+  require('grug-far').open({ prefills = { search = vim.fn.expand('<cword>') } })
+end, 'Search and replace')
 -- stylua: ignore end

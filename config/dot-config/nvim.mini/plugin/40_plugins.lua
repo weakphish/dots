@@ -160,6 +160,12 @@ later(function()
   require('trouble').setup()
 end)
 
+-- Grug-far ====================================================================
+later(function()
+  add('MagicDuck/grug-far.nvim')
+  require('grug-far').setup()
+end)
+
 -- Mason ========================================================================
 now_if_args(function()
   add('mason-org/mason.nvim')
