@@ -149,6 +149,11 @@ end)
 -- See `:h MiniSnippets.gen_loader.from_lang()`.
 later(function() add('rafamadriz/friendly-snippets') end)
 
+-- LazyGit =====================================================================
+later(function()
+  add('kdheepak/lazygit.nvim')
+end)
+
 -- Mason ========================================================================
 now_if_args(function()
   add('mason-org/mason.nvim')
