@@ -50,7 +50,7 @@ now_if_args(function()
     'python', 'typescript', 'javascript', 'tsx',
     'go', 'rust', 'bash', 'yaml', 'typst',
     'html', 'css', 'json', 'toml', 'diff',
-    'c', 'luadoc', 'query',
+    'c', 'luadoc', 'query', 'jsdoc',
   }
   local isnt_installed = function(lang)
     return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
