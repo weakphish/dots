@@ -94,13 +94,22 @@ end)
 now_if_args(function()
   add('neovim/nvim-lspconfig')
 
-  -- Use `:h vim.lsp.enable()` to automatically enable language server based on
-  -- the rules provided by 'nvim-lspconfig'.
-  -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
-  -- Uncomment and tweak the following `vim.lsp.enable()` call to enable servers.
-  -- vim.lsp.enable({
-  --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
-  -- })
+  vim.lsp.config('bashls', {
+    filetypes = { 'bash', 'sh', 'zsh' },
+  })
+
+  vim.lsp.enable({
+    'lua_ls',
+    'ty',
+    'ruff',
+    'ts_ls',
+    'gopls',
+    'bashls',
+    'rust_analyzer',
+    'actionlint',
+    'gh-actions-language-server',
+    'yaml-language-server',
+  })
 end)
 
 -- Formatting =================================================================
@@ -145,20 +154,11 @@ end)
 -- See `:h MiniSnippets.gen_loader.from_lang()`.
 later(function() add('rafamadriz/friendly-snippets') end)
 
--- Honorable mentions =========================================================
-
--- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for
--- installing external language servers, formatters, and linters. It provides
--- a unified interface for installing, updating, and deleting such programs.
---
--- The caveat is that these programs will be set up to be mostly used inside Neovim.
--- If you need them to work elsewhere, consider using other package managers.
---
--- You can use it like so:
--- now_if_args(function()
---   add('mason-org/mason.nvim')
---   require('mason').setup()
--- end)
+-- Mason ========================================================================
+now_if_args(function()
+  add('mason-org/mason.nvim')
+  require('mason').setup()
+end)
 
 -- Color scheme =================================================================
 MiniDeps.now(function()
