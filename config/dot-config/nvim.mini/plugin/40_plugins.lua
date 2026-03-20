@@ -114,18 +114,23 @@ end)
 later(function()
   add('stevearc/conform.nvim')
 
-  -- See also:
-  -- - `:h Conform`
-  -- - `:h conform-options`
-  -- - `:h conform-formatters`
   require('conform').setup({
     default_format_opts = {
-      -- Allow formatting from LSP server if no dedicated formatter is available
       lsp_format = 'fallback',
     },
-    -- Map of filetype to formatters
-    -- Make sure that necessary CLI tool is available
-    -- formatters_by_ft = { lua = { 'stylua' } },
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      python = { 'isort', 'black' },
+      rust = { 'rustfmt' },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      go = { 'gofmt' },
+    },
+    format_on_save = function(bufnr)
+      -- Disable format on save for YAML
+      if vim.bo[bufnr].filetype == 'yaml' then return end
+      return { timeout_ms = 500 }
+    end,
   })
 end)
 
