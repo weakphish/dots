@@ -1,5 +1,3 @@
-vim.g.mapleader = " " -- Set `<Leader>` before making any mappings and configuring 'mini.clue'
-
 vim.opt.termguicolors = true
 
 vim.opt.shiftwidth = 4 -- Size of an indent
@@ -13,8 +11,8 @@ vim.opt.smartcase = true
 
 vim.opt.conceallevel = 1
 
-vim.wo.number = true
-vim.wo.relativenumber = true -- Relative line numbers
+vim.opt.number = true
+vim.opt.relativenumber = true -- Relative line numbers
 
 -- Diagnostics
 vim.diagnostic.config({ virtual_text = true })

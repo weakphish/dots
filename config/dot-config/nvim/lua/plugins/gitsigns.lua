@@ -52,7 +52,7 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>gb", "<cmd>Git toggle_current_line_blame<cr>", desc = "Toggle line blame" },
-		{ "<leader>gB", "<cmd>Git blame<cr>", desc = "Blame (window)" },
+		{ "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle line blame" },
+		{ "<leader>gB", "<cmd>Gitsigns blame<cr>", desc = "Blame (window)" },
 	},
 }

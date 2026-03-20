@@ -17,6 +17,7 @@ return {
 			"python",
 			"go",
 			"typescript",
+			"jsdoc",
 			"query",
 			"vim",
 			"vimdoc",

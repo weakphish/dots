@@ -8,8 +8,7 @@ return {
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = false,
 				["vim.lsp.util.stylize_markdown"] = false,
-				["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
-			},
+				},
 		},
 		-- you can enable a preset for easier configuration
 		presets = {

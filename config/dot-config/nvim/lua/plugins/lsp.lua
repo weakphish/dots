@@ -31,7 +31,7 @@ return {
 		},
 		{
 			"<leader>ch",
-			"<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<>",
+			"<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
 			desc = "Toggle Inlay [H]ints",
 		},
 	},

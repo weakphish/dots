@@ -3,6 +3,10 @@ return {
 	{
 		"echasnovski/mini.nvim",
 		config = function()
+			-- Mock nvim-web-devicons so plugins that depend on it use mini.icons instead
+			require("mini.icons").setup()
+			MiniIcons.mock_nvim_web_devicons()
+
 			-- Better Around/Inside textobjects
 			--
 			-- Examples:
@@ -97,7 +101,6 @@ return {
 					{ mode = "n", keys = "<Leader>g", desc = "+Git" },
 					{ mode = "n", keys = "<Leader>l", desc = "+LSP" },
 					{ mode = "n", keys = "<Leader>m", desc = "+Sessions" },
-					{ mode = "n", keys = "<Leader>o", desc = "+Obsidian" },
 					{ mode = "n", keys = "<Leader>s", desc = "+Search" },
 					{ mode = "n", keys = "<Leader>sa", desc = "+Search And Replace" },
 					{ mode = "n", keys = "<Leader>x", desc = "+Trouble" },

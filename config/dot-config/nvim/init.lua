@@ -21,11 +21,20 @@ require("config.keymaps")
 -- })
 vim.lsp.enable("ty")
 vim.lsp.config("bashls", {
-	filetypes = {"bash", "sh", ".zshrc"}
+	filetypes = {"bash", "sh", "zsh"}
 })
 
+vim.lsp.config("ruff", {
+	on_attach = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
+	end,
+})
 vim.lsp.enable("ruff")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("bashls")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("actionlint")
+vim.lsp.enable("gh-actions-language-server")
+vim.lsp.enable("yaml-language-server")
