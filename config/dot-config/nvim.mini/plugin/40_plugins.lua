@@ -154,6 +154,12 @@ later(function()
   add('kdheepak/lazygit.nvim')
 end)
 
+-- Trouble =====================================================================
+later(function()
+  add('folke/trouble.nvim')
+  require('trouble').setup()
+end)
+
 -- Mason ========================================================================
 now_if_args(function()
   add('mason-org/mason.nvim')

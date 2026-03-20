@@ -60,6 +60,7 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>s', desc = '+Session' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
   { mode = 'n', keys = '<Leader>v', desc = '+Visits' },
+  { mode = 'n', keys = '<Leader>x', desc = '+Trouble' },
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
   { mode = 'x', keys = '<Leader>l', desc = '+Language' },
@@ -245,4 +246,14 @@ nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>',    'Add "core" la
 nmap_leader('vV', '<Cmd>lua MiniVisits.remove_label("core")<CR>', 'Remove "core" label')
 nmap_leader('vl', '<Cmd>lua MiniVisits.add_label()<CR>',          'Add label')
 nmap_leader('vL', '<Cmd>lua MiniVisits.remove_label()<CR>',       'Remove label')
+
+-- x is for 'Trouble'. Common usage:
+-- - `<Leader>xx` - toggle workspace diagnostics
+-- - `<Leader>xt` - toggle TODO list
+nmap_leader('xx', '<Cmd>Trouble diagnostics toggle<CR>',                    'Diagnostics')
+nmap_leader('xX', '<Cmd>Trouble diagnostics toggle filter.buf=0<CR>',      'Diagnostics (buf)')
+nmap_leader('xq', '<Cmd>Trouble qflist toggle<CR>',                        'Quickfix')
+nmap_leader('xl', '<Cmd>Trouble loclist toggle<CR>',                       'Location list')
+nmap_leader('xt', '<Cmd>Trouble todo toggle<CR>',                          'TODOs')
+nmap_leader('xs', '<Cmd>Trouble symbols toggle focus=false<CR>',           'Symbols')
 -- stylua: ignore end
