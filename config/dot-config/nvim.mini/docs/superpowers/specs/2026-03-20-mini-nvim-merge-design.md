@@ -43,7 +43,7 @@ plugin/30_mini.lua       # Remove miniwinter colorscheme (replaced by gruvbox)
   - `javascript`, `typescript`: `{ 'prettierd', 'prettier', stop_after_first = true }`
   - `go`: `{ 'gofmt' }`
 - **Add**: `format_on_save = { timeout_ms = 500 }`
-- **Exclude YAML from format_on_save**: Original config deliberately turned this off (commit 8bb2f56). Add `yaml = {}` to formatters_by_ft or use `format_on_save` as a function that skips YAML.
+- **Exclude YAML from format_on_save**: Use `format_on_save` as a function that returns `nil` for YAML filetypes, disabling auto-format for YAML only.
 - **Keymaps**: `<Leader>lf` already mapped in 20_keymaps.lua — no changes needed
 
 ### 3. LazyGit
@@ -72,7 +72,7 @@ plugin/30_mini.lua       # Remove miniwinter colorscheme (replaced by gruvbox)
   - `actionlint` (GitHub Actions linting)
   - `gh-actions-language-server` (GitHub Actions)
   - `yaml-language-server` (YAML)
-  - `lua_ls` (already configured in `after/lsp/lua_ls.lua`)
+  - `lua_ls` (config in `after/lsp/lua_ls.lua`, but still needs `vim.lsp.enable()` call)
 - **Note on server names**: The original config uses `gh-actions-language-server` and `yaml-language-server` directly with `vim.lsp.enable()`. These may resolve via lsp config files in `after/lsp/` or Neovim 0.11+ mechanisms. If they don't work, the lspconfig canonical names are `github_actions_ls` and `yamlls`. Verify after implementation.
 - **Note on actionlint**: This is a linter, not a traditional LSP server. The original config enables it via `vim.lsp.enable()`. If it doesn't work, it may need nvim-lint instead. Verify after implementation.
 - **Note on bashls**: Original config had `".zshrc"` as a filetype, which is a filename not a filetype. Corrected to `"zsh"`.
@@ -100,6 +100,8 @@ plugin/30_mini.lua       # Remove miniwinter colorscheme (replaced by gruvbox)
   - `<Leader>xt` — TODOs (`Trouble todo toggle`)
   - `<Leader>xs` — document symbols (`Trouble symbols toggle focus=false`)
 - **Integration**: mini.hipatterns stays for inline TODO/FIXME highlighting; Trouble provides the aggregated panel
+- **Note on keymap deviations from original**: Original used `<Leader>xQ`/`xL` (uppercase) and `<Leader>cs`/`cl` for symbols/refs. This spec intentionally moves everything under the `<Leader>x` group with lowercase keys (matching mini convention where lowercase = primary action). The original `<Leader>cl` (LSP defs/refs) is dropped since `<Leader>fR` (Pick references) and `<Leader>ls` (definition) already cover this.
+- **Note on quickfix overlap**: `<Leader>eq`/`eQ` (native quickfix/loclist) remain as-is. `<Leader>xq`/`xl` provide a Trouble-enhanced view of the same data. Both coexist intentionally.
 
 ### 7. Grug-far
 
@@ -132,6 +134,7 @@ local languages = {
   'lua', 'vimdoc', 'markdown',
   'python', 'typescript', 'javascript', 'go', 'rust', 'bash', 'yaml',
   'tsx', 'html', 'css', 'json', 'toml', 'diff', 'typst',
+  'c', 'markdown_inline', 'luadoc', 'query',
 }
 ```
 
