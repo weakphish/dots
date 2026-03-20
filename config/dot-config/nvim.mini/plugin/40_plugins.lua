@@ -40,24 +40,17 @@ local now_if_args = Config.now_if_args
 now_if_args(function()
   add({
     source = 'nvim-treesitter/nvim-treesitter',
-    -- Update tree-sitter parser after plugin is updated
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
   })
   add('nvim-treesitter/nvim-treesitter-textobjects')
+  add('nvim-treesitter/nvim-treesitter-context')
 
-  -- Define languages which will have parsers installed and auto enabled
-  -- After changing this, restart Neovim once to install necessary parsers. Wait
-  -- for the installation to finish before opening a file for added language(s).
   local languages = {
-    -- These are already pre-installed with Neovim. Used as an example.
-    'lua',
-    'vimdoc',
-    'markdown',
-    -- Add here more languages with which you want to use tree-sitter
-    -- To see available languages:
-    -- - Execute `:=require('nvim-treesitter').get_available()`
-    -- - Visit 'SUPPORTED_LANGUAGES.md' file at
-    --   https://github.com/nvim-treesitter/nvim-treesitter
+    'lua', 'vimdoc', 'markdown', 'markdown_inline',
+    'python', 'typescript', 'javascript', 'tsx',
+    'go', 'rust', 'bash', 'yaml', 'typst',
+    'html', 'css', 'json', 'toml', 'diff',
+    'c', 'luadoc', 'query',
   }
   local isnt_installed = function(lang)
     return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
@@ -65,7 +58,6 @@ now_if_args(function()
   local to_install = vim.tbl_filter(isnt_installed, languages)
   if #to_install > 0 then require('nvim-treesitter').install(to_install) end
 
-  -- Enable tree-sitter after opening a file for a target language
   local filetypes = {}
   for _, lang in ipairs(languages) do
     for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
@@ -74,6 +66,9 @@ now_if_args(function()
   end
   local ts_start = function(ev) vim.treesitter.start(ev.buf) end
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
+
+  -- Sticky context header showing current function/class at window top
+  require('treesitter-context').setup()
 end)
 
 -- Language servers ===========================================================
