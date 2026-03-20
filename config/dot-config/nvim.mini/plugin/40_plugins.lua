@@ -69,6 +69,13 @@ now_if_args(function()
   end
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
 
+  -- Start treesitter for buffers already open (FileType event already fired)
+  local ft_set = {}
+  for _, ft in ipairs(filetypes) do ft_set[ft] = true end
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if ft_set[vim.bo[buf].filetype] then pcall(vim.treesitter.start, buf) end
+  end
+
   -- Sticky context header showing current function/class at window top
   require('treesitter-context').setup()
 end)
