@@ -4,7 +4,14 @@ return {
 	-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	-- or if using mini.icons/mini.nvim
 	dependencies = { "nvim-mini/mini.icons" },
-	opts = {},
+	opts = {
+		grep = {
+			actions = {
+				["ctrl-g"] = false, -- interferes with zellij
+				["ctrl-r"] = { function(entries, opts) require("fzf-lua.actions").grep_lgrep(entries, opts) end },
+			},
+		},
+	},
 	keys = {
 		{ "<leader>bb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
 		{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Files" },
