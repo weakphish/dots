@@ -1,0 +1,15 @@
+// Static tasks configuration.
+//
+// Example:
+[
+    {
+        "label": "LazyGit",
+        "command": "lazygit",
+        "reveal_target": "center",
+        "hide": "always",
+        "env": {
+            "VISUAL": "zed",
+            "GIT_EDITOR": "nvim"
+        }
+    }
+]

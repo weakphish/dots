@@ -1,0 +1,116 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# LEFT PROMPT: OS icon, directory, and character on single line
+format = """$os$directory$character"""
+
+# RIGHT PROMPT: Rainbow of extra info (git, python, pulumi, kubernetes, aws)
+# Uses left-pointing powerline arrows for right-side aesthetic
+right_format = """\
+[](color_aqua)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:color_aqua bg:color_green)\
+$python\
+[](fg:color_green bg:color_purple)\
+$pulumi\
+[](fg:color_purple bg:color_blue)\
+$kubernetes\
+[](fg:color_blue bg:color_orange)\
+$aws\
+[](fg:color_orange)\
+"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_green = '#98971a'
+color_aqua = '#689d6a'
+color_blue = '#458588'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_orange = '#d65d0e'
+color_yellow = '#d79921'
+
+# LEFT SIDE MODULES
+[os]
+disabled = false
+style = "fg:color_fg0"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Linux = "󰌽"
+Fedora = "󰣛"
+Arch = "󰣇"
+CachyOS = "󰣇"
+Pop = ""
+
+[directory]
+format = "[$path ]($style)"
+style = "fg:color_aqua"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[character]
+success_symbol = '[󰘧](bold color_green)'
+error_symbol = '[󰘧](bold fg:color_red)'
+vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[󰰫](bold fg:color_yellow)'
+
+# RIGHT SIDE MODULES (rainbow segments)
+[git_branch]
+symbol = ""
+style = "fg:color_fg0 bg:color_aqua"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:color_fg0 bg:color_aqua"
+format = '[$all_status$ahead_behind ]($style)'
+ignore_submodules = true
+
+[python]
+style = "bg:color_green"
+symbol = ""
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_green)]($style)'
+
+[kubernetes]
+disabled = false
+style = "bg:color_blue"
+format = '[ $symbol$context(\($namespace\)) ]($style)'
+
+[pulumi]
+style = "bg:color_purple"
+format = '[ $symbol($username@)$stack ]($style)'
+
+[aws]
+format = '[ $symbol($profile )(\($region\)) ]($style)'
+style = 'bg:color_orange'
+symbol = '🅰 '
+[aws.region_aliases]
+ap-southeast-2 = 'au'
+us-east-1 = 'va'
+[aws.profile_aliases]
+CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+
+[username]
+show_always = false
+style_user = "bg:color_green fg:color_fg0"
+style_root = "bg:color_green fg:color_fg0"
+format = '[ $user ]($style)'
+disabled = true
+
+[hostname]
+ssh_only = true
+ssh_symbol = ''
+format = '[on $ssh_symbol$hostname](color_green)'
+trim_at = '.'
+disabled = false

@@ -1,0 +1,89 @@
+########################################
+# LANGUAGE: PYTHON
+#########################################
+[[language]]
+name = "python"
+language-id = "python"
+auto-format = true
+language-servers = ["ty", "ruff"]
+# formatter = { command = "black", args = ["-"] }
+formatter = { command = "sh", args = ["-c", "black --quiet - | isort -"]}
+file-types = ["py", "ipynb"]
+comment-token = "#"
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".jj", ".venv/"]
+
+# https://docs.astral.sh/ruff/settings
+[language-server.ruff]
+command = "ruff"
+args = ["server", "--preview"]
+preview = true
+show-fixes = true
+include = ["*.py"]
+fix = true                     # TODO 
+
+[language-server.ruff.config.settings]
+lineLength = 120
+logLevel = "debug"
+
+[language-server.ruff.analyze]
+detect-string-imports = true
+
+############################
+## JavaScript/TypeScript ##
+###########################
+[[language]]
+name = "typescript"
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "javascript"
+auto-format = true
+indent = { tab-width = 4, unit = "  " }
+
+
+[language-server.typescript-language-server]
+# pass format options according to https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration omitting the "[language].format." prefix.
+config = { format = { "semicolons" = "insert", "insertSpaceBeforeFunctionParenthesis" = true } }
+
+###############
+## Markdown ##
+##############
+[[language]]
+name = "markdown"
+indent = { tab-width = 4, unit = "    " }
+
+##########
+## CSS ##
+#########
+[[language]]
+name = "css"
+scope = "source.css"
+injection-regex = "css"
+file-types = ["css", "scss"]
+language-servers = [ "vscode-css-language-server" ]
+indent = { tab-width = 2, unit = "  " }
+
+###########
+## Fish ##
+##########
+[[language]]
+name = "fish"
+formatter = { command = "fish_indent" }
+auto-format = true
+
+#############
+## Groovy ##
+############
+[[language]]
+name = "groovy"
+file-types = ["groovy", "Jenkinsfile", "jenkinsfile"]
+
+###############
+## GDScript ##
+##############
+[[language]]
+name = "gdscript"
+formatter = { command = "gdformat", args = ["-"] }
+auto-format = true

@@ -1,0 +1,6 @@
+theme = Gruvbox Dark
+
+keybind = global:cmd+option+h=goto_split:left
+keybind = global:cmd+option+l=goto_split:right
+keybind = global:cmd+option+j=goto_split:down
+keybind = global:cmd+option+k=goto_split:up
