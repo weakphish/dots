@@ -1,1 +1,0 @@
--- Plugin configuration is split by function across the neighboring 5x_*.lua files.
