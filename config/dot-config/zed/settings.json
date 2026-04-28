@@ -7,15 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-    // ── APPEARANCE ──────────────────────────────────────────────────
-    "agent_servers": {
-        "opencode": {
-            "type": "registry",
-        },
-        "github-copilot": {
-            "type": "registry",
-        },
-    },
+    // ── THEME & TYPOGRAPHY ──────────────────────────────────────────
+    // Visual defaults for colors, editor text, and structural guides.
     "theme": {
         "mode": "dark",
         "light": "Gruvbox Light",
@@ -25,14 +18,14 @@
     "buffer_font_size": 13.0,
     "colorize_brackets": true,
     "lsp_document_colors": "inlay",
-    // colored indent guides!
     "indent_guides": {
         "line_width": 2,
         "active_line_width": 3,
         "coloring": "indent_aware",
     },
 
-    // ── EDITOR BEHAVIOR ─────────────────────────────────────────────
+    // ── EDITING & NAVIGATION ────────────────────────────────────────
+    // Core editing behavior, Vim emulation, and navigation aids.
     "vim_mode": true,
     "vim": {
         "toggle_relative_line_numbers": true,
@@ -44,9 +37,10 @@
     "sticky_scroll": {
         "enabled": true,
     },
-    // use lsp symbols over tree-sitter when available
+
+    // ── CODE INTELLIGENCE & DIAGNOSTICS ─────────────────────────────
+    // LSP-backed symbols, inline hints, signatures, and diagnostic display.
     "document_symbols": "on",
-    // show help for symbol's signature after starting to write
     "show_signature_help_after_edits": true,
     "auto_signature_help": false,
     "inlay_hints": {
@@ -61,14 +55,15 @@
     "diagnostics": {
         // Whether to show warnings or not by default.
         "include_warnings": true,
-        // Settings for inline diagnostics
+        // Settings for inline diagnostics.
         "inline": {
-            // Whether to show diagnostics inline or not
+            // Whether to show diagnostics inline or not.
             "enabled": true,
         },
     },
 
-    // ── PANELS & LAYOUT ─────────────────────────────────────────────
+    // ── PANELS & WORKSPACE UI ───────────────────────────────────────
+    // Dock placement and sizing for persistent panels and transient UI.
     "project_panel": {
         "dock": "left",
         "default_width": 350.0,
@@ -86,7 +81,6 @@
         "button": false,
         "dock": "right",
     },
-    // make fuzzy file finder wider
     "file_finder": {
         "modal_max_width": "medium",
     },
@@ -96,6 +90,7 @@
     "resize_all_panels_in_dock": [],
 
     // ── GIT ─────────────────────────────────────────────────────────
+    // Version-control display behavior inside buffers and panels.
     "git": {
         "inline_blame": {
             "show_commit_summary": true,
@@ -103,6 +98,7 @@
     },
 
     // ── TERMINAL ────────────────────────────────────────────────────
+    // Integrated terminal font, shell, and virtual environment activation.
     "terminal": {
         "font_family": "JetBrainsMono Nerd Font",
         "shell": "system",
@@ -113,27 +109,29 @@
         },
     },
 
-    // ── AI & PREDICTIONS ────────────────────────────────────────────
+    // ── AI & ASSISTANT ──────────────────────────────────────────────
+    // Agent integrations, assistant models, and inline edit predictions.
+    "agent_servers": {
+        "opencode": {
+            "type": "registry",
+        },
+        "github-copilot": {
+            "type": "registry",
+        },
+    },
     "agent": {
         "sidebar_side": "right",
         "dock": "right",
         "default_profile": "ask",
-        "inline_assistant_model": {
-            "provider": "copilot_chat",
-            "model": "gpt-5.3",
-        },
         "default_model": {
             "provider": "copilot_chat",
-            "model": "claude-sonnet-4",
+            "model": "gpt-5.5",
         },
     },
-    "show_edit_predictions": true,
-    "edit_predictions": {
-        "mode": "subtle",
-        "provider": "copilot",
-    },
+    "show_edit_predictions": false,
 
-    // ── LANGUAGE-SPECIFIC SETTINGS ──────────────────────────────────
+    // ── FILE TYPES & LANGUAGES ──────────────────────────────────────
+    // File association overrides and per-language formatter behavior.
     "file_types": {
         "Dockerfile": ["Dockerfile*"],
         "YAML": ["*yaml.gotmpl"],
@@ -169,7 +167,8 @@
         },
     },
 
-    // ── LSP-SPECIFIC SETTINGS ───────────────────────────────────────
+    // ── LANGUAGE SERVERS ────────────────────────────────────────────
+    // Server-specific LSP settings that tune diagnostics and formatting.
     "lsp": {
         "basedpyright": {
             "settings": {
@@ -190,7 +189,7 @@
         "ruff": {
             "initialization_options": {
                 "settings": {
-                    // Ruff server settings goes here
+                    // Ruff server settings goes here.
                     "lineLength": 120,
                     "lint": {
                         "ignore": ["I"], // using isort with specific rules for now
