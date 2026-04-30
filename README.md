@@ -13,6 +13,12 @@ At home, I use MacOS on my personal laptop, and keep a Windows gaming computer d
 - Zellij as a tmux replacement/session-manager/terminal 10x improvement
 - Git Porcelain: LazyGit
 
+## Agents, etc.
+I mainly use OpenCode, but am experimenting with Pi. Both have a config in this repo.
+
+For OpenCode, I have my [global](https://opencode.ai/docs/config/#global) config stored in this repo,
+and then overlay a custom config for work-sensitive stuff using a [custom directory](https://opencode.ai/docs/config/#custom-directory).
+
 ## Other Software
 Other software that I use as a developer on a regular basis:
 
