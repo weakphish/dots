@@ -14,7 +14,7 @@
         "light": "Gruvbox Light",
         "dark": "Gruvbox Dark",
     },
-    "buffer_font_family": "JetBrains Mono",
+    "buffer_font_family": "Iosevka",
     "buffer_font_size": 13.0,
     "colorize_brackets": true,
     "lsp_document_colors": "inlay",
@@ -100,7 +100,7 @@
     // ── TERMINAL ────────────────────────────────────────────────────
     // Integrated terminal font, shell, and virtual environment activation.
     "terminal": {
-        "font_family": "JetBrainsMono Nerd Font",
+        "font_family": "IosevkaTerm Nerd Font",
         "shell": "system",
         "detect_venv": {
             "on": {
