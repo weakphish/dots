@@ -2,6 +2,14 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
   "agent": {
+    "ask": {
+      "mode": "primary",
+      "prompt": "{file:./prompts/ask.prompt.md}",
+      "permission": {
+        "edit": "deny",
+        "bash": "allow",
+      },
+    },
     "wiki-doc-writer": {
       "description": "Use to write, draft, or revise documentation pages for a team wiki or repository documentation. This includes creating new guides, documenting processes, explaining technical concepts, or restructuring existing documentation content.",
       "mode": "subagent",
