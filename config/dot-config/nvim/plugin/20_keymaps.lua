@@ -180,16 +180,6 @@ nmap_leader('Sn', '<Cmd>lua ' .. session_new .. '<CR>',         'New')
 nmap_leader('Sr', '<Cmd>lua MiniSessions.select("read")<CR>',   'Read')
 nmap_leader('Sw', '<Cmd>lua MiniSessions.write()<CR>',          'Write current')
 
--- S is for 'Surround'
-nmap_leader('sa', '<Cmd>lua MiniSurround.add("normal")<CR>',   'Add')
-nmap_leader('sd', '<Cmd>lua MiniSurround.delete()<CR>',         'Delete')
-nmap_leader('sf', '<Cmd>lua MiniSurround.find()<CR>',           'Find')
-nmap_leader('sF', '<Cmd>lua MiniSurround.find_left()<CR>',      'Find left')
-nmap_leader('sh', '<Cmd>lua MiniSurround.highlight()<CR>',      'Highlight')
-nmap_leader('sr', '<Cmd>lua MiniSurround.replace()<CR>',        'Replace')
-
-xmap_leader('sa', '<Cmd>lua MiniSurround.add("visual")<CR>', 'Add')
-
 -- t is for 'Terminal'
 nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 nmap_leader('tt', '<Cmd>vertical term<CR>',   'Terminal (vertical)')

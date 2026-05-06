@@ -268,12 +268,12 @@ later(function() require('mini.splitjoin').setup() end)
 later(function()
   require('mini.surround').setup({
     mappings = {
-      add = '',
-      delete = '',
-      find = '',
-      find_left = '',
-      highlight = '',
-      replace = '',
+      add = '<Leader>sa',
+      delete = '<Leader>sd',
+      find = '<Leader>sf',
+      find_left = '<Leader>sF',
+      highlight = '<Leader>sh',
+      replace = '<Leader>sr',
       suffix_last = 'l',
       suffix_next = 'n',
     },
