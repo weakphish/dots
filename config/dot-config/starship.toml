@@ -55,11 +55,11 @@ vimcmd_visual_symbol = '[󰰫](bold fg:yellow)'
 # RIGHT SIDE MODULES (rainbow segments)
 [git_branch]
 symbol = ""
-style = "fg:bright-white bg:cyan"
+style = "bg:cyan"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "fg:bright-white bg:cyan"
+style = "bg:cyan"
 format = '[$all_status$ahead_behind ]($style)'
 ignore_submodules = true
 
@@ -81,16 +81,11 @@ format = '[ $symbol($username@)$stack ]($style)'
 format = '[ $symbol($profile )(\($region\)) ]($style)'
 style = 'bg:red'
 symbol = '🅰 '
-[aws.region_aliases]
-ap-southeast-2 = 'au'
-us-east-1 = 'va'
-[aws.profile_aliases]
-CompanyGroupFrobozzOnCallAccess = 'Frobozz'
 
 [username]
 show_always = false
-style_user = "bg:green fg:bright-white"
-style_root = "bg:green fg:bright-white"
+style_user = "bg:green"
+style_root = "bg:green"
 format = '[ $user ]($style)'
 disabled = true
 
