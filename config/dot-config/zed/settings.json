@@ -9,6 +9,7 @@
 {
     // ── THEME & TYPOGRAPHY ──────────────────────────────────────────
     // Visual defaults for colors, editor text, and structural guides.
+    "helix_mode": true,
     "theme": {
         "mode": "dark",
         "light": "Gruvbox Light",
@@ -26,7 +27,7 @@
 
     // ── EDITING & NAVIGATION ────────────────────────────────────────
     // Core editing behavior, Vim emulation, and navigation aids.
-    "vim_mode": true,
+    "vim_mode": false,
     "vim": {
         "toggle_relative_line_numbers": true,
         "use_system_clipboard": "on_yank",
