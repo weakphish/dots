@@ -35,13 +35,14 @@ detect-string-imports = true
 [[language]]
 name = "typescript"
 auto-format = true
-indent = { tab-width = 4, unit = "  " }
+# indent = { tab-width = 4, unit = "  " }
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
 [[language]]
 name = "javascript"
 auto-format = true
-indent = { tab-width = 4, unit = "  " }
-
+# indent = { tab-width = 4, unit = "  " }
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 
 [language-server.typescript-language-server]
 # pass format options according to https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration omitting the "[language].format." prefix.
