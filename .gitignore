@@ -14,3 +14,4 @@ config/dot-codex/auth.json
 config/dot-codex/config.toml
 config/dot-codex/models_cache.json
 config/dot-codex/version.json
+/.agent-shell/
