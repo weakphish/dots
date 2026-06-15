@@ -13,7 +13,7 @@
     "buffer_line_height": "comfortable",
     "diff_view_style": "split",
     "cli_default_open_behavior": "existing_window",
-    "buffer_font_family": "Iosevka",
+    "buffer_font_family": "JetBrains Mono",
     "theme": {
         "mode": "dark",
         "light": "Gruvbox Light",
@@ -29,7 +29,7 @@
 
     // ── EDITING & NAVIGATION ────────────────────────────────────────
     // Core editing behavior, Vim emulation, and navigation aids.
-    "vim_mode": false,
+    "vim_mode": true,
     "vim": {
         "toggle_relative_line_numbers": true,
         "use_system_clipboard": "on_yank",
@@ -104,7 +104,7 @@
     // ── TERMINAL ────────────────────────────────────────────────────
     // Integrated terminal font, shell, and virtual environment activation.
     "terminal": {
-        "font_family": "IosevkaTerm Nerd Font",
+        "font_family": "JetBrainsMono Nerd Font",
         "shell": "system",
         "detect_venv": {
             "on": {
