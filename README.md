@@ -44,7 +44,7 @@ is pretty basic and doesn't support C# great, and I couldn't get Neovim to work 
 - `mise.mac.toml` / `mise.linux.toml` / `mise.work.toml` — per-profile overlays (system packages,
   platform-only dotfiles), layered via `MISE_ENV`.
 
-Everything — CLI tools, system packages (Homebrew/pacman), and dotfile symlinks — is driven by
+Everything (CLI tools, system packages (Homebrew/pacman), and dotfile symlinks) is driven by
 `mise`. There is no Brewfile or bootstrap script; `mise bootstrap` does it all.
 
 ## Profiles
