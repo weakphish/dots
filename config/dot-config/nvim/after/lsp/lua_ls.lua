@@ -1,6 +1,6 @@
 return {
   on_attach = function(client, buf_id)
-    -- Reduce very long list of triggers for better 'mini.completion' experience
+    -- Reduce LuaLS' noisy trigger list for a calmer completion menu.
     client.server_capabilities.completionProvider.triggerCharacters =
       { '.', ':', '#', '(' }
   end,

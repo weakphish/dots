@@ -16,15 +16,14 @@ now_if_args(function()
 		"ty",
 		"ruff",
 		"ts_ls",
-		"gopls",
-		"bashls",
-		"rust_analyzer",
-		"actionlint",
-		"gh-actions-language-server",
-		"yaml-language-server",
-		"helm_ls",
-		"lua_ls",
-	})
+			"gopls",
+			"bashls",
+			"rust_analyzer",
+			"gh_actions_ls",
+			"yamlls",
+			"helm_ls",
+			"lua_ls",
+		})
 end)
 
 -- Mason (LSP/formatter installer) ============================================

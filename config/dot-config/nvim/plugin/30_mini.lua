@@ -55,24 +55,33 @@ now(function() require('mini.tabline').setup() end)
 
 -- Completion and signature help
 now_if_args(function()
-  local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
-  local process_items = function(items, base)
-    return MiniCompletion.default_process_items(items, base, process_items_opts)
-  end
-  require('mini.completion').setup({
-    lsp_completion = {
-      source_func = 'omnifunc',
-      auto_setup = false,
-      process_items = process_items,
-    },
+  vim.pack.add({
+    { src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1') },
   })
 
-  local on_attach = function(ev)
-    vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
-  end
-  Config.new_autocmd('LspAttach', nil, on_attach, "Set 'omnifunc'")
+  local cmp = require('blink.cmp')
+  cmp.setup({
+    keymap = {
+      preset = 'enter',
+      ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+    },
+    completion = {
+      documentation = { auto_show = false },
+    },
+    snippets = {
+      preset = 'mini_snippets',
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = {
+      implementation = 'lua',
+    },
+    signature = { enabled = true },
+  })
 
-  vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+  vim.lsp.config('*', { capabilities = cmp.get_lsp_capabilities() })
 end)
 
 -- Navigate and manipulate file system
@@ -197,9 +206,6 @@ later(function() require('mini.jump').setup() end)
 -- Special key mappings
 later(function()
   require('mini.keymap').setup()
-  MiniKeymap.map_multistep('i', '<Tab>', { 'pmenu_next' })
-  MiniKeymap.map_multistep('i', '<S-Tab>', { 'pmenu_prev' })
-  MiniKeymap.map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
   MiniKeymap.map_multistep('i', '<BS>', { 'minipairs_bs' })
 end)
 
@@ -238,9 +244,6 @@ end)
 later(function()
   require('mini.pairs').setup({ modes = { command = true } })
 end)
-
--- Pick anything
-later(function() require('mini.pick').setup() end)
 
 -- Manage and expand snippets
 later(function()

@@ -16,6 +16,15 @@ later(function()
 	})
 end)
 
+-- Fzf-lua ====================================================================
+later(function()
+	add({ "https://github.com/ibhagwan/fzf-lua" }, { load = true })
+
+	require("fzf-lua").setup({
+		ui_select = true,
+	})
+end)
+
 -- Trouble ====================================================================
 later(function()
 	add({ "https://github.com/folke/trouble.nvim" })
