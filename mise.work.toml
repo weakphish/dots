@@ -1,0 +1,13 @@
+# Work overlay — loaded when MISE_ENV=mac,work (layered on top of mise.mac.toml).
+#
+# Work machines are macOS, so this stacks on the mac profile rather than
+# replacing it. Put work-only tools and dotfiles here. Sensitive sources
+# belong in a private/gitignored location, not committed to this repo.
+
+[tools]
+# e.g. work-specific CLIs:
+# awscli = "latest"
+
+[dotfiles]
+# e.g. work-only config:
+# "~/.config/some-work-tool" = "config/dot-config/some-work-tool"

@@ -1,4 +1,4 @@
-# Dotfiles, managed with GNU Stow
+# Dotfiles, managed with mise
 
 ## What
 
@@ -38,10 +38,72 @@ For game development projects, I tend to stick to Godot. I use JetBrains Rider t
 is pretty basic and doesn't support C# great, and I couldn't get Neovim to work with Godot reasonably well.
 
 ## Structure
-- `config/` houses my dotfiles, which are symlinked with Stow
-- `karabiner/` contains Karabiner-Elements configuration for macOS key remapping
+- `config/` houses my dotfiles, symlinked into `$HOME` by mise's `[dotfiles]` feature.
+- `karabiner/` contains Karabiner-Elements configuration for macOS key remapping.
+- `mise.toml` — base config: cross-platform CLI tools (`[tools]`) and shared dotfiles (`[dotfiles]`).
+- `mise.mac.toml` / `mise.linux.toml` / `mise.work.toml` — per-profile overlays (system packages,
+  platform-only dotfiles), layered via `MISE_ENV`.
+
+Everything — CLI tools, system packages (Homebrew/pacman), and dotfile symlinks — is driven by
+`mise`. There is no Brewfile or bootstrap script; `mise bootstrap` does it all.
+
+## Profiles
+
+The machine picks its profile through `MISE_ENV`, set in the gitignored
+`config/dot-config/fish/conf.d/local.fish`:
+
+| Machine        | `MISE_ENV`  | Loads                               |
+|----------------|-------------|-------------------------------------|
+| Personal mac   | `mac`       | `mise.toml` + `mise.mac.toml`       |
+| Linux          | `linux`     | `mise.toml` + `mise.linux.toml`     |
+| Work (macOS)   | `mac,work`  | `mise.toml` + `mise.mac.toml` + `mise.work.toml` |
+
+`work` is an overlay *on top of* mac, not a separate OS. Later profiles win on conflicts.
 
 ## Usage
-Run the bootstrap script for the appropriate operating system, then run `stow config --target ~/ --dotfiles`
 
-The bootstrap script for Mac just installs Homebrew and Brewfile, whereas the Arch one just installs Ansible and configures yay for the AUR.
+### Fresh machine
+
+```sh
+# 1. Install the two prerequisites mise can't install itself.
+#    macOS: install Homebrew (https://brew.sh), then `brew install mise`.
+#    Arch:  `sudo pacman -S mise` (or the AUR build).
+
+# 2. Tell mise which profile this machine is.
+mkdir -p ~/.config/fish/conf.d
+echo 'set -gx MISE_ENV mac' > ~/.config/fish/conf.d/local.fish   # or: linux | mac,work
+
+# 3. From the repo root, ALWAYS preview before touching the machine.
+cd ~/Developer/dots
+MISE_ENV=mac mise bootstrap --dry-run        # match the profile you set above
+
+# 4. If the plan looks right, run it for real.
+MISE_ENV=mac mise bootstrap                  # packages -> dotfiles -> tools, idempotent
+```
+
+`mise bootstrap` runs, in order: `[bootstrap.packages]` (Homebrew/pacman, incl. the
+`pre-packages` hook for casks mise can't install natively), then `mise dotfiles apply`,
+then `mise install` for the `[tools]`. Add `--force-dotfiles` to overwrite conflicting
+files. Then reload your shell (`exec fish`) so mise activates and `MISE_ENV` takes effect.
+
+To re-link dotfiles only (no package work): `mise dotfiles apply --dry-run` then
+`mise dotfiles apply`. `mise dotfiles status` shows what's linked vs. drifted. Everything is
+idempotent — anything already in its desired state is skipped, so re-running is safe.
+
+### Migrating off stow (one-time)
+
+If `$HOME` is currently stow-managed, **unstow first** so mise doesn't collide with
+existing whole-directory symlinks:
+
+```sh
+cd ~/Developer/dots
+stow -D config --target ~/ --dotfiles   # remove stow's symlinks
+mise dotfiles apply --dry-run           # confirm clean plan
+mise dotfiles apply
+```
+
+Karabiner config is generated, not just linked — after applying, run it once:
+
+```sh
+cd ~/.config/karabiner && deno run --allow-env --allow-read --allow-write ./karabiner.ts
+```

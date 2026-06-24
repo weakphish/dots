@@ -15,3 +15,12 @@ config/dot-codex/config.toml
 config/dot-codex/models_cache.json
 config/dot-codex/version.json
 /.agent-shell/
+
+# mise per-machine, non-committed config. MISE_ENV is set here on each box.
+# (Also matched by config/dot-config/fish/conf.d/.gitignore, kept explicit.)
+config/dot-config/fish/conf.d/local.fish
+mise.local.toml
+mise.*.local.toml
+
+# Logs that leak into the nvim source dir.
+**/nvim.log

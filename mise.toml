@@ -1,0 +1,57 @@
+# Base mise config — shared across all machines (mac, linux, work).
+#
+# Profiles layer on top of this via MISE_ENV:
+#   mac        -> mise.mac.toml
+#   linux      -> mise.linux.toml
+#   mac,work   -> mise.mac.toml + mise.work.toml   (work is an overlay on mac)
+#
+# Dotfiles are NEVER applied automatically. Link them with:
+#   mise dotfiles apply --dry-run   # preview
+#   mise dotfiles apply             # link into $HOME
+
+[settings]
+# `mise dotfiles` is an experimental feature and must be opted into.
+experimental = true
+
+[tools]
+# CLI dev tools that used to live in the Brewfile. All cross-platform and
+# resolved from the mise registry (mostly aqua-backed, no compiler needed).
+neovim = "latest"
+ripgrep = "latest"
+fd = "latest"
+fzf = "latest"
+zoxide = "latest"
+bat = "latest"
+lsd = "latest"
+delta = "latest"      # Brewfile called this "git-delta"; mise's registry name is "delta"
+lazygit = "latest"
+lazydocker = "latest"
+yazi = "latest"
+starship = "latest"
+deno = "latest"
+kubectl = "latest"
+k9s = "latest"
+uv = "latest"         # not in the old Brewfile, but conf.d/tools.fish depends on it
+
+[dotfiles]
+# Sources are repo-relative, resolved against this file's directory (repo root).
+# Each entry is keyed by its target path in $HOME.
+#
+# Default mode is "symlink" (one link for the whole directory). Single files
+# below are likewise single-file symlinks.
+"~/.config/ghostty"       = "config/dot-config/ghostty"
+"~/.config/helix"         = "config/dot-config/helix"
+"~/.config/opencode"      = "config/dot-config/opencode"
+"~/.config/zellij"        = "config/dot-config/zellij"
+"~/.config/starship.toml" = "config/dot-config/starship.toml"
+"~/.codex/AGENTS.md"      = "config/dot-codex/AGENTS.md"
+"~/.agents/skills"        = "config/dot-agents/skills"
+
+# symlink-each: these apps write machine-local state into their own config
+# directory (fish_variables, nvim.log, zed's prompt DB, emacs caches). Linking
+# each file individually lets that generated state live alongside the symlinks
+# instead of being forced into the repo.
+"~/.config/fish"  = { source = "config/dot-config/fish",  mode = "symlink-each" }
+"~/.config/nvim"  = { source = "config/dot-config/nvim",  mode = "symlink-each" }
+"~/.config/zed"   = { source = "config/dot-config/zed",   mode = "symlink-each" }
+"~/.config/emacs" = { source = "config/dot-config/emacs", mode = "symlink-each" }

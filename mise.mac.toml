@@ -1,0 +1,26 @@
+# macOS overlay — loaded when MISE_ENV includes "mac".
+# Also the base layer for the work machine (MISE_ENV=mac,work).
+
+[bootstrap.packages]
+# Homebrew packages installed by `mise bootstrap` (step 1, before dotfiles/tools).
+# `brew:` = formula, `brew-cask:` = GUI app. Note: brew and mise themselves are
+# prerequisites and cannot be installed here — see the README bootstrap steps.
+"brew:git" = "latest"       # system git
+"brew:zsh" = "latest"       # login shell (system-registered, not a mise tool)
+"brew:docker" = "latest"    # daemon/VM-level; pair with Docker Desktop or colima
+
+"brew-cask:mos" = "latest"
+"brew-cask:rectangle" = "latest"
+
+# ghostty and karabiner-elements ship cask artifacts (manpage / pkg) that mise's
+# experimental cask installer can't yet handle, so install them via raw brew in a
+# hook. Revisit moving these to [bootstrap.packages] as mise's cask support matures.
+[bootstrap.hooks.pre-packages]
+run = "brew install --cask ghostty karabiner-elements"
+
+[dotfiles]
+# macOS-only window management and key remapping.
+"~/.config/aerospace"                  = "config/dot-config/aerospace"
+"~/.config/borders"                    = "config/dot-config/borders"
+"~/.config/karabiner/karabiner.ts"     = "karabiner/karabiner.ts"
+"~/.config/karabiner/configure_karabiner.sh" = "karabiner/configure_karabiner.sh"

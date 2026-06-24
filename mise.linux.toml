@@ -1,0 +1,28 @@
+# Linux overlay — loaded when MISE_ENV=linux.
+
+# yay (AUR helper) is not in the official repos, and mise has no `aur:` backend,
+# so bootstrap it from the AUR here. This mirrors how mise.mac.toml hooks the
+# casks mise can't install natively. Idempotent: the build is skipped if yay is
+# already present. base-devel + git are required by makepkg, so they go here.
+[bootstrap.hooks.pre-packages]
+run = """
+sudo pacman -Syu --needed --noconfirm git base-devel
+command -v yay >/dev/null || {
+  build=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay-bin.git "$build/yay-bin"
+  (cd "$build/yay-bin" && makepkg -si --noconfirm)
+  rm -rf "$build"
+}
+"""
+
+[bootstrap.packages]
+# Official-repo packages installed via pacman (after the hook above). CLI dev
+# tools come from mise.toml [tools]; these are system-level. AUR packages can't
+# be declared here (no `aur:` backend) — install them through yay in the hook.
+"pacman:docker" = "latest"
+"pacman:zsh" = "latest"
+"pacman:hyprland" = "latest"   # Wayland compositor for the hypr config below
+
+[dotfiles]
+# Hyprland (Wayland compositor) — Linux only.
+"~/.config/hypr" = "config/dot-config/hypr"
