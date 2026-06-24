@@ -58,7 +58,7 @@ The machine picks its profile through `MISE_ENV`, set in the gitignored
 | Linux          | `linux`     | `mise.toml` + `mise.linux.toml`     |
 | Work (macOS)   | `mac,work`  | `mise.toml` + `mise.mac.toml` + `mise.work.toml` |
 
-`work` is an overlay *on top of* mac, not a separate OS. Later profiles win on conflicts.
+`work` is an overlay *on top of* mac, not a separate OS profile. Profiles applied later take precedence.
 
 ## Usage
 
@@ -70,8 +70,7 @@ The machine picks its profile through `MISE_ENV`, set in the gitignored
 #    Arch:  `sudo pacman -S mise` (or the AUR build).
 
 # 2. Tell mise which profile this machine is.
-mkdir -p ~/.config/fish/conf.d
-echo 'set -gx MISE_ENV mac' > ~/.config/fish/conf.d/local.fish   # or: linux | mac,work
+echo 'set -Ux MISE_ENV mac' # or: linux | mac,work
 
 # 3. From the repo root, ALWAYS preview before touching the machine.
 cd ~/Developer/dots
@@ -88,22 +87,4 @@ files. Then reload your shell (`exec fish`) so mise activates and `MISE_ENV` tak
 
 To re-link dotfiles only (no package work): `mise dotfiles apply --dry-run` then
 `mise dotfiles apply`. `mise dotfiles status` shows what's linked vs. drifted. Everything is
-idempotent — anything already in its desired state is skipped, so re-running is safe.
-
-### Migrating off stow (one-time)
-
-If `$HOME` is currently stow-managed, **unstow first** so mise doesn't collide with
-existing whole-directory symlinks:
-
-```sh
-cd ~/Developer/dots
-stow -D config --target ~/ --dotfiles   # remove stow's symlinks
-mise dotfiles apply --dry-run           # confirm clean plan
-mise dotfiles apply
-```
-
-Karabiner config is generated, not just linked — after applying, run it once:
-
-```sh
-cd ~/.config/karabiner && deno run --allow-env --allow-read --allow-write ./karabiner.ts
-```
+idempotent.
