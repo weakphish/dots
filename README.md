@@ -49,8 +49,7 @@ Everything — CLI tools, system packages (Homebrew/pacman), and dotfile symlink
 
 ## Profiles
 
-The machine picks its profile through `MISE_ENV`, set in the gitignored
-`config/dot-config/fish/conf.d/local.fish`:
+The machine picks its profile through `MISE_ENV`.
 
 | Machine        | `MISE_ENV`  | Loads                               |
 |----------------|-------------|-------------------------------------|
