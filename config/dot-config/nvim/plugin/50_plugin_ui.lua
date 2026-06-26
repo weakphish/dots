@@ -1,7 +1,33 @@
 -- Visual polish and editor UI helpers.
 
 local add = vim.pack.add
-local later = Config.later
+local now, later = Config.now, Config.later
+
+-- Colorscheme ================================================================
+now(function()
+	add({ "https://github.com/ellisonleao/gruvbox.nvim" })
+	vim.o.background = "dark"
+	vim.cmd("colorscheme gruvbox")
+end)
+
+-- Bufferline =================================================================
+now(function()
+	add({ "https://github.com/akinsho/bufferline.nvim" })
+	require("bufferline").setup()
+end)
+
+-- Neo-tree ===================================================================
+now(function()
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
+	add({
+		"https://github.com/nvim-lua/plenary.nvim",
+		"https://github.com/MunifTanjim/nui.nvim",
+		"https://github.com/nvim-neo-tree/neo-tree.nvim",
+	})
+
+	require("neo-tree").setup({ log_to_file = false })
+end)
 
 -- Rainbow indent guides ======================================================
 later(function()

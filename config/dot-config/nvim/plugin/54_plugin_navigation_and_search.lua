@@ -1,10 +1,10 @@
 -- Navigation, diagnostics lists, and project-wide search/replace.
 
 local add = vim.pack.add
-local later = Config.later
+local now = Config.now
 
 -- Flash ======================================================================
-later(function()
+now(function()
 	add({ "https://github.com/folke/flash.nvim" })
 
 	require("flash").setup({
@@ -17,7 +17,7 @@ later(function()
 end)
 
 -- Fzf-lua ====================================================================
-later(function()
+now(function()
 	add({ "https://github.com/ibhagwan/fzf-lua" }, { load = true })
 
 	require("fzf-lua").setup({
@@ -26,7 +26,7 @@ later(function()
 end)
 
 -- Trouble ====================================================================
-later(function()
+now(function()
 	add({ "https://github.com/folke/trouble.nvim" })
 
 	require("trouble").setup({
@@ -44,6 +44,6 @@ later(function()
 end)
 
 -- Grug-far (search and replace) ==============================================
-later(function()
+now(function()
 	add({ "https://github.com/MagicDuck/grug-far.nvim" })
 end)

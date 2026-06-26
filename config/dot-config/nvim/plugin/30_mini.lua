@@ -4,13 +4,6 @@ local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 -- Step one ===================================================================
 
--- Colorscheme: gruvbox
-now(function()
-  vim.pack.add({ 'https://github.com/ellisonleao/gruvbox.nvim' })
-  vim.o.background = 'dark'
-  vim.cmd('colorscheme gruvbox')
-end)
-
 -- Common configuration presets
 now(function()
   require('mini.basics').setup({
@@ -32,7 +25,7 @@ now(function()
     end,
   })
 
-  later(MiniIcons.mock_nvim_web_devicons)
+  MiniIcons.mock_nvim_web_devicons()
   later(MiniIcons.tweak_lsp_kind)
 end)
 
@@ -48,54 +41,7 @@ now(function() require('mini.starter').setup() end)
 -- Statusline
 now(function() require('mini.statusline').setup() end)
 
--- Tabline
-now(function() require('mini.tabline').setup() end)
-
 -- Step one or two ============================================================
-
--- Completion and signature help
-now_if_args(function()
-  vim.pack.add({
-    { src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1') },
-  })
-
-  local cmp = require('blink.cmp')
-  cmp.setup({
-    keymap = {
-      preset = 'enter',
-      ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
-    },
-    completion = {
-      documentation = { auto_show = false },
-    },
-    snippets = {
-      preset = 'mini_snippets',
-    },
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
-    },
-    fuzzy = {
-      implementation = 'lua',
-    },
-    signature = { enabled = true },
-  })
-
-  vim.lsp.config('*', { capabilities = cmp.get_lsp_capabilities() })
-end)
-
--- Navigate and manipulate file system
-now_if_args(function()
-  require('mini.files').setup({ windows = { preview = true } })
-
-  local add_marks = function()
-    MiniFiles.set_bookmark('c', vim.fn.stdpath('config'), { desc = 'Config' })
-    local vimpack_plugins = vim.fn.stdpath('data') .. '/site/pack/core/opt'
-    MiniFiles.set_bookmark('p', vimpack_plugins, { desc = 'Plugins' })
-    MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
-  end
-  Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
-end)
 
 -- Miscellaneous functions
 now_if_args(function()

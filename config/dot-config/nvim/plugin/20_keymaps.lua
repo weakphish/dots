@@ -68,12 +68,13 @@ nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>',        'Wipeout')
 nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
 nmap_leader('bn', '<Cmd>bnext<CR>', 'Next Buffer')
 nmap_leader('bb', '<Cmd>bprevious<CR>', 'Previous Buffer')
+nmap_leader('bo', '<Cmd>BufferLinePick<CR>', 'Pick buffer' )
 
 -- e is for 'Explore' and 'Edit'
 local edit_plugin_file = function(filename)
   return string.format('<Cmd>edit %s/plugin/%s<CR>', vim.fn.stdpath('config'), filename)
 end
-local explore_at_file = '<Cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>'
+local explore_at_file = '<Cmd>Neotree reveal<CR>'
 local explore_quickfix = function()
   vim.cmd(vim.fn.getqflist({ winid = true }).winid ~= 0 and 'cclose' or 'copen')
 end
@@ -81,7 +82,7 @@ local explore_locations = function()
   vim.cmd(vim.fn.getloclist(0, { winid = true }).winid ~= 0 and 'lclose' or 'lopen')
 end
 
-nmap_leader('ed', '<Cmd>lua MiniFiles.open()<CR>',          'Directory')
+nmap_leader('ed', '<Cmd>Neotree toggle<CR>',                'Directory')
 nmap_leader('ef', explore_at_file,                          'File directory')
 nmap_leader('ei', '<Cmd>edit $MYVIMRC<CR>',                 'init.lua')
 nmap_leader('ek', edit_plugin_file('20_keymaps.lua'),       'Keymaps config')
@@ -178,16 +179,19 @@ nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>',  'Show at cursor')
 xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at selection')
 
 -- l is for 'Language'
-nmap_leader('la', '<Cmd>lua vim.lsp.buf.code_action()<CR>',     'Actions')
-nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>',   'Diagnostic popup')
-nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>',   'Format')
-nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>',  'Implementation')
-nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>',           'Hover')
-nmap_leader('ll', '<Cmd>lua vim.lsp.codelens.run()<CR>',        'Lens')
-nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>',          'Rename')
-nmap_leader('lR', '<Cmd>lua vim.lsp.buf.references()<CR>',      'References')
-nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>',      'Source definition')
-nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type definition')
+nmap_leader('la', '<Cmd>lua vim.lsp.buf.code_action()<CR>',                       'Actions')
+nmap_leader('lD', '<Cmd>Trouble diagnostics toggle filter.buf=0<CR>',              'Diagnostics list')
+nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>',                     'Diagnostic popup')
+nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>',                     'Format')
+nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>',                    'Implementation')
+nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>',                             'Hover')
+nmap_leader('ll', '<Cmd>lua vim.lsp.codelens.run()<CR>',                          'Lens')
+nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>',                            'Rename')
+nmap_leader('lR', '<Cmd>lua vim.lsp.buf.references()<CR>',                        'References')
+nmap_leader('lS', '<Cmd>Trouble symbols toggle focus=false<CR>',                  'Symbols list')
+nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>',                        'Source definition')
+nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>',                   'Type definition')
+nmap_leader('lX', '<Cmd>Trouble lsp toggle focus=false win.position=right<CR>',   'LSP list')
 
 xmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format selection')
 

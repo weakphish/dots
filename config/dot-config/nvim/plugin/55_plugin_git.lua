@@ -1,9 +1,9 @@
 -- Git integrations.
 
 local add = vim.pack.add
-local later = Config.later
+local now = Config.now
 
 -- LazyGit ====================================================================
-later(function()
+now(function()
 	add({ "https://github.com/kdheepak/lazygit.nvim" })
 end)
