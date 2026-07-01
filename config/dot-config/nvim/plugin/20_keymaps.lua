@@ -185,29 +185,9 @@ nmap_leader('mr', '<Cmd>lua MiniMap.refresh()<CR>',      'Refresh')
 nmap_leader('ms', '<Cmd>lua MiniMap.toggle_side()<CR>',  'Side (toggle)')
 nmap_leader('mt', '<Cmd>lua MiniMap.toggle()<CR>',       'Toggle')
 
--- n is for 'Notes'
-nmap_leader('nb', '<Cmd>Obsidian backlinks<CR>',          'Backlinks')
-nmap_leader('nc', '<Cmd>Obsidian toc<CR>',                'Contents')
-nmap_leader('nd', '<Cmd>Obsidian dailies<CR>',            'Daily notes')
-nmap_leader('nf', '<Cmd>Obsidian new_from_template<CR>',  'New from template')
-nmap_leader('nl', '<Cmd>Obsidian links<CR>',              'Links')
-nmap_leader('nn', '<Cmd>Obsidian new<CR>',                'New note')
-nmap_leader('no', '<Cmd>Obsidian open<CR>',               'Open in Obsidian')
-nmap_leader('np', '<Cmd>Obsidian paste_img<CR>',          'Paste image')
-nmap_leader('nq', '<Cmd>Obsidian quick_switch<CR>',       'Quick switch')
-nmap_leader('nr', '<Cmd>Obsidian rename<CR>',             'Rename note')
-nmap_leader('ns', '<Cmd>Obsidian search<CR>',             'Search')
-nmap_leader('nt', '<Cmd>Obsidian today<CR>',              'Today')
-nmap_leader('nT', '<Cmd>Obsidian tomorrow<CR>',           'Tomorrow')
-nmap_leader('nu', '<Cmd>Obsidian unique_note<CR>',        'Unique note')
-nmap_leader('nw', '<Cmd>Obsidian workspace<CR>',          'Workspace')
-nmap_leader('nx', '<Cmd>Obsidian toggle_checkbox<CR>',    'Toggle checkbox')
-nmap_leader('ny', '<Cmd>Obsidian yesterday<CR>',          'Yesterday')
-nmap_leader('nz', '<Cmd>Obsidian tags<CR>',               'Tags')
-
-xmap_leader('ne', '<Cmd>Obsidian extract_note<CR>', 'Extract note')
-xmap_leader('nl', '<Cmd>Obsidian link<CR>',         'Link selection')
-xmap_leader('nn', '<Cmd>Obsidian link_new<CR>',     'New linked note')
+-- n is for 'Markdown'
+nmap_leader('nt', "<Cmd>lua require('render-markdown').toggle()<CR>", 'Toggle Markdown Rendering')
+nmap_leader('np', "<Cmd>lua require('render-markdown').preview()<CR>", 'Preview Markdown Rendering To Side')
 
 -- o is for 'Other'
 nmap_leader('oh', '<Cmd>nohlsearch<CR>',                                                                          'Clear search highlight')
