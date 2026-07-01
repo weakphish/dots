@@ -187,7 +187,7 @@ nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>',                  
 nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>',                             'Hover')
 nmap_leader('ll', '<Cmd>lua vim.lsp.codelens.run()<CR>',                          'Lens')
 nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>',                            'Rename')
-nmap_leader('lR', '<Cmd>lua vim.lsp.buf.references()<CR>',                        'References')
+nmap_leader('lR', '<Cmd>FzfLua lsp_references<CR>',                               'References')
 nmap_leader('lS', '<Cmd>Trouble symbols toggle focus=false<CR>',                  'Symbols list')
 nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>',                        'Source definition')
 nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>',                   'Type definition')
