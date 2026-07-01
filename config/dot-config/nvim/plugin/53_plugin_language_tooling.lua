@@ -16,14 +16,14 @@ now_if_args(function()
 		"ty",
 		"ruff",
 		"ts_ls",
-			"gopls",
-			"bashls",
-			"rust_analyzer",
-			"gh_actions_ls",
-			"yamlls",
-			"helm_ls",
-			"lua_ls",
-		})
+		"gopls",
+		"bashls",
+		"rust_analyzer",
+		"gh_actions_ls",
+		"yamlls",
+		"helm_ls",
+		"lua_ls",
+	})
 end)
 
 -- Mason (LSP/formatter installer) ============================================
@@ -61,4 +61,9 @@ end)
 -- Snippets ===================================================================
 later(function()
 	add({ "https://github.com/rafamadriz/friendly-snippets" })
+end)
+
+-- Markdown! ==================================================================
+later(function()
+	add({ "https://github.com/MeanderingProgrammer/render-markdown.nvim" })
 end)
