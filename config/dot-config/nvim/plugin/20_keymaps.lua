@@ -34,14 +34,12 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
   { mode = 'n', keys = '<Leader>l', desc = '+Language' },
   { mode = 'n', keys = '<Leader>m', desc = '+Map' },
-  { mode = 'n', keys = '<Leader>n', desc = '+Notes' },
   { mode = 'n', keys = '<Leader>o', desc = '+Other' },
   { mode = 'n', keys = '<Leader>p', desc = '+Plugin' },
   { mode = 'n', keys = '<Leader>S', desc = '+Session' },
   { mode = 'n', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'x', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
-  { mode = 'n', keys = '<Leader>v', desc = '+Visits' },
   { mode = 'n', keys = '<Leader>x', desc = '+Trouble' },
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
@@ -122,18 +120,6 @@ local find_modified_hunks_buf = function()
   require('fzf-lua').git_hunks({ file = vim.fn.expand('%') })
 end
 
---- Opens a fzf-lua picker for MiniVisits paths.
----
---- MiniVisits owns the visit index and sorting rules. Calling its select API
---- keeps those semantics while fzf-lua handles `vim.ui.select`.
----
---- @param cwd string|nil Visit scope; `""` means all tracked directories.
---- @param opts table|nil Options forwarded to `MiniVisits.list_paths()`.
---- @return nil
-local find_visit_paths = function(cwd, opts)
-  MiniVisits.select_path(cwd, opts)
-end
-
 nmap_leader('f/', '<Cmd>FzfLua search_history<CR>',              '"/" history')
 nmap_leader('f:', '<Cmd>FzfLua command_history<CR>',             '":" history')
 nmap_leader('fa', function() find_staged_hunks() end,            'Added hunks (all)')
@@ -157,8 +143,6 @@ nmap_leader('fr', '<Cmd>FzfLua resume<CR>',                      'Resume')
 nmap_leader('fR', '<Cmd>FzfLua lsp_references<CR>',              'References (LSP)')
 nmap_leader('fs', '<Cmd>FzfLua lsp_live_workspace_symbols<CR>',  'Symbols workspace (live)')
 nmap_leader('fS', '<Cmd>FzfLua lsp_document_symbols<CR>',        'Symbols document')
-nmap_leader('fv', function() find_visit_paths('') end,           'Visit paths (all)')
-nmap_leader('fV', function() find_visit_paths() end,             'Visit paths (cwd)')
 
 -- g is for 'Git'
 local git_log_cmd = [[Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order]]
@@ -250,21 +234,6 @@ nmap_leader('Sw', '<Cmd>lua MiniSessions.write()<CR>',          'Write current')
 -- t is for 'Terminal'
 nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 nmap_leader('tt', '<Cmd>vertical term<CR>',   'Terminal (vertical)')
-
--- v is for 'Visits'
-local make_pick_core = function(cwd)
-  return function()
-    local sort_latest = MiniVisits.gen_sort.default({ recency_weight = 1 })
-    find_visit_paths(cwd, { filter = 'core', sort = sort_latest })
-  end
-end
-
-nmap_leader('vc', make_pick_core(''),                             'Core visits (all)')
-nmap_leader('vC', make_pick_core(nil),                            'Core visits (cwd)')
-nmap_leader('vv', '<Cmd>lua MiniVisits.add_label("core")<CR>',    'Add "core" label')
-nmap_leader('vV', '<Cmd>lua MiniVisits.remove_label("core")<CR>', 'Remove "core" label')
-nmap_leader('vl', '<Cmd>lua MiniVisits.add_label()<CR>',          'Add label')
-nmap_leader('vL', '<Cmd>lua MiniVisits.remove_label()<CR>',       'Remove label')
 
 -- x is for 'Trouble'
 nmap_leader('xx', '<Cmd>Trouble diagnostics toggle<CR>',                        'Diagnostics')

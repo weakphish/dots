@@ -232,5 +232,3 @@ end)
 -- Highlight and remove trailspace
 later(function() require('mini.trailspace').setup() end)
 
--- Track and reuse file system visits
-later(function() require('mini.visits').setup() end)
