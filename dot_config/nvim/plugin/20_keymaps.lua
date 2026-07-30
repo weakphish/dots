@@ -60,13 +60,14 @@ local new_scratch_buffer = function()
 end
 
 nmap_leader('ba', '<Cmd>b#<CR>', 'Alternate')
+nmap_leader('bb', '<Cmd>FzfLua buffers<CR>', 'Switch Buffers')
 nmap_leader('bd', '<Cmd>lua MiniBufremove.delete()<CR>', 'Delete')
 nmap_leader('bD', '<Cmd>lua MiniBufremove.delete(0, true)<CR>', 'Delete!')
 nmap_leader('bs', new_scratch_buffer, 'Scratch')
 nmap_leader('bw', '<Cmd>lua MiniBufremove.wipeout()<CR>', 'Wipeout')
 nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
 nmap_leader('bn', '<Cmd>bnext<CR>', 'Next Buffer')
-nmap_leader('bb', '<Cmd>bprevious<CR>', 'Previous Buffer')
+nmap_leader('bp', '<Cmd>bprevious<CR>', 'Previous Buffer')
 nmap_leader('bo', '<Cmd>BufferLinePick<CR>', 'Pick buffer')
 
 -- e is for 'Explore' and 'Edit'
@@ -147,22 +148,14 @@ nmap_leader('fS', '<Cmd>FzfLua lsp_live_workspace_symbols<CR>', 'Symbols workspa
 nmap_leader('ft', '<Cmd>FzfLua treesitter<CR>', 'Treesitter Symbols')
 
 -- g is for 'Git'
-local git_log_cmd = [[Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order]]
-local git_log_buf_cmd = git_log_cmd .. ' --follow -- %'
-
-nmap_leader('ga', '<Cmd>Git diff --cached<CR>', 'Added diff')
-nmap_leader('gA', '<Cmd>Git diff --cached -- %<CR>', 'Added diff buffer')
-nmap_leader('gc', '<Cmd>Git commit<CR>', 'Commit')
-nmap_leader('gC', '<Cmd>Git commit --amend<CR>', 'Commit amend')
-nmap_leader('gd', '<Cmd>Git diff<CR>', 'Diff')
-nmap_leader('gD', '<Cmd>Git diff -- %<CR>', 'Diff buffer')
+nmap_leader('gb', '<Cmd>Gitsigns blame<CR>', 'Blame')
+nmap_leader('gB', '<Cmd>Gitsigns toggle_current_line_blame<CR>', 'Toggle current line blame')
+nmap_leader('gd', '<Cmd>Gitsigns diffthis<CR>', 'Diff this')
 nmap_leader('gg', '<Cmd>LazyGit<CR>', 'LazyGit')
-nmap_leader('gl', '<Cmd>' .. git_log_cmd .. '<CR>', 'Log')
-nmap_leader('gL', '<Cmd>' .. git_log_buf_cmd .. '<CR>', 'Log buffer')
-nmap_leader('go', '<Cmd>lua MiniDiff.toggle_overlay()<CR>', 'Toggle overlay')
-nmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at cursor')
-
-xmap_leader('gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', 'Show at selection')
+nmap_leader('gn', '<Cmd>Gitsigns next_hunk<CR>', 'Next hunk')
+nmap_leader('gp', '<Cmd>Gitsigns prev_hunk<CR>', 'Previous hunk')
+nmap_leader('gs', '<Cmd>Gitsigns stage_hunk<CR>', 'Stage hunk')
+nmap_leader('gS', '<Cmd>Gitsigns stage_buffer<CR>', 'Stage buffer')
 
 -- l is for 'Language'
 nmap_leader('la', '<Cmd>lua vim.lsp.buf.code_action()<CR>', 'Actions')
