@@ -44,11 +44,6 @@ now(function()
 	require("mini.starter").setup()
 end)
 
--- Statusline
-now(function()
-	require("mini.statusline").setup()
-end)
-
 -- Step one or two ============================================================
 
 -- Miscellaneous functions
