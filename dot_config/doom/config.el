@@ -109,3 +109,15 @@
 
 ;; Auto-enable rainbow delimiters for most programming modes
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Configure indent-bar to use tree-sitter and colors
+(with-eval-after-load 'indent-bars
+  (setq
+   indent-bars-color '(highlight :face-bg t :blend 0.8)
+   indent-bars-pattern "."
+   indent-bars-color-by-depth '(:regexp "outline-\\([0-9]+\\)" :blend 0.8)
+   indent-bars-highlight-current-depth '(:blend 1.0 :width 0.4 :pad 0.1 :pattern "!.!.!." :zigzag 0.1)
+   indent-bars-pad-frac 0.3
+   indent-bars-ts-highlight-current-depth '(no-inherit) ; equivalent to nil
+   indent-bars-ts-color-by-depth '(no-inherit)
+   indent-bars-ts-color '(inherit fringe :face-bg t :blend 0.2)))
