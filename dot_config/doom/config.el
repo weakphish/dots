@@ -96,11 +96,11 @@
    org-capture-templates ;; Capture templates
    '(
      ("t" "Task" entry
-      (file+olp "tasks.org" "Tasks")
-      "* TODO %? %^G\nCreated: %U\n")
+      (file+olp "tasks.org" "Inbox")
+      "* TODO %?\nCreated: %U\n")
      ("j" "Journal" entry
       (file+datetree "journal.org")
-      "* %? %^G\nCreated: %U\nFrom: \n")
+      "* %?\nCreated: %U\nFrom: %a\n")
      ("m" "Meeting" entry
       (file+datetree "journal.org")
       "* Meeting with %? :meeting:\nCreated: %U\n")
