@@ -1,6 +1,8 @@
 theme = Gruvbox Dark Hard
 
-background-opacity = 0.8
+font-family = Iosevka Term
+
+background-opacity = 0.95
 background-blur = 90
 background-opacity-cells = true
 
