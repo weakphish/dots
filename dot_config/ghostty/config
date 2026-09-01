@@ -1,6 +1,6 @@
 theme = Gruvbox Dark Hard
 
-font-family = Iosevka Term
+font-family = JetBrains Mono
 font-size = 14
 
 background-opacity = 0.95
