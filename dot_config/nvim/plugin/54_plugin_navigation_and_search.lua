@@ -47,3 +47,9 @@ end)
 now(function()
 	add({ "https://github.com/MagicDuck/grug-far.nvim" })
 end)
+
+-- Yazi =======================================================================
+now(function()
+    add(    { "https://github.com/nvim-lua/plenary.nvim"})
+    add({"https://github.com/mikavilpas/yazi.nvim"})
+end)
