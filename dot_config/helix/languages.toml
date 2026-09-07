@@ -54,6 +54,7 @@ config = { format = { "semicolons" = "insert", "insertSpaceBeforeFunctionParenth
 [[language]]
 name = "markdown"
 indent = { tab-width = 4, unit = "    " }
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
 ##########
 ## CSS ##
