@@ -26,6 +26,17 @@ now(function()
 	require("bufferline").setup()
 end)
 
+-- Statusline =================================================================
+now(function()
+	add({
+		"https://github.com/nvim-tree/nvim-web-devicons",
+		"https://github.com/nvim-lualine/lualine.nvim",
+	})
+	require("lualine").setup({
+		options = { theme = "gruvbox" },
+	})
+end)
+
 -- Neo-tree ===================================================================
 now(function()
 	vim.g.loaded_netrw = 1
