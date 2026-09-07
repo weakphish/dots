@@ -63,6 +63,12 @@ later(function()
   require("helm-ls").setup()
 end)
 
+-- Go plugin
+now(function()
+    add({"https://github.com/ray-x/go.nvim"})
+    require('go').setup()
+end)
+
 -- Language servers ============================================================
 now_if_args(function()
   add({
