@@ -1,0 +1,7 @@
+custom.el
+cache/
+eln-cache/
+elpa/
+history
+recentf
+tree-sitter/

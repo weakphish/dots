@@ -1,0 +1,110 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Use the custom color palette defined below.
+palette = "gruvbox_light"
+
+# LEFT PROMPT: OS icon, directory, and character on single line
+format = """\
+[┌─](green)[](aqua)$git_branch$git_commit$git_status[](fg:aqua bg:green)$python[](fg:green bg:purple)$pulumi[](fg:purple bg:blue)$kubernetes[](fg:blue bg:red)$aws[](fg:red)
+[│](green)
+[└─](green)$os$directory$character\
+"""
+
+# MODULES
+[os]
+disabled = false
+style = "fg:fg"
+format = "[$symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Linux = "󰌽"
+Fedora = "󰣛"
+Arch = "󰣇"
+CachyOS = "󰣇"
+Pop = ""
+
+[directory]
+format = "[$path ]($style)"
+style = "fg:aqua"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[character]
+success_symbol = '[󰘧](bold green)'
+error_symbol = '[󰘧](bold fg:red)'
+vimcmd_symbol = '[](bold fg:green)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[󰰫](bold fg:fg)'
+
+[git_branch]
+symbol = ""
+style = "fg:bg bg:aqua"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:bg bg:aqua"
+format = '[$all_status$ahead_behind ]($style)'
+ignore_submodules = true
+
+[python]
+style = "fg:bg bg:green"
+symbol = ""
+format = '[[ $symbol( $version) ](fg:bg bg:green)]($style)'
+
+[kubernetes]
+disabled = false
+style = "fg:bg bg:blue"
+format = '[ $symbol$context(\($namespace\)) ]($style)'
+
+[pulumi]
+style = "fg:bg bg:purple"
+format = '[ $symbol($username@)$stack ]($style)'
+
+[aws]
+format = '[ $symbol($profile )(\($region\)) ]($style)'
+style = 'fg:bg bg:red'
+symbol = '🅰 '
+
+[username]
+show_always = false
+style_user = "bg:green"
+style_root = "bg:green"
+format = '[ $user ]($style)'
+disabled = true
+
+[hostname]
+ssh_only = true
+ssh_symbol = ''
+format = '[on $ssh_symbol$hostname](green)'
+trim_at = '.'
+disabled = false
+
+# Define color palette(s)
+[palettes.gruvbox_light]
+bg = "#282828"
+fg = "#ebdbb2"
+red = "#fb4934"
+green = "#b8bb26"
+yellow = "#fabd2f"
+blue = "#83a598"
+purple = "#d3869b"
+aqua = "#8ec07c"
+
+[palettes.everforest]
+bg = "#1E2326"
+fg = "#D3C6AA"
+red = "#E67E80"
+green = "#A7C080"
+yellow = "#DBBC7F"
+blue = "#7FBBB3"
+purple = "#D699B6"
+aqua = "#83C092"
+
