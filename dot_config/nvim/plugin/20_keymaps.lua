@@ -29,10 +29,10 @@ vim.keymap.set("n", "<Esc><Esc>", "<Cmd>nohlsearch<CR>", { silent = true, desc =
 -- Leader mappings ============================================================
 Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>b', desc = '+Buffer' },
+  { mode = 'n', keys = '<Leader>c', desc = '+Code' },
   { mode = 'n', keys = '<Leader>e', desc = '+Explore/Edit' },
   { mode = 'n', keys = '<Leader>f', desc = '+Find' },
   { mode = 'n', keys = '<Leader>g', desc = '+Git' },
-  { mode = 'n', keys = '<Leader>l', desc = '+Language' },
   { mode = 'n', keys = '<Leader>m', desc = '+Map' },
   { mode = 'n', keys = '<Leader>n', desc = '+Markdown' },
   { mode = 'n', keys = '<Leader>o', desc = '+Other' },
@@ -69,6 +69,23 @@ nmap_leader('bW', '<Cmd>lua MiniBufremove.wipeout(0, true)<CR>', 'Wipeout!')
 nmap_leader('bn', '<Cmd>bnext<CR>', 'Next Buffer')
 nmap_leader('bp', '<Cmd>bprevious<CR>', 'Previous Buffer')
 nmap_leader('bo', '<Cmd>BufferLinePick<CR>', 'Pick buffer')
+
+-- c is for 'Code'
+nmap_leader('ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', 'Code actions')
+nmap_leader('cd', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Go to definition')
+nmap_leader('cD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', 'Go to declaration')
+nmap_leader('cf', '<Cmd>lua require("conform").format()<CR>', 'Format buffer')
+nmap_leader('ci', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'Go to implementation')
+nmap_leader('ch', '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Hover')
+nmap_leader('cl', '<Cmd>lua vim.lsp.codelens.run()<CR>', 'Code lens')
+nmap_leader('cL', '<Cmd>Trouble lsp toggle focus=false win.position=right<CR>', 'LSP list')
+nmap_leader('cr', '<Cmd>lua vim.lsp.buf.rename()<CR>', 'Rename')
+nmap_leader('cR', '<Cmd>FzfLua lsp_references<CR>', 'Go to references')
+nmap_leader('cS', '<Cmd>Trouble symbols toggle focus=false<CR>', 'Symbols list')
+nmap_leader('cs', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Go to source definition')
+nmap_leader('ct', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Go to type definition')
+nmap_leader('cx', '<Cmd>lua vim.diagnostic.open_float()<CR>', 'Diagnostic popup')
+nmap_leader('cX', '<Cmd>Trouble diagnostics toggle filter.buf=0<CR>', 'Diagnostics list')
 
 -- e is for 'Explore' and 'Edit'
 local edit_plugin_file = function(filename)
@@ -156,23 +173,6 @@ nmap_leader('gn', '<Cmd>Gitsigns next_hunk<CR>', 'Next hunk')
 nmap_leader('gp', '<Cmd>Gitsigns prev_hunk<CR>', 'Previous hunk')
 nmap_leader('gs', '<Cmd>Gitsigns stage_hunk<CR>', 'Stage hunk')
 nmap_leader('gS', '<Cmd>Gitsigns stage_buffer<CR>', 'Stage buffer')
-
--- l is for 'Language'
-nmap_leader('la', '<Cmd>lua vim.lsp.buf.code_action()<CR>', 'Actions')
-nmap_leader('lD', '<Cmd>Trouble diagnostics toggle filter.buf=0<CR>', 'Diagnostics list')
-nmap_leader('ld', '<Cmd>lua vim.diagnostic.open_float()<CR>', 'Diagnostic popup')
-nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format')
-nmap_leader('li', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementation')
-nmap_leader('lh', '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Hover')
-nmap_leader('ll', '<Cmd>lua vim.lsp.codelens.run()<CR>', 'Lens')
-nmap_leader('lr', '<Cmd>lua vim.lsp.buf.rename()<CR>', 'Rename')
-nmap_leader('lR', '<Cmd>FzfLua lsp_references<CR>', 'References')
-nmap_leader('lS', '<Cmd>Trouble symbols toggle focus=false<CR>', 'Symbols list')
-nmap_leader('ls', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Source definition')
-nmap_leader('lt', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Type definition')
-nmap_leader('lX', '<Cmd>Trouble lsp toggle focus=false win.position=right<CR>', 'LSP list')
-
-xmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format selection')
 
 -- m is for 'Map'
 nmap_leader('mf', '<Cmd>lua MiniMap.toggle_focus()<CR>', 'Focus (toggle)')
