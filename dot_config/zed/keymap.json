@@ -16,4 +16,10 @@
             "cmd-<": "window::ShowPreviousWindowTab",
         },
     },
+    {
+        "context": "(vim_mode == normal || vim_mode == visual) && !menu",
+        "bindings": {
+            "enter": "vim::HelixJumpToWord"
+        }
+    }
 ]
