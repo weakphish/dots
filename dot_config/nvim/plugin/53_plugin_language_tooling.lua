@@ -71,6 +71,8 @@ end)
 
 -- Language servers ============================================================
 now_if_args(function()
+  -- nvim-lspconfig itself is NOT deprecated. It provides server-specific configs.
+  -- The configs live in the lsp/ directory. vim.lsp.config automatically finds them and merges them with any local lsp/*.lua configs defined by you or a plugin.
   add({
     "https://github.com/neovim/nvim-lspconfig",
   })
