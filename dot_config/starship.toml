@@ -38,11 +38,11 @@ truncation_symbol = ".../"
 
 [character]
 success_symbol = '[󰘧](bold green)'
-error_symbol = '[󰘧](bold fg:red)'
-vimcmd_symbol = '[](bold fg:green)'
-vimcmd_replace_one_symbol = '[](bold fg:purple)'
-vimcmd_replace_symbol = '[](bold fg:purple)'
-vimcmd_visual_symbol = '[󰰫](bold fg:fg)'
+error_symbol = '[󰘧](bold red)'
+vimcmd_symbol = '[󰘧](bold aqua)'
+vimcmd_replace_one_symbol = '[❮](bold purple)'
+vimcmd_replace_symbol = '[❮](bold purple)'
+vimcmd_visual_symbol = '[❮](bold blue)'
 
 [git_branch]
 symbol = ""
