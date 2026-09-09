@@ -87,4 +87,8 @@ local diagnostic_opts = {
 }
 
 Config.later(function() vim.diagnostic.config(diagnostic_opts) end)
+
+-- LSP Stuffs
+vim.lsp.codelens.enable(true)
+
 -- stylua: ignore end
