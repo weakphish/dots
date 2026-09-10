@@ -164,6 +164,7 @@ nmap_leader('fR', '<Cmd>FzfLua resume<CR>', 'Resume')
 nmap_leader('fs', '<Cmd>FzfLua lsp_document_symbols<CR>', 'Symbols document')
 nmap_leader('fS', '<Cmd>FzfLua lsp_live_workspace_symbols<CR>', 'Symbols workspace (live)')
 nmap_leader('ft', '<Cmd>FzfLua treesitter<CR>', 'Treesitter Symbols')
+nmap_leader('f.', '<Cmd>FzfLua lsp_finder<CR>', 'All LSP references')
 
 -- g is for 'Git'
 nmap_leader('gb', '<Cmd>Gitsigns blame<CR>', 'Blame')
