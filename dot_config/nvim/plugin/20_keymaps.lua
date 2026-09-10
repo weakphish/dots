@@ -80,7 +80,6 @@ nmap_leader('ch', '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Hover')
 nmap_leader('cl', '<Cmd>lua vim.lsp.codelens.run()<CR>', 'Code lens')
 nmap_leader('cL', '<Cmd>Trouble lsp toggle focus=false win.position=right<CR>', 'LSP list')
 nmap_leader('cr', '<Cmd>lua vim.lsp.buf.rename()<CR>', 'Rename')
-nmap_leader('cR', '<Cmd>FzfLua lsp_references<CR>', 'Go to references')
 nmap_leader('cS', '<Cmd>Trouble symbols toggle focus=false<CR>', 'Symbols list')
 nmap_leader('cs', '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Go to source definition')
 nmap_leader('ct', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', 'Go to type definition')
@@ -110,7 +109,7 @@ nmap_leader('eq', explore_quickfix, 'Quickfix list')
 nmap_leader('eQ', explore_locations, 'Location list')
 nmap_leader('et', '<Cmd>Yazi toggle<CR>', 'Resume last Yazi session')
 
--- f is for 'Find'
+-- f is for 'Find' -- basically anything using FzF
 --- Opens a fzf-lua picker for staged git hunks.
 ---
 --- fzf-lua's hunk picker defaults to unstaged changes. This wrapper keeps the
@@ -153,11 +152,13 @@ nmap_leader('fg', '<Cmd>FzfLua live_grep<CR>', 'Grep live')
 nmap_leader('fG', '<Cmd>FzfLua grep_cword<CR>', 'Grep current word')
 nmap_leader('fh', '<Cmd>FzfLua helptags<CR>', 'Help tags')
 nmap_leader('fH', '<Cmd>FzfLua highlights<CR>', 'Highlight groups')
+nmap_leader('fi', '<Cmd>FzfLua lsp_incoming_calls<CR>', 'Incoming calls (LSP)')
 nmap_leader('fj', '<Cmd>FzfLua jumps<CR>', 'Jumplist')
 nmap_leader('fl', '<Cmd>FzfLua blines<CR>', 'Lines (buf)')
 nmap_leader('fL', '<Cmd>FzfLua lines<CR>', 'Lines (all)')
 nmap_leader('fm', find_modified_hunks_buf, 'Modified hunks (buf)')
 nmap_leader('fM', '<Cmd>FzfLua git_hunks<CR>', 'Modified hunks (all)')
+nmap_leader('fo', '<Cmd>FzfLua lsp_outgoing_calls<CR>', 'Outgoing calls (LSP)')
 nmap_leader('fr', '<Cmd>FzfLua lsp_references<CR>', 'References (LSP)')
 nmap_leader('fR', '<Cmd>FzfLua resume<CR>', 'Resume')
 nmap_leader('fs', '<Cmd>FzfLua lsp_document_symbols<CR>', 'Symbols document')
