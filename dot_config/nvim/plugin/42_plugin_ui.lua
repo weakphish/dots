@@ -33,10 +33,17 @@ now(function()
 		"https://github.com/nvim-lualine/lualine.nvim",
 	})
 	require("lualine").setup({
+		sections = {
+			lualine_c = {
+				{
+					"filename",
+					path = 3, -- fully qualified
+				},
+			},
+		},
 		options = { theme = "gruvbox" },
 	})
 end)
-
 
 -- Rainbow indent guides ======================================================
 later(function()
