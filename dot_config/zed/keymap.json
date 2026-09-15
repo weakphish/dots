@@ -21,5 +21,17 @@
         "bindings": {
             "enter": "vim::HelixJumpToWord"
         }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
+        }
+    },
+    {
+        "context": "Workspace",
+        "unbind": {
+            "alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
+        }
     }
 ]
