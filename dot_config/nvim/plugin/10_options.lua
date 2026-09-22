@@ -78,11 +78,8 @@ vim.filetype.add({ filename = { ['~/.zshrc'] = 'sh' } })
 local diagnostic_opts = {
   signs = { priority = 9999, severity = { min = 'WARN', max = 'ERROR' } },
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
-  virtual_lines = false,
-  virtual_text = {
-    current_line = true,
-    severity = { min = 'ERROR', max = 'ERROR' },
-  },
+  virtual_lines = { current_line = true, min = 'ERROR', max = 'ERROR' },
+  virtual_text =  false,
   update_in_insert = false,
 }
 
