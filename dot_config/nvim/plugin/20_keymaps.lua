@@ -41,6 +41,7 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'x', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
+  { mode = 'n', keys = '<Leader>w', desc = '+Workspace' },
   { mode = 'n', keys = '<Leader>x', desc = '+Trouble' },
 
   { mode = 'x', keys = '<Leader>g', desc = '+Git' },
@@ -203,6 +204,7 @@ nmap_leader('os', '<Cmd>lua require("grug-far").open({ prefills = { search = vim
 nmap_leader('ot', '<Cmd>lua MiniTrailspace.trim()<CR>', 'Trim trailspace')
 nmap_leader('oz', '<Cmd>lua MiniMisc.zoom()<CR>', 'Zoom toggle')
 
+
 -- p is for 'Plugin'
 local update_plugins = function()
   vim.pack.update()
@@ -210,17 +212,18 @@ end
 
 nmap_leader('pu', update_plugins, 'Update')
 
--- s is for 'Session'
+-- W is for 'Workspace'
 local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
 
-nmap_leader('Sd', '<Cmd>lua MiniSessions.select("delete")<CR>', 'Delete')
-nmap_leader('Sn', '<Cmd>lua ' .. session_new .. '<CR>', 'New')
-nmap_leader('Sr', '<Cmd>lua MiniSessions.select("read")<CR>', 'Read')
-nmap_leader('Sw', '<Cmd>lua MiniSessions.write()<CR>', 'Write current')
+nmap_leader('wd', '<Cmd>lua MiniSessions.select("delete")<CR>', 'Delete')
+nmap_leader('wn', '<Cmd>lua ' .. session_new .. '<CR>', 'New')
+nmap_leader('wr', '<Cmd>lua MiniSessions.select("read")<CR>', 'Read')
+nmap_leader('ww', '<Cmd>lua MiniSessions.write()<CR>', 'Write current')
 
 -- t is for 'Terminal'
 nmap_leader('tT', '<Cmd>horizontal term<CR>', 'Terminal (horizontal)')
 nmap_leader('tt', '<Cmd>vertical term<CR>', 'Terminal (vertical)')
+
 
 -- x is for 'Trouble'
 nmap_leader('xx', '<Cmd>Trouble diagnostics toggle<CR>', 'Diagnostics')
