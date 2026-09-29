@@ -34,6 +34,7 @@ Pop = ""
 format = "[$path ]($style)"
 style = "fg:aqua"
 truncation_length = 3
+truncate_to_repo = false
 truncation_symbol = ".../"
 
 [character]
