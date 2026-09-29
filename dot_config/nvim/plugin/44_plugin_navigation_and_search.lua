@@ -21,7 +21,7 @@ now(function()
 	add({ "https://github.com/ibhagwan/fzf-lua" }, { load = true })
 
 	require("fzf-lua").setup({
-		ui_select = true,
+		ui_select = {},
 	})
 end)
 
@@ -50,6 +50,6 @@ end)
 
 -- Yazi =======================================================================
 now(function()
-    add(    { "https://github.com/nvim-lua/plenary.nvim"})
-    add({"https://github.com/mikavilpas/yazi.nvim"})
+	add({ "https://github.com/nvim-lua/plenary.nvim" })
+	add({ "https://github.com/mikavilpas/yazi.nvim" })
 end)
