@@ -6,32 +6,38 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-    {
-        "bindings": {
-            "cmd->": "window::ShowNextWindowTab",
-        },
+  // add helix word jump to vim via enter
+  {
+    "context": "(vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "enter": "vim::HelixJumpToWord",
     },
-    {
-        "bindings": {
-            "cmd-<": "window::ShowPreviousWindowTab",
-        },
+  },
+  // rebind workspace sidebar
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-cmd-j": "multi_workspace::ToggleWorkspaceSidebar",
     },
-    {
-        "context": "(vim_mode == normal || vim_mode == visual) && !menu",
-        "bindings": {
-            "enter": "vim::HelixJumpToWord"
-        }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar",
     },
-    {
-        "context": "Workspace",
-        "bindings": {
-            "ctrl-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
-        }
+  },
+  // lazygit popup task
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "start lazygit", "reveal_target": "center" },
+      ],
+      "space g f": [
+        "task::Spawn",
+        { "task_name": "start lazygit file log", "reveal_target": "center" },
+      ],
     },
-    {
-        "context": "Workspace",
-        "unbind": {
-            "alt-cmd-j": "multi_workspace::ToggleWorkspaceSidebar"
-        }
-    }
+  },
 ]
