@@ -22,9 +22,6 @@ now_if_args(function()
           columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } } }
       },
     },
-    snippets = {
-      preset = "mini_snippets",
-    },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
     },
