@@ -37,7 +37,6 @@ Config.leader_group_clues = {
   { mode = 'n', keys = '<Leader>n', desc = '+Markdown' },
   { mode = 'n', keys = '<Leader>o', desc = '+Other' },
   { mode = 'n', keys = '<Leader>p', desc = '+Plugin' },
-  { mode = 'n', keys = '<Leader>S', desc = '+Session' },
   { mode = 'n', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'x', keys = '<Leader>s', desc = '+Surround' },
   { mode = 'n', keys = '<Leader>t', desc = '+Terminal' },
